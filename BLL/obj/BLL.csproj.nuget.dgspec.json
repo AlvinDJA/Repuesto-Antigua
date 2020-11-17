@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\BLL\\BLL.csproj": {}
+    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\BLL\\BLL.csproj": {
+    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

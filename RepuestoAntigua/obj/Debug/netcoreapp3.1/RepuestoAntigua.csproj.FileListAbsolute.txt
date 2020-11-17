@@ -1,0 +1,5 @@
+C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\RepuestoAntigua.csprojAssemblyReference.cache
+C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\RepuestoAntigua_MarkupCompile.cache
+C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\RepuestoAntigua_MarkupCompile.lref

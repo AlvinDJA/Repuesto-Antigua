@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cymgPwklqKuvM8i2ALlkO2+1Ep4TcWJAGnxDd1r3hdhAKtIVsxvFLjqU1VA/puMHpKlytO1ML/vwSa9JgxpQnw==",
+  "dgSpecHash": "GGVq/qrixDPJRjCea3oEYsTHU7EoesoACvnkILWyAAOoG1In/Dgi3T55cWiew2axtpXplontuZYRjLqO+PW7Ow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\BLL\\BLL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

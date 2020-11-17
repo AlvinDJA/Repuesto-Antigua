@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua\\RepuestoAntigua.csproj": {}
+    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua\\RepuestoAntigua.csproj": {
+    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua\\RepuestoAntigua.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua.csproj",
         "projectName": "RepuestoAntigua",
-        "projectPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua\\RepuestoAntigua.csproj",
+        "projectPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua\\obj\\",
+        "outputPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

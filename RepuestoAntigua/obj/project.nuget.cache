@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NL7GYUkr/738vf4/XHyp4qcRPcIwbCqMzqtEsc+ZI87GCaQzMRJ6404zQQk+djlEw2k81R3hWiUVIyXD95/aqQ==",
+  "dgSpecHash": "jYUL+HikmdKu3LLhiAPWdujNQ+1zwKME9/gD4nrqViNZdJIoWwXfMhSzzDgi3i5krXK21FAY1/IUeqWclHFprg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua\\RepuestoAntigua.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\RepuestoAntigua\\RepuestoAntigua.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
