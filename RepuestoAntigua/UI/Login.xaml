@@ -1,0 +1,30 @@
+﻿<Window x:Class="RepuestoAntigua.UI.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RepuestoAntigua.UI"
+        mc:Ignorable="d"
+        Title="Login" Height="325" Width="440" WindowStartupLocation="CenterScreen">
+    <StackPanel Orientation="Horizontal">
+
+        <StackPanel Width="440" Background="#FF202020">
+            <Label Content="Inicio" Height="42"  HorizontalAlignment="Center" Background="#00F3F3F3" Foreground="White" FontSize="20" Width="58" VerticalAlignment="Top"/>
+
+            <StackPanel Margin="0,30,0,0">
+                <Label Content="Usuario:" Foreground="White" Width="350"/>
+                <TextBox x:Name="NombreUsuarioTextBox" BorderBrush="#00ABADB3" Width="350" Height="22"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,30,0,0">
+                <Label Content="Clave:" Foreground="White" Width="350"/>
+                <PasswordBox x:Name="PasswordBox" BorderBrush="#00ABADB3" Width="350" Height="22" KeyDown="OnKeyDownHandler"/>
+            </StackPanel>
+
+            <Button x:Name="Acceder_Boton" Content="Iniciar Sesión" HorizontalAlignment="Center" Height="28" VerticalAlignment="Top" Width="350" BorderBrush="#00B1A7A7" Background="#FF424242" Foreground="White" Click="AccederBoton_Click" Margin="0,30,0,0"/>
+            <Label x:Name="ValidacionIncorrectaLabel" Content="Usuario o contraseña incorrectos" Foreground="Red" Visibility="Hidden" HorizontalAlignment="Center"/>
+
+        </StackPanel>
+
+    </StackPanel>
+</Window>
