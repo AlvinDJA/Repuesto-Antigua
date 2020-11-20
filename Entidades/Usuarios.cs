@@ -7,7 +7,7 @@ namespace Entidades
     public class Usuarios
     {
         public int UsuarioId { get; set; }
-        public int Clave { get; set; }
-        public int Nombres { get; set; }
+        public string Clave { get; set; }
+        public string Nombres { get; set; }
     }
 }

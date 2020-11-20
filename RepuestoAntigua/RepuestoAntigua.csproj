@@ -1,13 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
+	 <StartWorkingDirectory>$(MSBuildProjectDirectory)</StartWorkingDirectory>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	  <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj" />
   </ItemGroup>
 
 </Project>

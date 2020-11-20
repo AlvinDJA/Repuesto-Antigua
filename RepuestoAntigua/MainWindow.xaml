@@ -6,7 +6,22 @@
         xmlns:local="clr-namespace:RepuestoAntigua"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid >
+        <StackPanel>
+            <StackPanel Orientation = "Horizontal">
+                <Menu Height="18">
+                    <MenuItem Header="_Registros"  >
+                        <MenuItem x:Name="rUsuariosItem" Header="Registro de Usuarios" Click="rUsuariosItem_Click" />
+                    </MenuItem>
+                </Menu>
 
+                <Menu Height="18">
+                    <MenuItem Header="Consultas">
+                        <MenuItem x:Name="x" Header="x" />
+                    </MenuItem>
+                </Menu>
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
