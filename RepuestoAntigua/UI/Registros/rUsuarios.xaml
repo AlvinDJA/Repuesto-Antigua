@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Usuarios" Height="394" Width="353">
+        Title="Registro de Usuarios" Height="394" Width="353" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Vertical" >
+        <StackPanel Orientation="Vertical" Margin="20,0,0,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="UsuarioId:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox Width="140" Height="25" Text="{Binding UsuarioId}" />
 
-                    <Button x:Name="BuscarButton"  Margin="10,0,0,0" Width="72">
+                    <Button x:Name="BuscarButton"  Margin="10,0,0,0" Width="72" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="\Imagenes\buscar.png" Height="10"/>
                             <TextBlock>Buscar</TextBlock>
@@ -41,8 +41,8 @@
                     <TextBox x:Name="Clave2TextBox" Width="140" Height="25" />
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10,20,0,0" Width="300" HorizontalAlignment="Left">
-                <Button x:Name="NuevoButton"  Margin="10,0,0,0" Width="90" >
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Width="300" HorizontalAlignment="Left">
+                <Button x:Name="NuevoButton"  Margin="10,0,0,0" Width="90" Click="NuevoButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="\Imagenes\nuevo.png" Height="10"/>
                         <Label Content="Nuevo"/>
@@ -56,7 +56,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="EliminarButton"  Margin="10,0,0,0" Width="90" >
+                <Button x:Name="EliminarButton"  Margin="10,0,0,0" Width="90" Click="EliminarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/Imagenes/eliminar.png" Height="10"/>
                         <Label Content="Eliminar"/>

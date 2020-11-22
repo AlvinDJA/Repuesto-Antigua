@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="175" Width="428" WindowStartupLocation="CenterScreen">
     <Grid >
         <StackPanel>
             <StackPanel Orientation = "Horizontal">
@@ -16,7 +16,7 @@
                 </Menu>
 
                 <Menu Height="18">
-                    <MenuItem Header="Consultas"> 
+                    <MenuItem Header="Consultas">
                         <MenuItem x:Name="cUsuariosItem" Header="Consulta de usuarios"  Click="cUsuariosItem_Click"/>
                     </MenuItem>
                 </Menu>

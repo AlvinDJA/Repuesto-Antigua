@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI"
         mc:Ignorable="d"
-        Title="Login" Height="325" Width="440" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="325" Width="431" WindowStartupLocation="CenterScreen">
     <StackPanel Orientation="Horizontal">
 
-        <StackPanel Width="440" Background="#FF202020">
+        <StackPanel Width="431" Background="#FF202020">
             <Label Content="Inicio" Height="42"  HorizontalAlignment="Center" Background="#00F3F3F3" Foreground="White" FontSize="20" Width="58" VerticalAlignment="Top"/>
 
-            <StackPanel Margin="0,30,0,0">
+            <StackPanel Margin="0,20,0,0">
                 <Label Content="Usuario:" Foreground="White" Width="350"/>
                 <TextBox x:Name="NombreUsuarioTextBox" BorderBrush="#00ABADB3" Width="350" Height="22"/>
             </StackPanel>
 
-            <StackPanel Margin="0,30,0,0">
+            <StackPanel Margin="0,20,0,0">
                 <Label Content="Clave:" Foreground="White" Width="350"/>
                 <PasswordBox x:Name="PasswordBox" BorderBrush="#00ABADB3" Width="350" Height="22" KeyDown="OnKeyDownHandler"/>
+                <Label x:Name="ClaveLabel" Content="Clave o Usuario Incorrecto" Foreground="Red" Width="350" Visibility="Hidden"/>
             </StackPanel>
 
             <Button x:Name="Acceder_Boton" Content="Iniciar Sesión" HorizontalAlignment="Center" Height="28" VerticalAlignment="Top" Width="350" BorderBrush="#00B1A7A7" Background="#FF424242" Foreground="White" Click="AccederBoton_Click" Margin="0,30,0,0"/>

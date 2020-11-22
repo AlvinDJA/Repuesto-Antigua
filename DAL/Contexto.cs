@@ -9,7 +9,7 @@ namespace DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite(@"Data Source=Data\DBProyecto.db");
+            optionsBuilder.UseSqlite(@"Data Source=..\DAL\Data\DBProyecto.db");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

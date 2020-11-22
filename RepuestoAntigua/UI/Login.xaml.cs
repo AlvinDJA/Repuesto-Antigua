@@ -29,14 +29,17 @@ namespace RepuestoAntigua.UI
             string nombre = NombreUsuarioTextBox.Text.Trim();
             string pass = PasswordBox.Password;
 
-            if (true /*UsuariosBLL.Validar(nombre, pass)*/)
+            if (UsuariosBLL.Validar(nombre, pass))
             {
+                ClaveLabel.Visibility = Visibility.Hidden;
                 new MainWindow().Show();
                 this.Close();
             }
             else
             {
-                ValidacionIncorrectaLabel.Visibility = Visibility.Visible;
+                ClaveLabel.Visibility = Visibility.Visible;
+                NombreUsuarioTextBox.Clear();
+                PasswordBox.Clear();
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -23,14 +25,32 @@ namespace RepuestoAntigua.UI.Consultas
             InitializeComponent();
         }
 
-        private void DatosDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            var listado = new List<Usuarios>();
+            string criterio = CriterioTextBox.Text.Trim();
 
-        }
-
-        private void NuevoBoton_Click(object sender, RoutedEventArgs e)
-        {
-
+            if (CriterioTextBox.Text.Trim().Length > 0)
+            {
+                switch (FiltroCombobox.SelectedIndex)
+                {
+                    case 0:
+                        listado = UsuariosBLL.GetList();
+                        break;
+                    case 1:
+                        listado = UsuariosBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
+                        break;
+                    case 2:
+                        listado = UsuariosBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()) );
+                        break;
+                }
+            }
+            else
+            {
+                listado = UsuariosBLL.GetList();
+            }
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = listado;
         }
     }
 }

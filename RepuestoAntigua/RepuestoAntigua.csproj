@@ -8,11 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	  <Content Include="Imagenes\*.*">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+    <Compile Remove="Data\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <None Remove="Data\**" />
+    <Page Remove="Data\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+	  <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
