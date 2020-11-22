@@ -1,4 +1,5 @@
 ﻿using RepuestoAntigua.UI.Registros;
+using RepuestoAntigua.UI.Consultas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,11 @@ namespace RepuestoAntigua
         private void rUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
             new rUsuarios().ShowDialog();
+        }
+
+        private void cUsuariosItem_Click(object sender, RoutedEventArgs e)
+        {
+            new cUsuarios().ShowDialog();
         }
     }
 }

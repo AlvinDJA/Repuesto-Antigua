@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\
+C:\Users\Diego Valerio\Source\Repos\Repuesto-Antigua\RepuestoAntigua\obj\Debug\netcoreapp3.1\
 RepuestoAntigua
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Lenovo\source\repos\Repuesto-Antigua\RepuestoAntigua\App.xaml
-11151548125
+C:\Users\Diego Valerio\Source\Repos\Repuesto-Antigua\RepuestoAntigua\App.xaml
+4-759455802
 
-51339189270
-192-513370455
-MainWindow.xaml;
+8-121575557
+215-1918649168
+MainWindow.xaml;UI\Consultas\cUsuarios.xaml;UI\Login.xaml;UI\Registros\rUsuarios.xaml;
 
-False
+True
 

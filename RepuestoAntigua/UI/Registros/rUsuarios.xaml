@@ -49,16 +49,16 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="GuardarButton"  Margin="10,0,0,0" Width="90" >
+                <Button x:Name="GuardarButton"  Margin="10,0,0,0" Width="90" Click="GuardarButton_Click" >
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/save-icon-silhouette.png" Height="10"/>
+                        <Image Source="/Imagenes/guardar.png" Height="10"/>
                         <Label Content="Guardar"/>
                     </StackPanel>
                 </Button>
 
                 <Button x:Name="EliminarButton"  Margin="10,0,0,0" Width="90" >
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/delete.png" Height="10"/>
+                        <Image Source="/Imagenes/eliminar.png" Height="10"/>
                         <Label Content="Eliminar"/>
                     </StackPanel>
                 </Button>

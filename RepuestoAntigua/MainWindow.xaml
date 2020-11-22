@@ -16,8 +16,8 @@
                 </Menu>
 
                 <Menu Height="18">
-                    <MenuItem Header="Consultas">
-                        <MenuItem x:Name="x" Header="x" />
+                    <MenuItem Header="Consultas"> 
+                        <MenuItem x:Name="cUsuariosItem" Header="Consulta de usuarios"  Click="cUsuariosItem_Click"/>
                     </MenuItem>
                 </Menu>
 

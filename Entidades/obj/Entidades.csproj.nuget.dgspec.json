@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\Diego Valerio\\Source\\Repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\Diego Valerio\\Source\\Repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\Diego Valerio\\Source\\Repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\source\\repos\\Repuesto-Antigua\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\Diego Valerio\\Source\\Repos\\Repuesto-Antigua\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\Diego Valerio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Diego Valerio\\Source\\Repos\\Repuesto-Antigua\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego Valerio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
