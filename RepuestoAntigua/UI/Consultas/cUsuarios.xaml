@@ -37,7 +37,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
-            <TextBox Grid.Column="1" Margin="15,0" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="CriterioTextBox"/>
+            <TextBox Grid.Column="1" Margin="15,0" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
 
             <!--BotonBuscar-->
             <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BuscarButton_Click">

@@ -27,7 +27,11 @@ namespace RepuestoAntigua.UI
         private void Acceder()
         {
             string nombre = NombreUsuarioTextBox.Text.Trim();
-            string pass = PasswordBox.Password;
+            string pass = string.Empty;
+            if (NombreUsuarioTextBox.Text=="admin")
+                 pass = PasswordBox.Password;
+            else
+                pass = System.Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(PasswordBox.Password));
 
             if (UsuariosBLL.Validar(nombre, pass))
             {

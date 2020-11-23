@@ -42,7 +42,35 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = usuarios;
             Clave1TextBox.Clear();
             Clave2TextBox.Clear();
+            UsuarioLabel.Visibility = Visibility.Hidden;
+            ClaveLabel.Visibility = Visibility.Hidden;
         }
+        private void ValidarNombre()
+        {
+            if (NombresTextBox.Text.Length < 3)
+            {
+                UsuarioLabel.Visibility = Visibility.Visible;
+            }
+           else
+            {
+                UsuarioLabel.Visibility = Visibility.Hidden;
+            }
+        }
+        private void ValidarClave()
+        {
+            if (Clave1TextBox.Password.Length < 3)
+                ClaveLabel.Visibility = Visibility.Visible;
+            else
+                ClaveLabel.Visibility = Visibility.Hidden;
+        }
+        private void ValidarClave2()
+        {
+             if (Clave2TextBox.Password != Clave1TextBox.Password)
+                ClaveLabel2.Visibility = Visibility.Visible;
+            else
+                ClaveLabel2.Visibility = Visibility.Hidden;
+        }
+
         private bool Validar()
         {
             bool esValido = true;
@@ -52,13 +80,19 @@ namespace RepuestoAntigua.UI.Registros
                 MessageBox.Show("Ingrese los nombres", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (Clave1TextBox.Text.Length < 3)///Editar
+            if (NombresTextBox.Text.Length < 3)
             {
                 esValido = false;
-                MessageBox.Show("Ingresse la clave", "Mensaje",
+                MessageBox.Show("El nombre es muy corto", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (Clave2TextBox.Text != Clave1TextBox.Text)///Editar
+            else if (Clave1TextBox.Password.Length < 3)
+            {
+                esValido = false;
+                MessageBox.Show("La clave es muy corta", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (Clave2TextBox.Password != Clave1TextBox.Password)
             {
                 esValido = false;
                 MessageBox.Show("Las claves deben ser iguales", "Mensaje",
@@ -72,8 +106,10 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Validar())
+            if (!Validar()) 
                 return;
+            string clave = Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(Clave1TextBox.Password));
+            usuarios.Clave = clave;
                 var paso = UsuariosBLL.Save(usuarios);
             if (paso)
             {
@@ -105,20 +141,46 @@ namespace RepuestoAntigua.UI.Registros
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
             Usuarios existe = UsuariosBLL.Buscar(usuarios.UsuarioId);
-
-            if (existe == null)
+            if (usuarios.UsuarioId == 1)
             {
-                MessageBox.Show("No existe el usuario", "Mensaje",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No puede eliminar el Admin",
+                    "Mensaje", MessageBoxButton.OK);
+                return;
+            }
+            if (usuarios == null)
+            {
+                MessageBox.Show("Primero seleccione un Usuario",
+                    "Error", MessageBoxButton.OK);
                 return;
             }
             else
             {
-                UsuariosBLL.Eliminar(usuarios.UsuarioId);
-                MessageBox.Show("Ha sido eliminado exitosamente", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-                Limpiar();
+                MessageBoxResult opcion = 
+                    MessageBox.Show("Estas seguro de que desear eliminar a " + usuarios.Nombres + "?",
+                    "Usuarios", MessageBoxButton.YesNo);
+                if (opcion.Equals(MessageBoxResult.Yes))
+                {
+                    if (UsuariosBLL.Delete(usuarios.UsuarioId))
+                    {
+                        Limpiar();
+                        UsuariosBLL.Eliminar(usuarios.UsuarioId);
+                        MessageBox.Show("Ha sido eliminado exitosamente", "Exito",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
             }
+        }
+        private void NombresTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ValidarNombre();
+        }
+        private void Clave1TextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            ValidarClave();
+        }
+        private void Clave2TextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            ValidarClave2();
         }
     }
 }

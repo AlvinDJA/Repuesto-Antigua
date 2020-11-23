@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Usuarios" Height="394" Width="353" WindowStartupLocation="CenterScreen">
+        Title="Registro de Usuarios" Height="394" Width="394" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
@@ -25,20 +25,24 @@
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Nombre de Usuario:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="NombresTextBox" Width="140" Height="25" Text="{Binding Nombres}" />
+                    <TextBox x:Name="NombresTextBox" Width="140" Height="25" Text="{Binding Nombres}" TextChanged="NombresTextBox_TextChanged" />
+                    <Label x:Name="UsuarioLabel" Content="El nombre es muy corto" Foreground="#FFD30B0B" Visibility="Hidden"/>
                 </StackPanel>
             </StackPanel>
             <!--Claves -->
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Clave:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="Clave1TextBox" Width="140" Height="25" />
+                    <PasswordBox x:Name="Clave1TextBox" Width="140" Height="25" PasswordChanged="Clave1TextBox_PasswordChanged"/>
+                    <Label x:Name="ClaveLabel" Content="La clave es muy corta" Foreground="#FFD30B0B" Visibility="Hidden"/>
+
                 </StackPanel>
             </StackPanel>
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Confirmar Clave:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="Clave2TextBox" Width="140" Height="25" />
+                    <PasswordBox x:Name="Clave2TextBox" Width="140" Height="25" PasswordChanged="Clave2TextBox_PasswordChanged"/>
+                    <Label x:Name="ClaveLabel2" Content="Las Claves deben ser iguales" Foreground="#FFD30B0B" Visibility="Hidden"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Width="300" HorizontalAlignment="Left">

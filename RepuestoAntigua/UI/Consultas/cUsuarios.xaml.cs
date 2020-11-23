@@ -30,8 +30,14 @@ namespace RepuestoAntigua.UI.Consultas
         {
             CriterioTextBox.Clear();
         }
-
-        private void BuscarButton_Click(object sender, RoutedEventArgs e)
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Buscar();
+            }
+        }
+        private void Buscar()
         {
             var listado = new List<Usuarios>();
             string criterio = CriterioTextBox.Text.Trim();
@@ -47,7 +53,7 @@ namespace RepuestoAntigua.UI.Consultas
                         listado = UsuariosBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                     case 2:
-                        listado = UsuariosBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()) );
+                        listado = UsuariosBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
                         break;
                 }
             }
@@ -59,13 +65,19 @@ namespace RepuestoAntigua.UI.Consultas
             DatosDataGrid.ItemsSource = listado;
         }
 
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Buscar();
+        }
+
         private void EditarBoton_Click(object sender, RoutedEventArgs e)
         {
             Usuarios usuario =  GetSelectedUsuario();
 
             if (usuario == null)
             {
-                MessageBox.Show("Primero seleccione un Usuario", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Primero seleccione un Usuario", "Mensaje",
+                    MessageBoxButton.OK);
                 return;
             }
 
@@ -94,16 +106,19 @@ namespace RepuestoAntigua.UI.Consultas
             Usuarios Usuario = GetSelectedUsuario();
             if(Usuario.UsuarioId == 1)
             {
-                MessageBox.Show("No puede Eliminar el Admin", "Error", MessageBoxButton.OK);
+                MessageBox.Show("No puede Eliminar el Admin", "Error",
+                    MessageBoxButton.OK);
                 return;
             }
             if (Usuario == null)
             {
-                MessageBox.Show("Primero seleccione un Usuario", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Primero seleccione un Usuario", "Error",
+                    MessageBoxButton.OK);
                 return;
             }
 
-            MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar a " + Usuario.Nombres + "?", "Clientes", MessageBoxButton.YesNo);
+            MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar a " + Usuario.Nombres + "?",
+                "Usuarios", MessageBoxButton.YesNo);
 
             if (opcion.Equals(MessageBoxResult.Yes))
             {
