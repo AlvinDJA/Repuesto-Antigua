@@ -6,7 +6,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
         Title="Consulta de Usuarios" 
-        Height="356" Width="569" 
+        Height="400" Width="600" 
         Background="#FFFDFDFD">
 
     <Grid Margin="80,40">
@@ -53,11 +53,44 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   MinHeight="100" MaxHeight="120" MinWidth="400" 
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0"  Grid.RowSpan="3" Margin="0,3,0,-5" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Usuario Id" Width=".25*" Binding="{Binding UsuarioId}"/>
+                <DataGridTextColumn Header="Usuario Id" Width="*" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-       
+        <!--Botones-->
+        <!---->
+        <Grid Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,10,0,0">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <!--Nuevo-->
+                <Button x:Name="NuevoBoton" Width="70" Click="NuevoBoton_Click"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/agregar.png" Width="15" Height="15"/>
+                        <Label Content="Nuevo" />
+                    </StackPanel>
+                </Button>
+
+                <!--Editar-->
+                <Button x:Name="EditarBoton" Width="80" Margin="25,0,25,0" Click="EditarBoton_Click"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/nuevo.png" Width="15" Height="15"/>
+                        <Label Content="Editar" />
+                    </StackPanel>
+                </Button>
+
+                <!--Eliminar-->
+                <Button x:Name="EliminarBoton"   Width="80" Click="EliminarBoton_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/eliminar.png" Width="15" Height="15"/>
+                        <Label Content="Eliminar" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+
+        </Grid>
+
+
     </Grid>
 </Window>

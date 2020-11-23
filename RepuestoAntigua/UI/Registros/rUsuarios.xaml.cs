@@ -27,6 +27,15 @@ namespace RepuestoAntigua.UI.Registros
             this.usuarios = new Usuarios();
             this.DataContext = usuarios;
         }
+
+        public rUsuarios(Usuarios usuario)
+        {
+            InitializeComponent();
+            this.usuarios = usuario;
+            this.DataContext = usuarios;
+            
+
+        }
         public void Limpiar()
         {
             this.usuarios = new Usuarios();
