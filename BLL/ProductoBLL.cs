@@ -1,29 +1,30 @@
-﻿using DAL;
-using Entidades;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
+using Entidades;
+using DAL;
 
-namespace BLL
+namespace Proyecto.BLL
 {
-    public class MarcasBLL
+    public class ProductoBLL
     {
-        public static bool Save(Marcas marca)
+        public static bool Save(Productos producto)
         {
-            if (!Existe(marca.MarcaId))
-                return Insert(marca);
+            if (!Exist(producto.ProductoId))
+                return Insert(producto);
             else
-                return Modify(marca);
+                return Modify(producto);
         }
-        private static bool Insert(Marcas marca)
+        private static bool Insert(Productos producto)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Marcas.Add(marca);
+                contexto.Productos.Add(producto);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -37,13 +38,13 @@ namespace BLL
             return paso;
         }
 
-        public static bool Modify(Marcas marca)
+        public static bool Modify(Productos producto)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-                contexto.Entry(marca).State = EntityState.Modified;
+                contexto.Entry(producto).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -62,33 +63,10 @@ namespace BLL
             Contexto contexto = new Contexto();
             try
             {
-                var marca = contexto.Marcas.Find(id);
-                if (marca != null)
+                var persona = contexto.Productos.Find(id);
+                if (persona != null)
                 {
-                    contexto.Marcas.Remove(marca);
-                    paso = contexto.SaveChanges() > 0;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return paso;
-        }
-        public static bool Eliminar(int id)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-            try
-            {
-                var marca = contexto.Marcas.Find(id);
-                if (marca != null)
-                {
-                    contexto.Marcas.Remove(marca);
+                    contexto.Productos.Remove(persona);//remover la entidad
                     paso = contexto.SaveChanges() > 0;
                 }
             }
@@ -103,13 +81,13 @@ namespace BLL
             return paso;
         }
 
-        public static Marcas Buscar(int id)
+        public static Productos Search(int id)
         {
             Contexto contexto = new Contexto();
-            Marcas marca;
+            Productos producto;
             try
             {
-                marca = contexto.Marcas.Find(id);
+                producto = contexto.Productos.Find(id);
             }
             catch (Exception)
             {
@@ -120,16 +98,37 @@ namespace BLL
                 contexto.Dispose();
             }
 
-            return marca;
+            return producto;
         }
-        public static bool Existe(int id)
+        public static Productos Search(string codigo)
+        {
+            Contexto contexto = new Contexto();
+            Productos producto;
+            try
+            {
+                producto = contexto.Productos.Where(p => p.ProductoId.Equals(codigo)).
+                    FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return producto;
+        }
+
+        public static bool Exist(int id)
         {
             Contexto contexto = new Contexto();
             bool encontrado = false;
+            
             try
             {
-                encontrado = contexto.Marcas
-                    .Any(e => e.MarcaId == id);
+                encontrado = contexto.Productos.Any(p => p.ProductoId == id);
             }
             catch (Exception)
             {
@@ -142,31 +141,14 @@ namespace BLL
             return encontrado;
         }
 
-        public static List<Marcas> GetList(Expression<Func<Marcas, bool>> criterio)
+        public static List<Productos> GetList(Expression<Func<Productos, bool>> criterio)
         {
-            List<Marcas> lista = new List<Marcas>();
+            List<Productos> lista = new List<Productos>();
             Contexto contexto = new Contexto();
+
             try
             {
-                lista = contexto.Marcas.Where(criterio).ToList();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return lista;
-        }
-        public static List<Marcas> GetList()
-        {
-            List<Marcas> lista = new List<Marcas>();
-            Contexto contexto = new Contexto();
-            try
-            {
-                lista = contexto.Marcas.ToList();
+                lista = contexto.Productos.Where(criterio).AsNoTracking().ToList();
             }
             catch (Exception)
             {

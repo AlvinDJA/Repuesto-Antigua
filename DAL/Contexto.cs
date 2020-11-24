@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace DAL
 {
@@ -7,6 +8,8 @@ namespace DAL
     {
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Marcas> Marcas { get; set; }
+        public virtual DbSet<Productos> Productos { get; set; }
+        public virtual DbSet<Facturas> Facturas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -20,8 +23,6 @@ namespace DAL
                 new Usuarios { UsuarioId = 1, Clave = "admin", Nombres = "admin" }
                 );
         }
-        
-
     }
 
 }

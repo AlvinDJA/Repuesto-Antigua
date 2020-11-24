@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BLL;
+using Entidades;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Entidades;
-using BLL;
-using DAL;
 
 namespace RepuestoAntigua.UI.Registros
 {
@@ -140,7 +131,6 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            Usuarios existe = UsuariosBLL.Buscar(usuarios.UsuarioId);
             if (usuarios.UsuarioId == 1)
             {
                 MessageBox.Show("No puede eliminar el Admin",

@@ -27,7 +27,7 @@ namespace RepuestoAntigua.UI
         private void Acceder()
         {
             string nombre = NombreUsuarioTextBox.Text.Trim();
-            string pass = string.Empty;
+            string pass;
             if (NombreUsuarioTextBox.Text=="admin")
                  pass = PasswordBox.Password;
             else
