@@ -10,6 +10,8 @@ namespace DAL
         public DbSet<Marcas> Marcas { get; set; }
         public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Facturas> Facturas { get; set; }
+        public virtual DbSet<Proveedores> Proveedores { get; set; }
+        public virtual DbSet<Compras> Compras { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
