@@ -36,5 +36,15 @@ namespace RepuestoAntigua
         {
             new cUsuarios().ShowDialog();
         }
+
+        private void cMarcasItem_Click(object sender, RoutedEventArgs e)
+        {
+            new cMarcas().ShowDialog();
+        }
+
+        private void rMarcasItem_Click(object sender, RoutedEventArgs e)
+        {
+            new rMarcas().ShowDialog();
+        }
     }
 }

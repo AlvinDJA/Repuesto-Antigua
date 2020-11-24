@@ -6,6 +6,7 @@ namespace DAL
     public class Contexto : DbContext
     {
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Marcas> Marcas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
