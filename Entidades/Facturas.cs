@@ -10,7 +10,8 @@ namespace Entidades
 
         [Key]
         public int FacturaId { get; set; }
-        //public int ClienteId { get; set; }
+        public int ClienteId { get; set; }
+        public int UsuarioId { get; set; }
         public DateTime Fecha { get; set; }
         public double Itbis { get; set; }
         public double Total { get; set; }

@@ -53,7 +53,7 @@ namespace RepuestoAntigua.UI.Consultas
                         listado = UsuariosBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                     case 2:
-                        listado = UsuariosBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
+                        listado = UsuariosBLL.GetList(p => p.Usuario.ToLower().Contains(criterio.ToLower()));
                         break;
                 }
             }
@@ -117,7 +117,7 @@ namespace RepuestoAntigua.UI.Consultas
                 return;
             }
 
-            MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar a " + Usuario.Nombres + "?",
+            MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar a " + Usuario.Usuario + "?",
                 "Usuarios", MessageBoxButton.YesNo);
 
             if (opcion.Equals(MessageBoxResult.Yes))

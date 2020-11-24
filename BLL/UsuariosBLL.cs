@@ -106,7 +106,7 @@ namespace BLL
 
             try
             {
-                paso = contexto.Usuarios.Any(u => u.Nombres == nombre && u.Clave == pass);
+                paso = contexto.Usuarios.Any(u => u.Usuario == nombre && u.Clave == pass);
             }
             catch (Exception)
             {
@@ -182,6 +182,26 @@ namespace BLL
             }
             return encontrado;
         }
+        public static bool Existe(string nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Usuarios
+                    .Any(e => e.Usuario == nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+
 
         public static List<Usuarios> GetList(Expression<Func<Usuarios, bool>> criterio)
         {

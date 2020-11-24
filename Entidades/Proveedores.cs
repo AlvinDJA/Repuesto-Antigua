@@ -8,6 +8,8 @@ namespace Entidades
     {
         [Key]
         public int ProveedorId { get; set; }
+
+        public int UsuarioId { get; set; }
         public string Nombres { get; set; }
         public string Correo { get; set; }
         public int RNC { get; set; }

@@ -10,9 +10,6 @@
     <Compile Update="UI\Consultas\cMarcas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UI\Consultas\cUsuarios.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UI\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -20,9 +17,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\Registros\rProveedores.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rUsuarios.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -33,9 +27,6 @@
     <Page Update="UI\Consultas\cMarcas.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UI\Consultas\cUsuarios.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="UI\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -43,9 +34,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Registros\rProveedores.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rUsuarios.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

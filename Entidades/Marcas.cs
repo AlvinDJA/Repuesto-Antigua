@@ -10,6 +10,7 @@ namespace Entidades
         [Key]
         public int MarcaId { get; set; }
         public string Nombres { get; set; }
+        public int UsuarioId { get; set; }
 
     }
 }

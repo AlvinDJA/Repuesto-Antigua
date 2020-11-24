@@ -3,14 +3,16 @@ using System;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20201124163535_Cambios en usuarios")]
+    partial class Cambiosenusuarios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,8 +178,8 @@ namespace DAL.Migrations
                         {
                             UsuarioId = 1,
                             Clave = "admin",
-                            Fecha = new DateTime(2020, 11, 24, 12, 37, 40, 175, DateTimeKind.Local).AddTicks(2881),
-                            Usuario = "admin"
+                            Fecha = new DateTime(2020, 11, 24, 12, 35, 34, 871, DateTimeKind.Local).AddTicks(2622),
+                            Nombres = "admin"
                         });
                 });
 #pragma warning restore 612, 618

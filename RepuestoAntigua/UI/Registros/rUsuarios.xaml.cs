@@ -1,6 +1,7 @@
 ﻿using BLL;
 using Entidades;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -34,25 +35,40 @@ namespace RepuestoAntigua.UI.Registros
             Clave1TextBox.Clear();
             Clave2TextBox.Clear();
             UsuarioLabel.Visibility = Visibility.Hidden;
+            NombresLabel.Visibility = Visibility.Hidden;
             ClaveLabel.Visibility = Visibility.Hidden;
         }
         private void ValidarNombre()
         {
-            if (NombresTextBox.Text.Length < 3)
+            if (NombresTextBox.Text.Length < 4)
             {
-                UsuarioLabel.Visibility = Visibility.Visible;
+                NombresLabel.Visibility = Visibility.Visible;
             }
            else
             {
+                NombresLabel.Visibility = Visibility.Hidden;
+            }
+        }
+        private void ValidarUsuario()
+        {
+            if (UsuarioTextBox.Text.Length < 4)
+            {
+                UsuarioLabel.Visibility = Visibility.Visible;
+            }
+            else
+            {
                 UsuarioLabel.Visibility = Visibility.Hidden;
             }
+           
         }
         private void ValidarClave()
         {
-            if (Clave1TextBox.Password.Length < 3)
+            if (Clave1TextBox.Password.Length < 4)
                 ClaveLabel.Visibility = Visibility.Visible;
             else
                 ClaveLabel.Visibility = Visibility.Hidden;
+            if (Clave2TextBox.Password.Length != 0)
+                ValidarClave2();
         }
         private void ValidarClave2()
         {
@@ -71,13 +87,37 @@ namespace RepuestoAntigua.UI.Registros
                 MessageBox.Show("Ingrese los nombres", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            if (NombresTextBox.Text.Length < 3)
+            else if (UsuarioTextBox.Text.Any(char.IsWhiteSpace))
+            {
+                esValido = false;
+                MessageBox.Show("Usuario no puede tener espacios en blanco", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (NombresTextBox.Text.Length < 4)
             {
                 esValido = false;
                 MessageBox.Show("El nombre es muy corto", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (Clave1TextBox.Password.Length < 3)
+            else if (UsuarioTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe ingresar un nombre de usuario", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (UsuarioTextBox.Text.Length < 4)
+            {
+                esValido = false;
+                MessageBox.Show("El usuario es muy corto", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (UsuariosBLL.Existe(UsuarioTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("Ya existe este nombre de usuario", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (Clave1TextBox.Password.Length < 4)
             {
                 esValido = false;
                 MessageBox.Show("La clave es muy corta", "Mensaje",
@@ -89,6 +129,7 @@ namespace RepuestoAntigua.UI.Registros
                 MessageBox.Show("Las claves deben ser iguales", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            
             return esValido;
         }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
@@ -101,6 +142,7 @@ namespace RepuestoAntigua.UI.Registros
                 return;
             string clave = Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(Clave1TextBox.Password));
             usuarios.Clave = clave;
+            usuarios.Fecha = DateTime.Now;
                 var paso = UsuariosBLL.Save(usuarios);
             if (paso)
             {
@@ -146,7 +188,7 @@ namespace RepuestoAntigua.UI.Registros
             else
             {
                 MessageBoxResult opcion = 
-                    MessageBox.Show("Estas seguro de que desear eliminar a " + usuarios.Nombres + "?",
+                    MessageBox.Show("Estas seguro de que desear eliminar a " + usuarios.Usuario + "?",
                     "Usuarios", MessageBoxButton.YesNo);
                 if (opcion.Equals(MessageBoxResult.Yes))
                 {
@@ -171,6 +213,11 @@ namespace RepuestoAntigua.UI.Registros
         private void Clave2TextBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             ValidarClave2();
+        }
+
+        private void UsuarioTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ValidarUsuario();
         }
     }
 }

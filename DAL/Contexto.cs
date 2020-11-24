@@ -22,7 +22,7 @@ namespace DAL
             base.OnModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Usuarios>().HasData(
-                new Usuarios { UsuarioId = 1, Clave = "admin", Nombres = "admin" }
+                new Usuarios { UsuarioId = 1, Clave = "admin",Fecha = DateTime.Now, Usuario="admin"}
                 );
         }
     }

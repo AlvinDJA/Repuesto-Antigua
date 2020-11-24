@@ -54,7 +54,9 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0"  Grid.RowSpan="3" Margin="0,3,0,-5" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Usuario Id" Width="*" Binding="{Binding UsuarioId}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding Usuario}"/>
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
+                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>
             </DataGrid.Columns>
         </DataGrid>
 

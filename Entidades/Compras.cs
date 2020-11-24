@@ -9,6 +9,7 @@ namespace Entidades
     {
         [Key]
         public int CompraId { get; set; }
+        public int UsuarioId { get; set; }
         public int ProveedorId { get; set; }
         public DateTime Fecha { get; set; }
         public float Itbis { get; set; }
