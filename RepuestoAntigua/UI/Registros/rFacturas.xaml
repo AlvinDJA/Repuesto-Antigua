@@ -39,19 +39,19 @@
                         <StackPanel  Width="146" Margin="0,20,0,0" Orientation="Vertical">
                             <Label Content="Productos:" />
                             <StackPanel Orientation="Horizontal">
-                                <ComboBox x:Name="TipoTareaComboBox" Width="140" Height="25" SelectedValue="{Binding TareaId}"/>
+                                <ComboBox Width="140" Height="25" SelectedValue="{Binding TareaId}"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel  Width="91" Margin="0,20,0,0" Orientation="Vertical">
                             <Label Content="Cantidad:" />
                             <StackPanel Orientation="Horizontal" Width="88">
-                                <TextBox x:Name="RequerimentoTextBox" Width="77" Height="25" />
+                                <TextBox  Width="77" Height="25" />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel  Width="98" Margin="0,20,0,0" Orientation="Vertical">
                             <Label Content="Precio:" />
                             <StackPanel Orientation="Horizontal">
-                                <TextBox x:Name="TiempoTextBox" Width="93" Height="25" />
+                                <TextBox  Width="93" Height="25" />
                             </StackPanel>
                         </StackPanel>
                         <Button x:Name="Agregar"  Margin="10,0,0,0" Width="65" Click="Agregar_Click" Height="27" VerticalAlignment="Bottom">

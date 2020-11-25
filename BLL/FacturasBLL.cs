@@ -9,7 +9,7 @@ using Entidades;
 
 namespace BLL
 {
-    class FacturasBLL
+    public class FacturasBLL
     {
         public static bool Save(Facturas factura)
         {
