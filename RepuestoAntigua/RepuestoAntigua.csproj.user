@@ -19,6 +19,9 @@
     <Compile Update="UI\Registros\rMarcas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Registros\rProductos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Registros\rProveedores.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Registros\rMarcas.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Registros\rProductos.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Registros\rProveedores.xaml">
