@@ -7,9 +7,9 @@ using System.Data;
 using Entidades;
 using DAL;
 
-namespace Proyecto.BLL
+namespace BLL
 {
-    public class ProductoBLL
+    public class ProductosBLL
     {
         public static bool Save(Productos producto)
         {

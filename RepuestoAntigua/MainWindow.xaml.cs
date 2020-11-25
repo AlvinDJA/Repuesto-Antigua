@@ -29,22 +29,22 @@ namespace RepuestoAntigua
 
         private void rUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
-            new rUsuarios().ShowDialog();
+            new rUsuarios().Show();
         }
 
         private void cUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
-            new cUsuarios().ShowDialog();
+            new cUsuarios().Show();
         }
 
         private void cMarcasItem_Click(object sender, RoutedEventArgs e)
         {
-            new cMarcas().ShowDialog();
+            new cMarcas().Show();
         }
 
         private void rMarcasItem_Click(object sender, RoutedEventArgs e)
         {
-            new rMarcas().ShowDialog();
+            new rMarcas().Show();
         }
     }
 }

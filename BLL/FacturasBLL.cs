@@ -26,6 +26,14 @@ namespace BLL
             {
                 contexto.Facturas.Add(factura);
                 paso = contexto.SaveChanges() > 0;
+                Productos producto;
+                ICollection<FacturasDetalle> detalle = factura.Detalle;
+                foreach (FacturasDetalle m in detalle)
+                {
+                    producto = ProductosBLL.Search(m.ProductoId);
+                    producto.Cantidad -= m.Cantidad;
+                    ProductosBLL.Save(producto);
+                }
             }
             catch (Exception)
             {
@@ -44,6 +52,26 @@ namespace BLL
             Contexto contexto = new Contexto();
             try
             {
+                Productos producto;
+                ICollection<FacturasDetalle> detalle = Search(factura.FacturaId).Detalle;
+                foreach (FacturasDetalle m in detalle)
+                {
+                    producto = ProductosBLL.Search(m.ProductoId);
+                    producto.Cantidad += m.Cantidad;
+                    ProductosBLL.Save(producto);
+                }
+                contexto.Database.ExecuteSqlRaw($"Delete FROM FacturasDetalle Where FacturaId={factura.FacturaId}");
+                foreach (var item in factura.Detalle)
+                {
+                    contexto.Entry(item).State = EntityState.Added;
+                }
+                ICollection<FacturasDetalle> nuevo = factura.Detalle;
+                foreach (FacturasDetalle m in nuevo)
+                {
+                    producto = ProductosBLL.Search(m.ProductoId);
+                    producto.Cantidad -= m.Cantidad;
+                    ProductosBLL.Save(producto);
+                }
                 contexto.Entry(factura).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -63,10 +91,18 @@ namespace BLL
             Contexto contexto = new Contexto();
             try
             {
-                var factura = contexto.Facturas.Find(id);
-                if (factura != null)
+                var venta = Search(id);
+                Productos producto;
+                ICollection<FacturasDetalle> viejosDetalles = Search(venta.FacturaId).Detalle;
+                foreach (FacturasDetalle d in viejosDetalles)
                 {
-                    contexto.Facturas.Remove(factura);//remover la entidad
+                    producto = ProductosBLL.Search(d.ProductoId);
+                    producto.Cantidad += d.Cantidad;
+                    ProductosBLL.Save(producto);
+                }
+                if (venta != null)
+                {
+                    contexto.Entry(venta).State = EntityState.Deleted;
                     paso = contexto.SaveChanges() > 0;
                 }
             }
@@ -80,8 +116,6 @@ namespace BLL
             }
             return paso;
         }
-
-        
         public static bool Existe(int id)
         {
             Contexto contexto = new Contexto();
@@ -100,6 +134,28 @@ namespace BLL
                 contexto.Dispose();
             }
             return encontrado;
+        }
+        public static Facturas Search(int id)
+        {
+            Contexto contexto = new Contexto();
+            Facturas venta;
+            try
+            {
+                venta = contexto.Facturas
+                        .Include(v => v.Detalle)
+                        .Where(v => v.FacturaId == id)
+                        .SingleOrDefault();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return venta;
         }
 
         public static List<Facturas> GetList(Expression<Func<Facturas, bool>> criterio)

@@ -16,6 +16,7 @@ namespace Entidades
 
         public FacturasDetalle(int idVenta, int idProducto, float cantidad, float precioVenta)
         {
+            Id = 0;
             FacturaId = idVenta;
             ProductoId = idProducto;
             Cantidad = cantidad;

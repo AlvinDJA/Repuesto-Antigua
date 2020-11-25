@@ -7,7 +7,6 @@ namespace Entidades
 {
     public partial class Facturas
     {
-
         [Key]
         public int FacturaId { get; set; }
         public int ClienteId { get; set; }
@@ -15,5 +14,8 @@ namespace Entidades
         public DateTime Fecha { get; set; }
         public double Itbis { get; set; }
         public double Total { get; set; }
+
+        [ForeignKey("FacturaId")]
+        public List<FacturasDetalle> Detalle { get; set; } = new List<FacturasDetalle>();
     }
 }
