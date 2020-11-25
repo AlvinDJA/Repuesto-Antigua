@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLL;
+using Entidades;
 
 namespace RepuestoAntigua.UI.Registros
 {
@@ -17,9 +19,99 @@ namespace RepuestoAntigua.UI.Registros
     /// </summary>
     public partial class rProveedores : Window
     {
+        Proveedores proveedor;
         public rProveedores()
         {
             InitializeComponent();
+            this.proveedor = new Proveedores();
+            this.DataContext = proveedor;
+        }
+
+       
+        public void Limpiar()
+        {
+            this.proveedor = new Proveedores();
+            this.DataContext = proveedor;
+        }
+
+        private bool Validar()
+        {
+            bool esValido = true;
+            if (NombresTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ingrese los nombres", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (NombresTextBox.Text.Length < 3)
+            {
+                esValido = false;
+                MessageBox.Show("El nombre es muy corto", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            return esValido;
+        }
+        private void NuevoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
+        }
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Validar())
+                return;
+            var paso = ProveedoresBLL.Save(proveedor);
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Guardado con Exito", "Exito",
+                    MessageBoxButton.OK);
+            }
+            else
+                MessageBox.Show("Ha ocurrido un error", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Proveedores encontrado = ProveedoresBLL.Buscar(proveedor.ProveedorId);
+
+            if (encontrado != null)
+            {
+                proveedor = encontrado;
+                this.DataContext = proveedor;
+            }
+            else
+            {
+                Limpiar();
+                MessageBox.Show("No existe en la base de datos", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Proveedores existe = ProveedoresBLL.Buscar(proveedor.ProveedorId);
+            if (proveedor == null)
+            {
+                MessageBox.Show("Primero seleccione un un proveedor",
+                    "Error", MessageBoxButton.OK);
+                return;
+            }
+            else
+            {
+                MessageBoxResult opcion =
+                    MessageBox.Show("Estas seguro de que desear eliminar a " + proveedor.Nombres + "?",
+                    "Proveedores", MessageBoxButton.YesNo);
+                if (opcion.Equals(MessageBoxResult.Yes))
+                {
+                    if (ProveedoresBLL.Delete(proveedor.ProveedorId))
+                    {
+                        Limpiar();
+                        ProveedoresBLL.Eliminar(proveedor.ProveedorId);
+                        MessageBox.Show("Ha sido eliminado exitosamente", "Exito",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+            }
         }
     }
 }

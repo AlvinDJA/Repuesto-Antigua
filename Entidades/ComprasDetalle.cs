@@ -13,5 +13,7 @@ namespace Entidades
         public int ProductoId { get; set; }
         public float Costo { get; set; }
         public float Cantidad { get; set; }
+
+
     }
 }

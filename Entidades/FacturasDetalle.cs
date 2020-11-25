@@ -14,13 +14,13 @@ namespace Entidades
         public float Cantidad { get; set; }
         public float Precio { get; set; }
 
-        public FacturasDetalle(int idVenta, int idProducto, float cantidad, float precioVenta)
+        public FacturasDetalle(int FacturaId, int ProductoId, float cantidad, float Precio)
         {
             Id = 0;
-            FacturaId = idVenta;
-            ProductoId = idProducto;
+            this.FacturaId = FacturaId;
+            this.ProductoId = ProductoId;
             Cantidad = cantidad;
-            Precio = precioVenta;
+            this.Precio = Precio;
         }
 
         public FacturasDetalle(Productos producto, float cantidad)

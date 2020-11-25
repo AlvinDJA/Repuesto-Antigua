@@ -3,14 +3,16 @@ using System;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20201125204319_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,7 +203,7 @@ namespace DAL.Migrations
                         {
                             UsuarioId = 1,
                             Clave = "admin",
-                            Fecha = new DateTime(2020, 11, 25, 17, 13, 53, 491, DateTimeKind.Local).AddTicks(634),
+                            Fecha = new DateTime(2020, 11, 25, 16, 43, 17, 315, DateTimeKind.Local).AddTicks(3294),
                             Usuario = "admin"
                         });
                 });

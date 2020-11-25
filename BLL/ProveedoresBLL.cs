@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace BLL
 {
-    class ProveedoresBLL
+    public class ProveedoresBLL
     {
         public static bool Save(Proveedores Proveedor)
         {

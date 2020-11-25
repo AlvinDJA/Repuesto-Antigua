@@ -5,8 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-        Title="rProveedores" Height="450" Width="800">
+        Title="Registro de Proveedores" Height="450" Width="405">
     <Grid>
-        
+        <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+            <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="MarcaId:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="140" Height="25" Text="{Binding ProveedorId}" />
+                    <Button x:Name="BuscarButton"  Margin="10,0,0,0" Width="72" Click="BuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="\Imagenes\buscar.png" Height="10"/>
+                            <TextBlock>Buscar</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="Nombres:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="NombresTextBox" Width="140" Height="25" Text="{Binding Nombres}"  />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="Correo:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="CorreoTextBox" Width="140" Height="25" Text="{Binding Correo}"  />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="Correo:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="RCNTextBox" Width="140" Height="25" Text="{Binding RNC}"  />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                <Label Content="Correo:" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="TelefonoTextBox" Width="140" Height="25" Text="{Binding Telefono}"  />
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Botones-->
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Width="300" HorizontalAlignment="Left">
+                <Button x:Name="NuevoButton"  Margin="10,0,0,0" Width="90" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="\Imagenes\nuevo.png" Height="10"/>
+                        <Label Content="Nuevo"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"  Margin="10,0,0,0" Width="90" Click="GuardarButton_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/guardar.png" Height="10"/>
+                        <Label Content="Guardar"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="10,0,0,0" Width="90" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Imagenes/eliminar.png" Height="10"/>
+                        <Label Content="Eliminar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

@@ -16,7 +16,7 @@ using RepuestoAntigua.UI.Registros;
 namespace RepuestoAntigua.UI.Consultas
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for cUsuarios.xaml
     /// </summary>
 
     public partial class cUsuarios : Window
@@ -97,7 +97,7 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
-            new rUsuarios().ShowDialog();
+            new cUsuarios().ShowDialog();
             Inicializar();
         }
 
@@ -130,6 +130,11 @@ namespace RepuestoAntigua.UI.Consultas
             }
 
             Inicializar();
+        }
+
+        private void DatosDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

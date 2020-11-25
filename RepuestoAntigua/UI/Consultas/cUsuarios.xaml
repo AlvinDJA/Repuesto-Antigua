@@ -9,18 +9,19 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         Height="400" Width="600" 
         Background="#FFFDFDFD">
 
-    <Grid Margin="80,40">
+    <Grid Margin="0,40" Width="560">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="178*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Lista de Usuarios"/>
+        <Label Grid.Row="0" Content="&#xD;&#xA;" Margin="0,0,0,45" Grid.RowSpan="3"/>
 
         <!--Buscador-->
-        <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+        <Grid Margin="0,-27,0,21">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
@@ -37,7 +38,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
-            <TextBox Grid.Column="1" Margin="15,0" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
+            <TextBox Grid.Column="1" Margin="15,24,15,0" Height="24" VerticalAlignment="Top" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
 
             <!--BotonBuscar-->
             <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BuscarButton_Click">
@@ -49,10 +50,10 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         </Grid>
 
         <!--Tabla clientes-->
-        <DataGrid x:Name="DatosDataGrid"  
-                  MinHeight="100" MaxHeight="120" MinWidth="400" 
-                  AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0"  Grid.RowSpan="3" Margin="0,3,0,-5" Grid.Row="1">
-            <DataGrid.Columns>
+        <DataGrid x:Name="DatosDataGrid" 
+                  MinHeight="100" MaxHeight="250" MinWidth="400" 
+                  AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" SelectionChanged="DatosDataGrid_SelectionChanged" Grid.RowSpan="4">
+            <DataGrid.Columns >
                 <DataGridTextColumn Header="Usuario Id" Width="*" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding Usuario}"/>
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
@@ -62,9 +63,9 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 
         <!--Botones-->
         <!---->
-        <Grid Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,10,0,0">
+        <Grid Grid.Row="4" Margin="0,10,0,0" >
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,-26">
                 <!--Nuevo-->
                 <Button x:Name="NuevoBoton" Width="70" Click="NuevoBoton_Click"  >
                     <StackPanel Orientation="Horizontal">

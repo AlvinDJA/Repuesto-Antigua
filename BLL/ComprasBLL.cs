@@ -9,7 +9,7 @@ using Entidades;
 
 namespace BLL
 {
-    class ComprasBLL
+    public class ComprasBLL
     {
         public static bool Save(Compras compra)
         {
