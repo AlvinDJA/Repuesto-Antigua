@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-        Title="Registor de Compras" Height="450" Width="610">
+        Title="Registor de Compras" Height="450" Width="610"  WindowStartupLocation="CenterScreen">
     <Grid Margin="15,0,0,0">
         <StackPanel Orientation="Vertical" Margin="0,0,10,0">
             <StackPanel  Width="223" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">

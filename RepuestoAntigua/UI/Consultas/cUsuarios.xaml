@@ -5,7 +5,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Usuarios" 
+        Title="Consulta de Usuarios"  WindowStartupLocation="CenterScreen"
         Height="400" Width="600" 
         Background="#FFFDFDFD">
 

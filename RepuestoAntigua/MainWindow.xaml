@@ -5,25 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua"
         mc:Ignorable="d"
-        Title="Menú Principal" Height="175" Width="428" WindowStartupLocation="CenterScreen">
+        Title="Menú Principal" Height="244" Width="496" WindowStartupLocation="CenterScreen">
     <Grid >
         <StackPanel>
             <StackPanel Orientation = "Horizontal">
                 <Menu Height="18">
-                    <MenuItem Header="_Registros"  >
+                    <MenuItem Header="_Registros" Width="80"  >
                         <MenuItem x:Name="rUsuariosItem" Header="Registro de Usuarios" Click="rUsuariosItem_Click" />
                         <MenuItem x:Name="rMarcasItem" Header="Registro de Marcas" Click="rMarcasItem_Click" />
+                        <MenuItem x:Name="rProveedoresItem" Header="Registro de Proveedores" Click="rProveedoresItem_Click" />
+                        <MenuItem x:Name="rProductosItem" Header="Registro de Productos" Click="rProductosItem_Click" />
+                        <MenuItem x:Name="rComprasItem" Header="Registro de Compras" Click="rComprasItem_Click" />
+                        <MenuItem x:Name="rFacturasItem" Header="Registro de Facturas" Click="rFacturasItem_Click" />
                     </MenuItem>
                 </Menu>
 
                 <Menu Height="18">
-                    <MenuItem Header="Consultas">
+                    <MenuItem Header="Consultas" Width="80">
                         <MenuItem x:Name="cUsuariosItem" Header="Consulta de Usuarios"  Click="cUsuariosItem_Click"/>
                         <MenuItem x:Name="cMarcasItem" Header="Consulta de Marcas"  Click="cMarcasItem_Click"/>
                     </MenuItem>
                 </Menu>
-
             </StackPanel>
+            <Label Content="Inserte Botones de acceso rapido aquí"/>
+            <Label Content="Inserte imagen aquí"/>
         </StackPanel>
     </Grid>
 </Window>
