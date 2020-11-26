@@ -14,6 +14,21 @@ namespace Entidades
         public float Costo { get; set; }
         public float Cantidad { get; set; }
 
+        public ComprasDetalle(int CompraId, int ProductoId, float Costo, float Cantidad)
+        {
+            this.DetalleId = 0;
+            this.CompraId = CompraId;
+            this.ProductoId = ProductoId;
+            this.Costo = Cantidad;
+            this.Cantidad = Cantidad;
+        }
+
+        public ComprasDetalle(Productos producto, float cantidad)
+        {
+            ProductoId = producto.ProductoId;
+            Cantidad = cantidad;
+            Costo = producto.Costo;
+        }
 
     }
 }

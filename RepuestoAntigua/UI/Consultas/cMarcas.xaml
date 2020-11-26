@@ -73,7 +73,7 @@
                 <!--Editar-->
                 <Button x:Name="EditarBoton" Width="80" Margin="25,0,25,0" Click="EditarBoton_Click"  >
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/nuevo.png" Width="15" Height="15"/>
+                        <Image Source="/Imagenes/editar.png" Width="15" Height="15"/>
                         <Label Content="Editar" />
                     </StackPanel>
                 </Button>

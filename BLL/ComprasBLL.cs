@@ -38,6 +38,29 @@ namespace BLL
             return paso;
         }
 
+        public static Compras Search(int id)
+        {
+            Contexto contexto = new Contexto();
+            Compras compra;
+            try
+            {
+                compra = contexto.Compras
+                        .Include(v => v.Detalle)
+                        .Where(v => v.CompraId == id)
+                        .SingleOrDefault();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return compra;
+        }
+
         public static bool Modify(Compras compra)
         {
             bool paso = false;

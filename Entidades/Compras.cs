@@ -14,5 +14,9 @@ namespace Entidades
         public DateTime Fecha { get; set; }
         public float Itbis { get; set; }
         public float TotalCompra { get; set; }
+
+        [ForeignKey("CompraId")]
+        public List<ComprasDetalle> Detalle { get; set; } = new List<ComprasDetalle>();
+
     }
 }

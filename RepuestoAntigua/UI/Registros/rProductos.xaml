@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-       Title="Registro de Productos" Height="450" Width="512" WindowStartupLocation="CenterScreen">
+       Title="Registro de Productos" Height="450" Width="420" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+        <StackPanel Orientation="Vertical" Margin="20,0,10,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="ProductoId:" />
                 <StackPanel Orientation="Horizontal">
@@ -82,7 +82,7 @@
                 </StackPanel>
             </StackPanel>
             <!--Botones-->
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Width="300" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Margin="30,20,0,0" Width="300" HorizontalAlignment="Left">
                 <Button x:Name="NuevoButton"  Margin="10,0,0,0" Width="90" >
                     <StackPanel Orientation="Horizontal">
                         <Image Source="\Imagenes\nuevo.png" Height="10"/>
