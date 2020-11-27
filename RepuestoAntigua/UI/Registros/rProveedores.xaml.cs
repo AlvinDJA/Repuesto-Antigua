@@ -20,7 +20,7 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rProveedores : Window
     {
         Proveedores proveedor;
-        public rProveedores()
+        public rProveedores(int usuario)
         {
             InitializeComponent();
             this.proveedor = new Proveedores();

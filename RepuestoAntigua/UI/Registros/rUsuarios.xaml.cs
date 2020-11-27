@@ -13,7 +13,7 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rUsuarios : Window
     {
         private Usuarios usuarios;
-        public rUsuarios()
+        public rUsuarios(int usuario)
         {
             InitializeComponent();
             this.usuarios = new Usuarios();

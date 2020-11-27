@@ -22,55 +22,57 @@ namespace RepuestoAntigua
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        int usuario;
+        public MainWindow(int usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
         }
 
         private void rUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
-            new rUsuarios().Show();
+            new rUsuarios(usuario).Show();
         }
 
         private void cUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
-            new cUsuarios().Show();
+            new cUsuarios(usuario).Show();
         }
 
         private void cMarcasItem_Click(object sender, RoutedEventArgs e)
         {
-            new cMarcas().Show();
+            new cMarcas(usuario).Show();
         }
 
         private void rMarcasItem_Click(object sender, RoutedEventArgs e)
         {
-            new rMarcas().Show();
+            new rMarcas(usuario).Show();
         }
 
 
         private void rProveedoresItem_Click(object sender, RoutedEventArgs e)
         {
-            new rProveedores().Show();
+            new rProveedores(usuario).Show();
         }
 
         private void rProductosItem_Click(object sender, RoutedEventArgs e)
         {
-            new rProductos().Show();
+            new rProductos(usuario).Show();
         }
 
         private void rComprasItem_Click(object sender, RoutedEventArgs e)
         {
-            new rCompras().Show();
+            new rCompras(usuario).Show();
         }
 
         private void rFacturasItem_Click(object sender, RoutedEventArgs e)
         {
-            new rFacturas().Show();
+            new rFacturas(usuario).Show();
         }
 
         private void cProductosItem_Click(object sender, RoutedEventArgs e)
         {
-            new cProductos().Show();
+            new cProductos(usuario).Show();
         }
 
         private void cFacturasItem_Click(object sender, RoutedEventArgs e)

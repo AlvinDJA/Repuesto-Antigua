@@ -20,7 +20,7 @@ namespace RepuestoAntigua.UI.Consultas
     /// </summary>
     public partial class cMarcas : Window
     {
-        public cMarcas()
+        public cMarcas(int usuario)
         {
             InitializeComponent();
         }

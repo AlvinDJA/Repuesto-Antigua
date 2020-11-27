@@ -10,7 +10,7 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rMarcas : Window
     {
         private Marcas marcas;
-        public rMarcas()
+        public rMarcas(int usuario)
         {
             InitializeComponent();
             this.marcas = new Marcas();

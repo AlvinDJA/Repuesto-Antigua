@@ -21,7 +21,7 @@ namespace RepuestoAntigua.UI.Consultas
 
     public partial class cUsuarios : Window
     {
-        public cUsuarios()
+        public cUsuarios(int usuario)
         {
             InitializeComponent();
         }

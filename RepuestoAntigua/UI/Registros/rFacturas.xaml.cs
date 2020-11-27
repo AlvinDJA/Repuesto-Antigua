@@ -20,7 +20,7 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rFacturas : Window
     {
         private Facturas factura = new Facturas();
-        public rFacturas()
+        public rFacturas(int usuario)
         {
             InitializeComponent();
             IniciarCombobox();

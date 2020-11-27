@@ -10,13 +10,6 @@
     <Compile Update="UI\Consultas\cMarcas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< HEAD
-    <Compile Update="UI\Consultas\cProveedores.xaml.cs">
-=======
-    <Compile Update="UI\Consultas\cProductos.xaml.cs">
->>>>>>> 7d3fd81f1f001dad592e4328d6ba147a0075aa93
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UI\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -41,13 +34,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Consultas\cMarcas.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-<<<<<<< HEAD
-    <Page Update="UI\Consultas\cProveedores.xaml">
-=======
-    <Page Update="UI\Consultas\cProductos.xaml">
->>>>>>> 7d3fd81f1f001dad592e4328d6ba147a0075aa93
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Login.xaml">

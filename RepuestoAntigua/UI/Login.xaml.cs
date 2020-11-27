@@ -32,11 +32,13 @@ namespace RepuestoAntigua.UI
                  pass = PasswordBox.Password;
             else
                 pass = System.Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(PasswordBox.Password));
-
+            
+            
             if (UsuariosBLL.Validar(nombre, pass))
             {
                 ClaveLabel.Visibility = Visibility.Hidden;
-                new MainWindow().Show();
+                int usuario = UsuariosBLL.Buscar(nombre, pass);
+                new MainWindow(usuario).Show();
                 this.Close();
             }
             else

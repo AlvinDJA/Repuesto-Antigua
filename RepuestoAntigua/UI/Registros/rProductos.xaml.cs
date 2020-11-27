@@ -22,7 +22,7 @@ namespace RepuestoAntigua.UI.Registros
     {
         private Productos producto;
         char modo;
-        public rProductos()
+        public rProductos(int usuario)
         {
             InitializeComponent();
             InitializeComboBox();

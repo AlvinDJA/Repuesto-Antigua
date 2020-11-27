@@ -99,6 +99,7 @@ namespace BLL
             }
             return encontrado;
         }
+        
         public static bool Validar(string nombre, string pass)
         {
             bool paso = false;
@@ -163,6 +164,26 @@ namespace BLL
 
             return usuario;
         }
+        public static int Buscar(string nombre, string pass)
+        {
+            Contexto contexto = new Contexto();
+            Usuarios usuario;
+            try
+            {
+                usuario = (Usuarios)contexto.Usuarios.Where(p => p.Nombres == nombre && p.Clave == pass);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return usuario.UsuarioId;
+        }
+        
         public static bool Existe(int id)
         {
             Contexto contexto = new Contexto();
