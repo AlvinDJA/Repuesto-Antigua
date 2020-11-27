@@ -62,7 +62,7 @@ namespace RepuestoAntigua
 
         private void rComprasItem_Click(object sender, RoutedEventArgs e)
         {
-            new rCompras().Show();
+            new rCompras(usuario).Show();
         }
 
         private void rFacturasItem_Click(object sender, RoutedEventArgs e)
@@ -77,17 +77,17 @@ namespace RepuestoAntigua
 
         private void cFacturasItem_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void cComprasItem_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void cProveedoresItem_Click(object sender, RoutedEventArgs e)
         {
-
+            new cProveedores(usuario).Show();
         }
     }
 }

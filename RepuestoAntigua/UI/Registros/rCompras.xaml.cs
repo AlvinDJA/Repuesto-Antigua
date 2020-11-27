@@ -32,11 +32,11 @@ namespace RepuestoAntigua.UI.Registros
             Limpiar();
             ProductosComboBox.ItemsSource = ProductosBLL.GetList(c => true);
             ProductosComboBox.SelectedValuePath = "ProductoId";
-            ProductosComboBox.DisplayMemberPath = "Nombres";
+            ProductosComboBox.DisplayMemberPath = "Descripcion";
 
             ProveedoresComboBox.ItemsSource = ProveedoresBLL.GetList(c => true);
             ProveedoresComboBox.SelectedValuePath = "ProveedorId";
-            ProveedoresComboBox.DisplayMemberPath = "Descripcion";
+            ProveedoresComboBox.DisplayMemberPath = "Nombres";
 
         }
         private void Cargar()
@@ -193,6 +193,11 @@ namespace RepuestoAntigua.UI.Registros
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void IdTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

@@ -11,7 +11,7 @@
             <StackPanel  Width="223" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Compra Id:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="IdTextBox" Width="140" Height="25" Text="{Binding CompraId}" />
+                    <TextBox x:Name="IdTextBox" Width="140" Height="25" Text="{Binding CompraId}" TextChanged="IdTextBox_TextChanged" />
 
                     <Button x:Name="BuscarButton" Click="BuscarButton_Click" Margin="10,0,0,0" Width="72">
                         <StackPanel Orientation="Horizontal">
@@ -82,7 +82,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
                             <Label Content="Total:" />
                             <StackPanel Orientation="Horizontal">
-                                <TextBox x:Name="TiempoTotalTextBox" Width="122" Height="25" />
+                                <TextBox x:Name="TiempoTotalTextBox" Width="122" Height="25" Text="{Binding TotalCompra}" />
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
