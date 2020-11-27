@@ -29,24 +29,45 @@ namespace RepuestoAntigua.UI.Registros
 
         private void IniciarCombobox()
         {
-            Limpiar();
+            ProductosComboBox.ItemsSource = ProductosBLL.GetList(c => true);
+            ProductosComboBox.SelectedValuePath = "ProductoId";
+            ProductosComboBox.DisplayMemberPath = "Descripcion";
         }
         private void Cargar()
         {
             this.DataContext = null;
             this.DataContext = factura;
+            PrecioTextBox.Clear();
+            CantidadTextBox.Clear();
         }
         private void Limpiar()
         {
             this.factura = new Facturas();
             this.factura.Fecha = DateTime.Now;
             this.DataContext = factura;
-            TiempoTotalTextBox.Clear();
+            TotalTextBox.Clear();
         }
         private bool ValidarAgregar()
         {
             bool esValido = true;
-            
+            if (ProductosComboBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Eliga el productos", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (CantidadTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Inserte la cantidad", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (PrecioTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Inserte el precio", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             return esValido;
         }
         private bool ValidarGuardar()
@@ -136,6 +157,7 @@ namespace RepuestoAntigua.UI.Registros
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
                 FacturasDetalle m = (FacturasDetalle)DatosDataGrid.SelectedValue;
+                factura.Total -= m.Precio;
                 factura.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
@@ -144,6 +166,10 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!ValidarAgregar())
                 return;
+            factura.Total += Convert.ToSingle(PrecioTextBox.Text);
+            factura.Detalle.Add(new FacturasDetalle(factura.FacturaId, 
+                Convert.ToInt32(ProductosComboBox.SelectedValue), Convert.ToSingle(CantidadTextBox.Text),
+                Convert.ToSingle(PrecioTextBox.Text)));
             Cargar();
         }
     }

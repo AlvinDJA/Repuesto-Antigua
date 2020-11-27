@@ -1,19 +1,6 @@
 ﻿using RepuestoAntigua.UI.Registros;
 using RepuestoAntigua.UI.Consultas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RepuestoAntigua
 {
@@ -28,38 +15,30 @@ namespace RepuestoAntigua
             InitializeComponent();
             this.usuario = usuario;
         }
-
         private void rUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
             new rUsuarios(usuario).Show();
         }
-
         private void cUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
             new cUsuarios().Show();
         }
-
         private void cMarcasItem_Click(object sender, RoutedEventArgs e)
         {
             new cMarcas(usuario).Show();
         }
-
         private void rMarcasItem_Click(object sender, RoutedEventArgs e)
         {
             new rMarcas(usuario).Show();
         }
-
-
         private void rProveedoresItem_Click(object sender, RoutedEventArgs e)
         {
             new rProveedores(usuario).Show();
         }
-
         private void rProductosItem_Click(object sender, RoutedEventArgs e)
         {
             new rProductos(usuario).Show();
         }
-
         private void rComprasItem_Click(object sender, RoutedEventArgs e)
         {
             new rCompras(usuario).Show();
@@ -79,25 +58,33 @@ namespace RepuestoAntigua
         {
             new cProductos(usuario).Show();
         }
-
         private void cFacturasItem_Click(object sender, RoutedEventArgs e)
         {
-            
+            new cFacturas(usuario).Show();
         }
-
         private void cComprasItem_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
 
+        }
         private void cProveedoresItem_Click(object sender, RoutedEventArgs e)
         {
             new cProveedores(usuario).Show();
         }
 
+<<<<<<< HEAD
         private void cClientesItem_Click(object sender, RoutedEventArgs e)
         {
             new cClientes(usuario).Show();
+=======
+        private void rUsuariosItem_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rClientesItem_Click(object sender, RoutedEventArgs e)
+        {
+
+>>>>>>> a249c89572f91eb5cca7e7acc1eaf16be11bfa60
         }
     }
 }
