@@ -20,9 +20,11 @@ namespace RepuestoAntigua.UI.Consultas
     /// </summary>
     public partial class cMarcas : Window
     {
+        private int user;
         public cMarcas(int usuario)
         {
             InitializeComponent();
+            user = usuario;
         }
 
         private void Inicializar()
@@ -96,7 +98,7 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
-            new rMarcas().ShowDialog();
+            new rMarcas(user).ShowDialog();
             Inicializar();
         }
 

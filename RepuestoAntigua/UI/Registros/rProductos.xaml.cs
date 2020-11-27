@@ -21,12 +21,15 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rProductos : Window
     {
         private Productos producto;
+        private int user;
         char modo;
         public rProductos(int usuario)
         {
             InitializeComponent();
             InitializeComboBox();
+            user = usuario;
             Limpiar();
+
         }
         public void Limpiar()
         {
@@ -58,6 +61,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!Validar())
                 return;
+            producto.UsuarioId = user;
             bool paso = (bool)ProductosBLL.Save(producto);
             if (paso)
             {

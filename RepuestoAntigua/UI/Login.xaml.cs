@@ -37,8 +37,9 @@ namespace RepuestoAntigua.UI
             if (UsuariosBLL.Validar(nombre, pass))
             {
                 ClaveLabel.Visibility = Visibility.Hidden;
-                int usuario = UsuariosBLL.Buscar(nombre, pass);
-                new MainWindow(usuario).Show();
+                var usuario = UsuariosBLL.Buscar(nombre, pass);
+                if(usuario != null)
+                    new MainWindow(usuario.UsuarioId).Show();
                 this.Close();
             }
             else

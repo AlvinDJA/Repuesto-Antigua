@@ -20,9 +20,11 @@ namespace RepuestoAntigua.UI.Consultas
     /// </summary>
     public partial class cProveedores : Window
     {
-        public cProveedores()
+        private int user;
+        public cProveedores(int usuario)
         {
             InitializeComponent();
+            user = usuario;
         }
 
         private void Inicializar()
@@ -96,7 +98,7 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
-            new rProveedores().ShowDialog();
+            new rProveedores(user).ShowDialog();
             Inicializar();
         }
 

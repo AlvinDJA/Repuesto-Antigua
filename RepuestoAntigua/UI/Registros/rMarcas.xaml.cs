@@ -17,10 +17,10 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = marcas;
         }
 
-        public rMarcas(Marcas usuario)
+        public rMarcas(Marcas marcas)
         {
             InitializeComponent();
-            this.marcas = usuario;
+            this.marcas = marcas;
             this.DataContext = marcas;
         }
         public void Limpiar()

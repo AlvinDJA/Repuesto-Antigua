@@ -164,13 +164,13 @@ namespace BLL
 
             return usuario;
         }
-        public static int Buscar(string nombre, string pass)
+        public static Usuarios Buscar(string nombre, string pass)
         {
             Contexto contexto = new Contexto();
             Usuarios usuario;
             try
             {
-                usuario = (Usuarios)contexto.Usuarios.Where(p => p.Nombres == nombre && p.Clave == pass);
+                usuario = contexto.Usuarios.Where(p => p.Usuario == nombre && p.Clave == pass).FirstOrDefault();
             }
             catch (Exception)
             {
@@ -181,7 +181,7 @@ namespace BLL
                 contexto.Dispose();
             }
 
-            return usuario.UsuarioId;
+            return usuario;
         }
         
         public static bool Existe(int id)
