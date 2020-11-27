@@ -15,6 +15,8 @@
                         <MenuItem x:Name="rMarcasItem" Header="Registro de Marcas" Click="rMarcasItem_Click" />
                         <MenuItem x:Name="rProveedoresItem" Header="Registro de Proveedores" Click="rProveedoresItem_Click" />
                         <MenuItem x:Name="rComprasItem" Header="Registro de Compras" Click="rComprasItem_Click" />
+                        <MenuItem x:Name="rClientesItem" Header="Registro de clientes" Click="rClientesItem_Click" />
+                        
                         
                     </MenuItem>
                 </Menu>
@@ -27,6 +29,7 @@
                         <MenuItem x:Name="cProductosItem" Header="Registro de Productos" Click="cProductosItem_Click" />
                         <MenuItem x:Name="cComprasItem" Header="Registro de Compras" Click="cComprasItem_Click" />
                         <MenuItem x:Name="cFacturasItem" Header="Registro de Facturas" Click="cFacturasItem_Click" />
+                        <MenuItem x:Name="cClientesItem" Header="Registro de Clientes" Click="cClientesItem_Click" />
                     </MenuItem>
                 </Menu>
 

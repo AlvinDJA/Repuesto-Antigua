@@ -5,13 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entidades
 {
-    class Clientes
+    public class Clientes
     {
         [Key]
         public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
         public String Cedula { get; set; }
-        public int DireccionId { get; set; }
+        public String Direccion { get; set; }
         public String Nombres { get; set; }
         public String Apellidos { get; set; }
         public String Telefono { get; set; }

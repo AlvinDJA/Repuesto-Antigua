@@ -12,6 +12,7 @@ namespace DAL
         public virtual DbSet<Facturas> Facturas { get; set; }
         public virtual DbSet<Proveedores> Proveedores { get; set; }
         public virtual DbSet<Compras> Compras { get; set; }
+        public virtual DbSet<Clientes> Clientes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
