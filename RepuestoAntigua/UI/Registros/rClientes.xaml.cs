@@ -25,7 +25,6 @@ namespace RepuestoAntigua.UI.Registros
         public rClientes(int usuario)
         {
             InitializeComponent();
-            InitializeComboBox();
             user = usuario;
             Limpiar();
         }
@@ -38,16 +37,10 @@ namespace RepuestoAntigua.UI.Registros
         public rClientes(Clientes cliente)
         {
             InitializeComponent();
-            InitializeComboBox();
             this.cliente = cliente;
             this.DataContext = cliente;
         }
-        private void InitializeComboBox()
-        {
-            UsuarioComboBox.ItemsSource = MarcasBLL.GetList(c => true);
-            UsuarioComboBox.SelectedValuePath = "UsuarioId";
-            UsuarioComboBox.DisplayMemberPath = "Nombres";
-        }
+        
         public void GuardarBoton_Click(object render, RoutedEventArgs e)
         {
             if (!Validar())

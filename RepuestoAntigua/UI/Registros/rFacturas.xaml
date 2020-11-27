@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-       Title="Registro de Facturas" Height="514" Width="619" Background="#FFF0F0F0" WindowStartupLocation="CenterScreen">
+       Title="Registro de Facturas" Height="540" Width="565" Background="#FFF0F0F0" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="0,0,43,0">
+        <StackPanel Orientation="Vertical" Margin="0,0,0,0">
             <StackPanel  Width="223" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Factura Id:" />
                 <StackPanel Orientation="Horizontal">
@@ -28,7 +28,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10,0,0,0">
                     <Label Content="Cliente:" />
-                    <ComboBox  Width="224" Height="25" SelectedValue="{Binding ClienteId}"/>
+                    <ComboBox x:Name="ClientesComboBox"  Width="224" Height="25" SelectedValue="{Binding ClienteId}"/>
                 </StackPanel>
             </StackPanel>
 

@@ -23,14 +23,14 @@
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Nombres:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="NombresTextBox" Width="140" Height="25" Text="{Binding Nombres}"  />
+                    <TextBox x:Name="NombresTextBox" Width="261" Height="25" Text="{Binding Nombres}"  />
                 </StackPanel>
             </StackPanel>
 
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Correo:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="CorreoTextBox" Width="140" Height="25" Text="{Binding Correo}"  />
+                    <TextBox x:Name="CorreoTextBox" Width="260" Height="25" Text="{Binding Correo}"  />
                 </StackPanel>
             </StackPanel>
 

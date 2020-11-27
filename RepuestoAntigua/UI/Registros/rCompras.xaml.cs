@@ -161,29 +161,26 @@ namespace RepuestoAntigua.UI.Registros
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
                 ComprasDetalle m = (ComprasDetalle)DatosDataGrid.SelectedValue;
+                compra.TotalCompra -= m.Costo * m.Cantidad;
                 compra.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
         }
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {
-          
-
             if (!ValidarDetalle())
             {
                 return;
             }
-
-
             ComprasDetalle detalle = new ComprasDetalle(
-            Convert.ToInt32(IdTextBox.Text),
-            Convert.ToInt32(ProductosComboBox.SelectedValue.ToString()),
-            Convert.ToSingle(CostoTextBox.Text),
-            Convert.ToSingle(CantidadTextBox.Text)
+                Convert.ToInt32(IdTextBox.Text),
+                Convert.ToInt32(ProductosComboBox.SelectedValue.ToString()),
+                Convert.ToSingle(CostoTextBox.Text),
+                Convert.ToSingle(CantidadTextBox.Text)
             );
 
             compra.Detalle.Add(detalle);
-            compra.TotalCompra += detalle.Costo;
+            compra.TotalCompra += detalle.Costo * detalle.Cantidad;
 
             Cargar();
 

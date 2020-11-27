@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Clientes" Height="450" Width="800">
+        Title="Registro de Clientes" Height="484" Width="448">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,10,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
@@ -68,16 +68,10 @@
             </StackPanel>
             <!--fff-->
             <StackPanel Orientation="Horizontal">
-                <StackPanel  Width="170" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                <StackPanel  Width="340" Margin="10,20,0,0" Orientation="Vertical">
                     <Label Content="Direccion:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <TextBox  x:Name="DireccionTextBox" Width="160" Height="25" Text="{Binding Direccion}"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel  Width="200" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                    <Label Content="Usuario:" />
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <ComboBox x:Name="UsuarioComboBox" Width="160" Height="25" SelectedValue="{Binding UsuarioId}"/>
+                        <TextBox  x:Name="DireccionTextBox" Width="340" Height="25" Text="{Binding Direccion}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

@@ -29,6 +29,10 @@ namespace RepuestoAntigua.UI.Registros
 
         private void IniciarCombobox()
         {
+            ClientesComboBox.ItemsSource = ProductosBLL.GetList(c => true);
+            ClientesComboBox.SelectedValuePath = "ClienteId";
+            ClientesComboBox.DisplayMemberPath = "Nombres";
+
             ProductosComboBox.ItemsSource = ProductosBLL.GetList(c => true);
             ProductosComboBox.SelectedValuePath = "ProductoId";
             ProductosComboBox.DisplayMemberPath = "Descripcion";
@@ -157,7 +161,7 @@ namespace RepuestoAntigua.UI.Registros
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
                 FacturasDetalle m = (FacturasDetalle)DatosDataGrid.SelectedValue;
-                factura.Total -= m.Precio;
+                factura.Total -= m.Precio * m.Cantidad;
                 factura.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
@@ -166,7 +170,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!ValidarAgregar())
                 return;
-            factura.Total += Convert.ToSingle(PrecioTextBox.Text);
+            factura.Total += Convert.ToSingle(PrecioTextBox.Text)* Convert.ToSingle(CantidadTextBox.Text);
             factura.Detalle.Add(new FacturasDetalle(factura.FacturaId, 
                 Convert.ToInt32(ProductosComboBox.SelectedValue), Convert.ToSingle(CantidadTextBox.Text),
                 Convert.ToSingle(PrecioTextBox.Text)));

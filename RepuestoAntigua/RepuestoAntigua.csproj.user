@@ -1,78 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
-  <ItemGroup>
-    <ApplicationDefinition Update="App.xaml">
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Compile Update="UI\Consultas\cClientes.xaml.cs">
-=======
-    <Compile Update="UI\Consultas\cFacturas.xaml.cs">
->>>>>>> a249c89572f91eb5cca7e7acc1eaf16be11bfa60
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Consultas\cMarcas.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Login.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rClientes.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rCompras.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rFacturas.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rMarcas.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rProductos.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UI\Registros\rProveedores.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-<<<<<<< HEAD
-    <Page Update="UI\Consultas\cClientes.xaml">
-=======
-    <Page Update="UI\Consultas\cFacturas.xaml">
->>>>>>> a249c89572f91eb5cca7e7acc1eaf16be11bfa60
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Consultas\cMarcas.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Login.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rClientes.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rCompras.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rFacturas.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rMarcas.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rProductos.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UI\Registros\rProveedores.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
+	<PropertyGroup />
+	<ItemGroup>
+		<ApplicationDefinition Update="App.xaml">
+			<SubType>Designer</SubType>
+		</ApplicationDefinition>
+	</ItemGroup>
 </Project>
