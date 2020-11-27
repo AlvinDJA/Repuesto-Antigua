@@ -27,7 +27,14 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = proveedor;
         }
 
-       
+        public rProveedores(Proveedores proveedor)
+        {
+            InitializeComponent();
+            this.proveedor = proveedor;
+            this.DataContext = proveedor;
+        }
+
+
         public void Limpiar()
         {
             this.proveedor = new Proveedores();

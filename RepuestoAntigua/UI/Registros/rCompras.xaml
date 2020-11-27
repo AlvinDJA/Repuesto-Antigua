@@ -28,7 +28,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10,0,0,0">
                     <Label Content="Proveedor:" />
-                    <ComboBox  Width="224" Height="25" SelectedValue="{Binding ProveedorId}"/>
+                    <ComboBox x:Name="ProveedoresComboBox" Width="224" Height="25" SelectedValue="{Binding ProveedorId}"/>
                 </StackPanel>
             </StackPanel>
 
@@ -39,13 +39,13 @@
                         <StackPanel  Width="146" Margin="0,20,0,0" Orientation="Vertical">
                             <Label Content="Productos:" />
                             <StackPanel Orientation="Horizontal">
-                                <ComboBox Width="140" Height="25" SelectedValue="{Binding TareaId}"/>
+                                <ComboBox x:Name="ProductosComboBox" Width="140" Height="25" SelectedValue="{Binding ProductoId}"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel  Width="91" Margin="0,20,0,0" Orientation="Vertical">
                             <Label Content="Cantidad:" />
                             <StackPanel Orientation="Horizontal" Width="88">
-                                <TextBox  Width="77" Height="25" />
+                                <TextBox  Width="77" Height="25" TextChanged="TextBox_TextChanged" />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel  Width="98" Margin="0,20,0,0" Orientation="Vertical">

@@ -30,6 +30,14 @@ namespace RepuestoAntigua.UI.Registros
         private void IniciarCombobox()
         {
             Limpiar();
+            ProductosComboBox.ItemsSource = ProductosBLL.GetList(c => true);
+            ProductosComboBox.SelectedValuePath = "ProductoId";
+            ProductosComboBox.DisplayMemberPath = "Nombres";
+
+            ProveedoresComboBox.ItemsSource = ProveedoresBLL.GetList(c => true);
+            ProveedoresComboBox.SelectedValuePath = "ProveedorId";
+            ProveedoresComboBox.DisplayMemberPath = "Descripcion";
+
         }
         private void Cargar()
         {
@@ -145,6 +153,11 @@ namespace RepuestoAntigua.UI.Registros
             if (!ValidarAgregar())
                 return;
             Cargar();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
