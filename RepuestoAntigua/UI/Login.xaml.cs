@@ -12,6 +12,7 @@ namespace RepuestoAntigua.UI
         public Login()
         {
             InitializeComponent();
+            NombreUsuarioTextBox.Focus();
         }
         private void AccederBoton_Click(object sender, RoutedEventArgs e)
         {
