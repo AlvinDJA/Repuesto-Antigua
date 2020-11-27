@@ -17,9 +17,19 @@
                 </Menu>
 
                 <Menu Height="18">
+<<<<<<< HEAD
                     <MenuItem Header="Consultas">
                         <MenuItem x:Name="cUsuariosItem" Header="Consulta de Usuarios"  Click="cUsuariosItem_Click"/>
                         <MenuItem x:Name="cMarcasItem" Header="Consulta de Marcas"  Click="cMarcasItem_Click"/>
+=======
+                    <MenuItem Header="Consultas" Width="80">
+                        <MenuItem x:Name="cUsuariosItem" Header="Registro de Usuarios" Click="cUsuariosItem_Click" />
+                        <MenuItem x:Name="cMarcasItem" Header="Registro de Marcas" Click="cMarcasItem_Click" />
+                        <MenuItem x:Name="cProveedoresItem" Header="Registro de Proveedores" Click="cProveedoresItem_Click" />
+                        <MenuItem x:Name="cProductosItem" Header="Registro de Productos" Click="cProductosItem_Click" />
+                        <MenuItem x:Name="cComprasItem" Header="Registro de Compras" Click="cComprasItem_Click" />
+                        <MenuItem x:Name="cFacturasItem" Header="Registro de Facturas" Click="cFacturasItem_Click" />
+>>>>>>> 7d3fd81f1f001dad592e4328d6ba147a0075aa93
                     </MenuItem>
                 </Menu>
 
