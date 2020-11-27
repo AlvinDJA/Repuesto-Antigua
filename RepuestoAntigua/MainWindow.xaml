@@ -12,21 +12,22 @@
                 <Menu Height="18">
                     <MenuItem Header="_Registros"  >
                         <MenuItem x:Name="rUsuariosItem" Header="Registro de Usuarios" Click="rUsuariosItem_Click" />
+                        <MenuItem x:Name="rClientesItem" Header="Registro de Clientes" Click="rClientesItem_Click" />
                         <MenuItem x:Name="rMarcasItem" Header="Registro de Marcas" Click="rMarcasItem_Click" />
                         <MenuItem x:Name="rProveedoresItem" Header="Registro de Proveedores" Click="rProveedoresItem_Click" />
                         <MenuItem x:Name="rComprasItem" Header="Registro de Compras" Click="rComprasItem_Click" />
-                        
+                        <MenuItem x:Name="rFacturasItem" Header="Registro de Facturas" Click="rFacturasItem_Click" />
                     </MenuItem>
                 </Menu>
 
                 <Menu Height="18">
                     <MenuItem Header="Consultas" Width="80">
-                        <MenuItem x:Name="cUsuariosItem" Header="Registro de Usuarios" Click="cUsuariosItem_Click" />
-                        <MenuItem x:Name="cMarcasItem" Header="Registro de Marcas" Click="cMarcasItem_Click" />
-                        <MenuItem x:Name="cProveedoresItem" Header="Registro de Proveedores" Click="cProveedoresItem_Click" />
-                        <MenuItem x:Name="cProductosItem" Header="Registro de Productos" Click="cProductosItem_Click" />
-                        <MenuItem x:Name="cComprasItem" Header="Registro de Compras" Click="cComprasItem_Click" />
-                        <MenuItem x:Name="cFacturasItem" Header="Registro de Facturas" Click="cFacturasItem_Click" />
+                        <MenuItem x:Name="cUsuariosItem" Header="Consulta de Usuarios" Click="cUsuariosItem_Click" />
+                        <MenuItem x:Name="cMarcasItem" Header="Consulta de Marcas" Click="cMarcasItem_Click" />
+                        <MenuItem x:Name="cProveedoresItem" Header="Consulta de Proveedores" Click="cProveedoresItem_Click" />
+                        <MenuItem x:Name="cProductosItem" Header="Consulta de Productos" Click="cProductosItem_Click" />
+                        <MenuItem x:Name="cComprasItem" Header="Consulta de Compras" Click="cComprasItem_Click" />
+                        <MenuItem x:Name="cFacturasItem" Header="Consulta de Facturas" Click="cFacturasItem_Click" />
                     </MenuItem>
                 </Menu>
 
