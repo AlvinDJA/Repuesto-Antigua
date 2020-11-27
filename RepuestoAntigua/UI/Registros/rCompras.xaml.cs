@@ -20,7 +20,7 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rCompras : Window
     {
         private Compras compra = new Compras();
-        public rCompras()
+        public rCompras(int usuario)
         {
             InitializeComponent();
             IniciarCombobox();
@@ -51,11 +51,28 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = compra;
             TiempoTotalTextBox.Clear();
         }
-        private bool ValidarAgregar()
-        {
-            bool esValido = true;
 
-            return esValido;
+        private bool ValidarDetalle()
+        {
+           //if (!CostoTextBox.Text.(char.IsNumber))
+           // {
+           //     MessageBox.Show("Ingrese un valor numerico  válido e intente de nuevo", "Registro de moras", MessageBoxButton.OK, MessageBoxImage.Error);
+           //     return false;
+           // }
+
+           // if (ValorTextBox.Text.Length == 0)
+           // {
+           //     MessageBox.Show("Ingrese un valor e intente de nuevo", "Registro de moras", MessageBoxButton.OK, MessageBoxImage.Error);
+           //     return false;
+           // }
+
+           // if (PrestamoComboBox.SelectedIndex < 0)
+           // {
+           //     MessageBox.Show("Seleccione un préstamo e intente de nuevo", "Registro de moras", MessageBoxButton.OK, MessageBoxImage.Error);
+           //     return false;
+           // }
+
+            return true;
         }
         private bool ValidarGuardar()
         {
@@ -150,9 +167,29 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {
-            if (!ValidarAgregar())
+          
+
+            if (!ValidarDetalle())
+            {
                 return;
+            }
+
+
+            ComprasDetalle detalle = new ComprasDetalle(
+            Convert.ToInt32(IdTextBox.Text),
+            Convert.ToInt32(ProductosComboBox.SelectedValue.ToString()),
+            Convert.ToSingle(CostoTextBox.Text),
+            Convert.ToSingle(CantidadTextBox.Text)
+            );
+
+            compra.Detalle.Add(detalle);
+            compra.TotalCompra += detalle.Costo;
+
             Cargar();
+
+            ProveedoresComboBox.SelectedIndex = -1;
+            CostoTextBox.Clear();
+            CantidadTextBox.Clear();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
