@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,10,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                <Label Content="ProductoId:" />
+                <Label Content="Producto Id:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="ProductoIdTextBox" Width="140" Height="25" Text="{Binding ClienteId}" />
 
@@ -45,31 +45,34 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel  Width="200" Margin="10,20,0,0" Orientation="Vertical">
+                    <Label Content="Margen de Ganancia:" />
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                        <TextBox x:Name="MargenTextBox" Width="160" Height="25" Text="{Binding MargenGanancia}" TextChanged="MargenTextBox_TextChanged"/>
+                    </StackPanel>
+                </StackPanel>
+                
+            </StackPanel>
+            <!--adasd-->
+            <StackPanel Orientation="Horizontal">
+                <StackPanel  Width="170" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
+                    <Label Content="Porcentaje ITBIS:" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <RadioButton GroupName="PorcentajeRadio" Name="Radio1"  Content="0%" BindingGroup="{Binding Porcentaje}" IsChecked="True"/>
+                        <RadioButton GroupName="PorcentajeRadio" Name="Radio2" Content="16%" BindingGroup="{Binding Porcentaje}"/>
+                        <RadioButton GroupName="PorcentajeRadio" Name="Radio3" Content="18%" BindingGroup="{Binding Porcentaje}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel  Width="200" Margin="10,20,0,0" Orientation="Vertical">
                     <Label Content="Precio:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <TextBox x:Name="PrecioTextBox" Width="160" Height="25" Text="{Binding Precio}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <!--adasd-->
-            <StackPanel Orientation="Horizontal">
-                <StackPanel  Width="170" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                    <Label Content="Porcentaje ITBIS:" />
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <TextBox x:Name="PorcentajeTextBox" Width="160" Height="25" Text="{Binding PorcentajeITBIS}"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel  Width="200" Margin="10,20,0,0" Orientation="Vertical">
-                    <Label Content="Margen de Ganancia:" />
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <TextBox x:Name="MargenTextBox" Width="160" Height="25" Text="{Binding MargenGanancia}"/>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
             <!--fff-->
             <StackPanel Orientation="Horizontal">
                 <StackPanel  Width="170" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                    <Label Content="No de Serie:" />
+                    <Label Content="No. de Serie:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <TextBox  x:Name="SerieTextBox" Width="160" Height="25" Text="{Binding NoSerie}"/>
                     </StackPanel>

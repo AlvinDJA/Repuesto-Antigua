@@ -1,6 +1,7 @@
 ﻿using RepuestoAntigua.UI.Registros;
 using RepuestoAntigua.UI.Consultas;
 using System.Windows;
+using RepuestoAntigua.UI;
 
 namespace RepuestoAntigua
 {
@@ -64,6 +65,7 @@ namespace RepuestoAntigua
         }
         private void cComprasItem_Click(object sender, RoutedEventArgs e)
         {
+            new cCompras(usuario).Show();
         }
         private void cProveedoresItem_Click(object sender, RoutedEventArgs e)
         {
@@ -74,7 +76,10 @@ namespace RepuestoAntigua
             new cClientes(usuario).Show();
         }
 
-        
-        
+        private void CerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            new Login().Show();
+            this.Close();
+        }
     }
 }

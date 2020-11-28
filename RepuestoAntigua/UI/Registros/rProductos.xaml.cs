@@ -20,6 +20,7 @@ namespace RepuestoAntigua.UI.Registros
     /// </summary>
     public partial class rProductos : Window
     {
+        private int porcentaje;
         private Productos producto;
         private int user;
         char modo;
@@ -35,6 +36,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             this.producto = new Productos();
             this.DataContext = producto;
+            Radio1.IsChecked = true;
         }
         public rProductos(Productos producto)
         {
@@ -51,6 +53,26 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = producto;
             this.modo = mode;
         }
+        private void inicarRadio()
+        {
+            if (porcentaje == 0)
+                Radio1.IsChecked = true;
+            else if (porcentaje == 16)
+                Radio2.IsChecked = true;
+            else
+                Radio3.IsChecked = true;
+        }
+        private void Radio()
+        {
+            if (Radio1.IsChecked == true)
+                porcentaje = 0;
+            else if (Radio2.IsChecked == true)
+                porcentaje = 16;
+            else
+                porcentaje = 18;
+            producto.PorcentajeITBIS = porcentaje;
+        }
+
         private void InitializeComboBox()
         {
             MarcaComboBox.ItemsSource = MarcasBLL.GetList(c => true);
@@ -59,6 +81,7 @@ namespace RepuestoAntigua.UI.Registros
         }
         public void GuardarBoton_Click(object render, RoutedEventArgs e)
         {
+            Radio();
             if (!Validar())
                 return;
             producto.UsuarioId = user;
@@ -89,12 +112,16 @@ namespace RepuestoAntigua.UI.Registros
             Productos found = ProductosBLL.Search(Convert.ToInt32(ProductoIdTextBox.Text));
 
             if (found != null)
+            {
                 this.producto = found;
+                inicarRadio();
+            }
             else
             {
-                this.producto = new Productos();
+                Limpiar();
                 MessageBox.Show("No encontrado", "Mensaje", 
                     MessageBoxButton.OK);
+               
             }
 
             this.DataContext = this.producto;
@@ -163,6 +190,26 @@ namespace RepuestoAntigua.UI.Registros
         {
             return producto;
         }
+        private bool ValidarMargen()
+        {
+            bool esValido = true;
+            int m = Convert.ToInt32(MargenTextBox.Text);
+            if (m > 100 || m < 0)
+            {
+                esValido = false;
+                MessageBox.Show("El Margen debe estar entre 1 y 100",
+                    "Mensaje", MessageBoxButton.OK);
 
+            }
+            return esValido;
+        }
+        private void MargenTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (!ValidarMargen())
+                return;
+            PrecioTextBox.Text = (Convert.ToSingle(CostoTextBox.Text) +
+                Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(MargenTextBox.Text)/100).ToString();
+        }
     }
 }

@@ -141,6 +141,25 @@ namespace BLL
             }
             return encontrado;
         }
+        public static bool Existe(string nombre)
+        {
+            Contexto contexto = new Contexto();
+            bool encontrado = false;
+            try
+            {
+                encontrado = contexto.Marcas
+                    .Any(e => e.Nombres == nombre);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
 
         public static List<Marcas> GetList(Expression<Func<Marcas, bool>> criterio)
         {

@@ -20,16 +20,24 @@ namespace RepuestoAntigua.UI.Registros
             this.usuarios = new Usuarios();
             this.DataContext = usuarios;
             edit = false;
-            Vieja.Visibility = Visibility.Hidden;
+            iniciar();
+           
         }
         public rUsuarios(Usuarios usuario)
         {
             edit=true;
             InitializeComponent();
-            Vieja.Visibility = Visibility.Visible;
+            iniciar();
             this.usuarios = usuario;
             this.DataContext = usuarios;
 
+        }
+        private void iniciar()
+        {
+            if(edit)
+                Vieja.Visibility = Visibility.Visible;
+            else
+                Vieja.Visibility = Visibility.Hidden;
         }
         public void Limpiar()
         {
@@ -42,6 +50,7 @@ namespace RepuestoAntigua.UI.Registros
             NombresLabel.Visibility = Visibility.Hidden;
             ClaveLabel.Visibility = Visibility.Hidden;
             ClaveLabel3.Visibility = Visibility.Hidden;
+            iniciar();
         }
         private void ValidarNombre()
         {
@@ -148,6 +157,7 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
+            edit = false;
             Limpiar();
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -168,8 +178,7 @@ namespace RepuestoAntigua.UI.Registros
                 Limpiar();
                 MessageBox.Show("Guardado con Exito", "Exito", 
                     MessageBoxButton.OK);
-                if (edit)
-                    this.Close();
+                edit = false;
             }
             else
                 MessageBox.Show("Ha ocurrido un error", "Error", 
@@ -182,6 +191,9 @@ namespace RepuestoAntigua.UI.Registros
 
             if (encontrado != null)
             {
+
+                edit = true;
+                iniciar();
                 usuarios = encontrado;
                 this.DataContext = usuarios;
             }

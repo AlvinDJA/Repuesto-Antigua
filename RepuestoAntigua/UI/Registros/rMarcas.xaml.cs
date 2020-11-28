@@ -9,12 +9,14 @@ namespace RepuestoAntigua.UI.Registros
     /// </summary>
     public partial class rMarcas : Window
     {
+        private bool edit;
         private Marcas marcas;
         public rMarcas(int usuario)
         {
             InitializeComponent();
             this.marcas = new Marcas();
             this.DataContext = marcas;
+            edit = false;
         }
 
         public rMarcas(Marcas marcas)
@@ -22,6 +24,7 @@ namespace RepuestoAntigua.UI.Registros
             InitializeComponent();
             this.marcas = marcas;
             this.DataContext = marcas;
+            edit = true;
         }
         public void Limpiar()
         {
@@ -38,7 +41,13 @@ namespace RepuestoAntigua.UI.Registros
                 MessageBox.Show("Ingrese los nombres", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (NombresTextBox.Text.Length < 3)
+            else if (MarcasBLL.Existe(NombresTextBox.Text) && edit == false)
+            {
+                esValido = false;
+                MessageBox.Show("Ya existe esta marca", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (NombresTextBox.Text.Length < 2)
             {
                 esValido = false;
                 MessageBox.Show("El nombre es muy corto", "Mensaje",
@@ -49,6 +58,7 @@ namespace RepuestoAntigua.UI.Registros
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            edit = false;
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -69,7 +79,7 @@ namespace RepuestoAntigua.UI.Registros
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             Marcas encontrado = MarcasBLL.Buscar(marcas.MarcaId);
-
+            edit = true;
             if (encontrado != null)
             {
                 marcas = encontrado;
