@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Marcas" Height="400" Width="600"  WindowStartupLocation="CenterScreen">
+        Title="Consulta de Facturas" Height="400" Width="600"  WindowStartupLocation="CenterScreen">
     <Grid Margin="0,40" Width="560">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -50,7 +50,7 @@
                   MinHeight="100" MaxHeight="250" MinWidth="400" 
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Factura Id" Width="*" Binding="{Binding FacturaId}"/>
+                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding FacturaId}"/>
                 <DataGridTextColumn Header="Cliente" Width="*" Binding="{Binding ClienteId}"/>
                 <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>

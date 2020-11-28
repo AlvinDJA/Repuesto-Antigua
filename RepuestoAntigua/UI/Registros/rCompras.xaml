@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
         mc:Ignorable="d"
-        Title="Registor de Compras" Height="510" Width="600"  WindowStartupLocation="CenterScreen">
+        Title="Registor de Compras" Height="522" Width="600"  WindowStartupLocation="CenterScreen">
     <Grid Margin="15,0,0,0">
         <StackPanel Orientation="Vertical" Margin="0,0,10,0">
             <StackPanel  Width="223" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
@@ -74,7 +74,7 @@
                         <DataGrid x:Name="DatosDataGrid"  Height="150" VerticalAlignment="Top"
                                   Width="548" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Producto Id" Binding="{Binding Producto}" Width="*"/>
+                                <DataGridTextColumn Header="Producto" Binding="{Binding ProductoId}" Width="*"/>
                                 <DataGridTextColumn Header="Costo" Binding="{Binding Costo}" Width="*"/>
                                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*"/>
                             </DataGrid.Columns>

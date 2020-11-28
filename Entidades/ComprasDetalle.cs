@@ -19,7 +19,7 @@ namespace Entidades
             this.DetalleId = 0;
             this.CompraId = CompraId;
             this.ProductoId = ProductoId;
-            this.Costo = Cantidad;
+            this.Costo = Costo;
             this.Cantidad = Cantidad;
         }
 
