@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Productos" Height="400" Width="600"  WindowStartupLocation="CenterScreen">
-    <Grid Margin="0,40" Width="560">
+        Title="Consulta de Productos" Height="400" Width="620"  WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,40" Width="590">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -52,16 +52,16 @@
                   MinHeight="100" MaxHeight="250" MinWidth="400" 
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Id" Width="*" Binding="{Binding ProductoId}"/>
-                <DataGridTextColumn Header="Descripción" Width="*" Binding="{Binding Descripcion}"/>
-                <DataGridTextColumn Header="Cantidad" Width="*" Binding="{Binding Cantidad}"/>
-                <DataGridTextColumn Header="Costo" Width="" Binding="{Binding Costo}"/>  
-                <DataGridTextColumn Header="Precio" Width="*" Binding="{Binding Precio}"/> 
-                <DataGridTextColumn Header="Marca" Width="*" Binding="{Binding MarcaId}"/>
-                <DataGridTextColumn Header="Usuario Id" Width="*" Binding="{Binding UsuarioId}"/> 
-                <DataGridTextColumn Header="#Serie" Width="*" Binding="{Binding NoSerie}"/> 
-                <DataGridTextColumn Header="PorcentajeITBIS" Width="*" Binding="{Binding PorcentajeITBIS}"/> 
-                <DataGridTextColumn Header="MargenGanancia" Width="*" Binding="{Binding MargenGanancia}"/> 
+                <DataGridTextColumn Header="Id" Width="5" Binding="{Binding ProductoId}"/>
+                <DataGridTextColumn Header="Descripción" Width="80" Binding="{Binding Descripcion}"/>
+                <DataGridTextColumn Header="Cantidad" Width="58" Binding="{Binding Cantidad}"/>
+                <DataGridTextColumn Header="Costo" Width="42" Binding="{Binding Costo}"/>  
+                <DataGridTextColumn Header="Precio" Width="42" Binding="{Binding Precio}"/> 
+                <DataGridTextColumn Header="Marca" Width="42" Binding="{Binding MarcaId}"/>
+                <DataGridTextColumn Header="Usuario Id" Width="65" Binding="{Binding UsuarioId}"/> 
+                <DataGridTextColumn Header="#Serie" Width="43" Binding="{Binding NoSerie}"/> 
+                <DataGridTextColumn Header="PorcentajeITBIS" Width="90" Binding="{Binding PorcentajeITBIS}"/> 
+                <DataGridTextColumn Header="MargenGanancia" Width="100" Binding="{Binding MargenGanancia}"/> 
             </DataGrid.Columns>
         </DataGrid>
         <!--Botones-->

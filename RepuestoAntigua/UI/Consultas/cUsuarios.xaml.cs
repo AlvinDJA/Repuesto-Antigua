@@ -97,7 +97,7 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
-            new cUsuarios().ShowDialog();
+            new rUsuarios().ShowDialog();
             Inicializar();
         }
 

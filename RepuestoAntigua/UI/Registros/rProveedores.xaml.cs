@@ -48,6 +48,7 @@ namespace RepuestoAntigua.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Ingrese un nombre e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
 
             if (CorreoTextBox.Text.Length == 0)

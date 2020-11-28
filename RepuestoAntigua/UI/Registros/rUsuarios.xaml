@@ -57,7 +57,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="Vieja" Width="321" Margin="10,0,0,0" Orientation="Vertical" HorizontalAlignment="Left" Height="53" Visibility="Visible">
-                <Label Content="Confirmar Clave:" />
+                <Label Content="Confirmar Clave Anterior :" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <PasswordBox x:Name="Clave3TextBox" Width="160" Height="25" PasswordChanged="Clave2TextBox_PasswordChanged"/>
                     <Label x:Name="ClaveLabel3" Content="La clave anterior no coincide" Foreground="#FFD30B0B" Visibility="Hidden"/>

@@ -12,6 +12,7 @@
                 <Label Content="ClienteId:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="IdTextBox" Width="140" Height="25" Text="{Binding ClienteId}" />
+                    
 
                     <Button x:Name="BuscarButton"  Margin="40,0,0,0" Width="90" Click="BuscarBoton_Click">
                         <StackPanel Orientation="Horizontal">
@@ -26,6 +27,7 @@
                     <Label Content="Nombres:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <TextBox x:Name="NombresTextBox" Width="165" Height="25" Text="{Binding Nombres}"  />
+                        <Label x:Name="NombresLabel" Content="El nombre es muy corto" Foreground="#FFD30B0B" Visibility="Hidden" Width="163"/>
                     </StackPanel>
                 </StackPanel>
                 <!--Nombres o Usuario -->
@@ -33,6 +35,7 @@
                     <Label Content="Apellidos:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <TextBox x:Name="ApellidosTextBox" Width="165" Height="25" Text="{Binding Apellidos}"  />
+                        
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

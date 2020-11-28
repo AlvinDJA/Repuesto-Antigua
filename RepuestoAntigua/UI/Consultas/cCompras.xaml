@@ -52,7 +52,7 @@
                   MinHeight="100" MaxHeight="250" MinWidth="400" 
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Compra Id" Width="*" Binding="{Binding CompraId}"/>
+                <DataGridTextColumn Header="Id" Width="5" Binding="{Binding CompraId}"/>
                 <DataGridTextColumn Header="Proveedor" Width="*" Binding="{Binding ProveedorId}"/>
                 <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>

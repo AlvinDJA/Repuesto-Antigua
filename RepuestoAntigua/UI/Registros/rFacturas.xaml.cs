@@ -107,16 +107,22 @@ namespace RepuestoAntigua.UI.Registros
 
             if (existe == null)
             {
-                MessageBox.Show("No existe el proyecto en la base de datos", "Mensaje",
+                MessageBox.Show("No existe la Factura en la base de datos", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             else
             {
-                FacturasBLL.Delete(factura.FacturaId);
-                MessageBox.Show("Eliminado", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-                Limpiar();
+                MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar la Factura  " + factura.FacturaId + "?",
+                "Facturas", MessageBoxButton.YesNo);
+
+                if (opcion.Equals(MessageBoxResult.Yes))
+                {
+                    FacturasBLL.Delete(factura.FacturaId);
+                    MessageBox.Show("Eliminado", "Exito",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    Limpiar();
+                }
             }
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -158,6 +164,14 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void Remover_Click(object sender, RoutedEventArgs e)
         {
+            FacturasDetalle facturas = GetSelectedCompra();
+
+            if (facturas == null)
+            {
+                MessageBox.Show("Primero seleccione una Factura", "Mensaje",
+                    MessageBoxButton.OK);
+                return;
+            }
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
                 FacturasDetalle m = (FacturasDetalle)DatosDataGrid.SelectedValue;
@@ -165,6 +179,16 @@ namespace RepuestoAntigua.UI.Registros
                 factura.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
+        }
+
+        private FacturasDetalle GetSelectedCompra()
+        {
+            object facturas = DatosDataGrid.SelectedItem;
+
+            if (facturas != null)
+                return (FacturasDetalle)facturas;
+            else
+                return null;
         }
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {

@@ -71,7 +71,7 @@ namespace RepuestoAntigua.UI.Registros
 
             if (ProductosComboBox.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione un producton e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Seleccione un producto e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
@@ -126,16 +126,22 @@ namespace RepuestoAntigua.UI.Registros
 
             if (existe == null)
             {
-                MessageBox.Show("No existe el proyecto en la base de datos", "Mensaje",
+                MessageBox.Show("No existe la Compra en la base de datos", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             else
             {
-                ComprasBLL.Delete(compra.CompraId);
-                MessageBox.Show("Eliminado", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-                Limpiar();
+                MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar la compra  " + compra.CompraId + "?",
+                "Compras", MessageBoxButton.YesNo);
+
+                if (opcion.Equals(MessageBoxResult.Yes))
+                {
+                    ComprasBLL.Delete(compra.CompraId);
+                    MessageBox.Show("Eliminado", "Exito",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    Limpiar();
+                }
             }
         }
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -179,6 +185,14 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void Remover_Click(object sender, RoutedEventArgs e)
         {
+            ComprasDetalle compras = GetSelectedCompra();
+
+            if ( compras == null)
+            {
+                MessageBox.Show("Primero seleccione una Compra", "Mensaje",
+                    MessageBoxButton.OK);
+                return;
+            }
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
                 ComprasDetalle m = (ComprasDetalle)DatosDataGrid.SelectedValue;
@@ -186,6 +200,16 @@ namespace RepuestoAntigua.UI.Registros
                 compra.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
+        }
+
+        private ComprasDetalle GetSelectedCompra()
+        {
+            object Compras = DatosDataGrid.SelectedItem;
+
+            if (Compras != null)
+                return (ComprasDetalle)Compras;
+            else
+                return null;
         }
         private void Agregar_Click(object sender, RoutedEventArgs e)
         {

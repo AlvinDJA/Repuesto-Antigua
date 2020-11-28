@@ -92,7 +92,6 @@ namespace RepuestoAntigua.UI.Registros
                 {
                     MessageBox.Show("Guardado con Exito", "Exito",
                         MessageBoxButton.OK);
-                    this.Close();
                 }
                 else
                 {
