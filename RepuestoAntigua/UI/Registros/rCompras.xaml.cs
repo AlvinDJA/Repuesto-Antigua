@@ -54,23 +54,21 @@ namespace RepuestoAntigua.UI.Registros
 
         private bool ValidarDetalle()
         {
-           //if (!CostoTextBox.Text.(char.IsNumber))
-           // {
-           //     MessageBox.Show("Ingrese un valor numerico  válido e intente de nuevo", "Registro de moras", MessageBoxButton.OK, MessageBoxImage.Error);
-           //     return false;
-           // }
+           
 
-           // if (ValorTextBox.Text.Length == 0)
-           // {
-           //     MessageBox.Show("Ingrese un valor e intente de nuevo", "Registro de moras", MessageBoxButton.OK, MessageBoxImage.Error);
-           //     return false;
-           // }
+            if (CostoTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese un Costo e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
 
-           // if (PrestamoComboBox.SelectedIndex < 0)
-           // {
-           //     MessageBox.Show("Seleccione un préstamo e intente de nuevo", "Registro de moras", MessageBoxButton.OK, MessageBoxImage.Error);
-           //     return false;
-           // }
+            if (CantidadTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese una Cantidad e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+
 
             return true;
         }
@@ -187,7 +185,7 @@ namespace RepuestoAntigua.UI.Registros
 
             Cargar();
 
-            ProveedoresComboBox.SelectedIndex = -1;
+           
             CostoTextBox.Clear();
             CantidadTextBox.Clear();
         }

@@ -62,29 +62,18 @@ namespace RepuestoAntigua
         {
             new cFacturas(usuario).Show();
         }
-        private void cComprasItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void cProveedoresItem_Click(object sender, RoutedEventArgs e)
         {
             new cProveedores(usuario).Show();
         }
-
-<<<<<<< HEAD
         private void cClientesItem_Click(object sender, RoutedEventArgs e)
         {
             new cClientes(usuario).Show();
-=======
-        private void rUsuariosItem_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
 
-        private void rClientesItem_Click(object sender, RoutedEventArgs e)
+        private void cComprasItem_Click(object sender, RoutedEventArgs e)
         {
-
->>>>>>> a249c89572f91eb5cca7e7acc1eaf16be11bfa60
+            new cCompras(usuario).Show();
         }
     }
 }

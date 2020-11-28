@@ -31,7 +31,7 @@ namespace BLL
                 foreach (ComprasDetalle m in detalle)
                 {
                     producto = ProductosBLL.Search(m.ProductoId);
-                    producto.Cantidad -= m.Cantidad;
+                    producto.Cantidad += m.Cantidad;
                     ProductosBLL.Save(producto);
                 }
             }

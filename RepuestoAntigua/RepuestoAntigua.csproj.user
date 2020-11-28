@@ -7,11 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Update="UI\Consultas\cClientes.xaml.cs">
-=======
+		<SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Consultas\cFacturas.xaml.cs">
->>>>>>> a249c89572f91eb5cca7e7acc1eaf16be11bfa60
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\Consultas\cMarcas.xaml.cs">
@@ -43,11 +42,10 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< HEAD
     <Page Update="UI\Consultas\cClientes.xaml">
-=======
+		 <SubType>Designer</SubType>
+    </Page>
     <Page Update="UI\Consultas\cFacturas.xaml">
->>>>>>> a249c89572f91eb5cca7e7acc1eaf16be11bfa60
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Consultas\cMarcas.xaml">
