@@ -17,7 +17,7 @@ namespace RepuestoAntigua
         }
         private void rUsuariosItem_Click(object sender, RoutedEventArgs e)
         {
-            new rUsuarios(usuario).Show();
+            new rUsuarios().Show();
         }
         private void cUsuariosItem_Click(object sender, RoutedEventArgs e)
         {

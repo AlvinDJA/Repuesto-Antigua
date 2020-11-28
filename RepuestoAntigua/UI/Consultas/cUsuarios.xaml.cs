@@ -81,7 +81,7 @@ namespace RepuestoAntigua.UI.Consultas
                 return;
             }
 
-            new rUsuarios(usuario).ShowDialog();
+            new rUsuarios(usuario).Show();
             Inicializar();
         }
 

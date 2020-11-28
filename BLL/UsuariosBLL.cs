@@ -121,6 +121,27 @@ namespace BLL
 
             return paso;
         }
+        public static bool Validar(int id, string pass)
+        {
+            bool paso = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                paso = contexto.Usuarios.Any(u => u.UsuarioId == id && u.Clave == pass);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
         public static bool Eliminar(int id)
         {
             bool paso = false;

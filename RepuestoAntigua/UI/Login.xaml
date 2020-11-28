@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI"
         mc:Ignorable="d"
-        Title="Login" Height="325" Width="431" WindowStartupLocation="CenterScreen">
-    <StackPanel Orientation="Horizontal">
+        Title="Login" Height="306" Width="412" WindowStartupLocation="CenterScreen"  Background="#FF202020">
+    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
 
-        <StackPanel Width="431" Background="#FF202020">
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Inicio" Height="42"  HorizontalAlignment="Center" Background="#00F3F3F3" Foreground="White" FontSize="20" Width="58" VerticalAlignment="Top"/>
-
             <StackPanel Margin="0,20,0,0">
                 <Label Content="Usuario:" Foreground="White" Width="350"/>
                 <TextBox x:Name="NombreUsuarioTextBox" BorderBrush="#00ABADB3" Width="350" Height="22"/>

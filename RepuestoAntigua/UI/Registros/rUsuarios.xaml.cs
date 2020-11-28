@@ -12,20 +12,23 @@ namespace RepuestoAntigua.UI.Registros
     /// </summary>
     public partial class rUsuarios : Window
     {
+        private bool edit;
         private Usuarios usuarios;
-        public rUsuarios(int usuario)
+        public rUsuarios()
         {
             InitializeComponent();
             this.usuarios = new Usuarios();
             this.DataContext = usuarios;
+            edit = false;
+            Vieja.Visibility = Visibility.Hidden;
         }
-
         public rUsuarios(Usuarios usuario)
         {
+            edit=true;
             InitializeComponent();
+            Vieja.Visibility = Visibility.Visible;
             this.usuarios = usuario;
             this.DataContext = usuarios;
-            
 
         }
         public void Limpiar()
@@ -34,9 +37,11 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = usuarios;
             Clave1TextBox.Clear();
             Clave2TextBox.Clear();
+            Clave3TextBox.Clear();
             UsuarioLabel.Visibility = Visibility.Hidden;
             NombresLabel.Visibility = Visibility.Hidden;
             ClaveLabel.Visibility = Visibility.Hidden;
+            ClaveLabel3.Visibility = Visibility.Hidden;
         }
         private void ValidarNombre()
         {
@@ -59,7 +64,6 @@ namespace RepuestoAntigua.UI.Registros
             {
                 UsuarioLabel.Visibility = Visibility.Hidden;
             }
-           
         }
         private void ValidarClave()
         {
@@ -111,7 +115,7 @@ namespace RepuestoAntigua.UI.Registros
                 MessageBox.Show("El usuario es muy corto", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (UsuariosBLL.Existe(UsuarioTextBox.Text))
+            else if (UsuariosBLL.Existe(UsuarioTextBox.Text) && edit == false)
             {
                 esValido = false;
                 MessageBox.Show("Ya existe este nombre de usuario", "Mensaje",
@@ -132,6 +136,16 @@ namespace RepuestoAntigua.UI.Registros
             
             return esValido;
         }
+        private bool ValidarVieja(string passVieja)
+        {
+            bool esValido = true;
+            if (!UsuariosBLL.Validar(usuarios.UsuarioId, passVieja))
+            {
+                esValido = false;
+                ClaveLabel3.Visibility = Visibility.Visible;
+            }
+            return esValido;
+        }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
@@ -140,15 +154,22 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!Validar()) 
                 return;
+            if (edit)
+            {
+                if (!ValidarVieja(Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(Clave3TextBox.Password))))
+                return;
+            }
             string clave = Convert.ToBase64String(System.Text.Encoding.Unicode.GetBytes(Clave1TextBox.Password));
             usuarios.Clave = clave;
             usuarios.Fecha = DateTime.Now;
-                var paso = UsuariosBLL.Save(usuarios);
+            var paso = UsuariosBLL.Save(usuarios);
             if (paso)
             {
                 Limpiar();
                 MessageBox.Show("Guardado con Exito", "Exito", 
                     MessageBoxButton.OK);
+                if (edit)
+                    this.Close();
             }
             else
                 MessageBox.Show("Ha ocurrido un error", "Error", 
