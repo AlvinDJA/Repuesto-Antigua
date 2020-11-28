@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua"
         mc:Ignorable="d"
-        Title="Menú Principal" Height="175" Width="428" WindowStartupLocation="CenterScreen">
+        Title="Menú Principal" Height="201" Width="466" WindowStartupLocation="CenterScreen">
     <Grid >
         <StackPanel>
             <StackPanel Orientation = "Horizontal">
@@ -16,29 +16,19 @@
                         <MenuItem x:Name="rMarcasItem" Header="Registro de Marcas" Click="rMarcasItem_Click" />
                         <MenuItem x:Name="rProveedoresItem" Header="Registro de Proveedores" Click="rProveedoresItem_Click" />
                         <MenuItem x:Name="rProductosItem" Header="Registro de Productos" Click="rProductosItem_Click" />
-                        <MenuItem x:Name="rComprasItem" Header="Registro de Compras" Click="rComprasItem_Click" />
                         <MenuItem x:Name="rFacturasItem" Header="Registro de Facturas" Click="rFacturasItem_Click" />
+                        <MenuItem x:Name="rComprasItem" Header="Registro de Compras" Click="rComprasItem_Click" />
                     </MenuItem>
                 </Menu>
                 <Menu Height="18">
                     <MenuItem Header="Consultas" Width="80">
-<<<<<<< HEAD
-                        <MenuItem x:Name="cUsuariosItem" Header="Registro de Usuarios" Click="cUsuariosItem_Click" />
-                        <MenuItem x:Name="cMarcasItem" Header="Registro de Marcas" Click="cMarcasItem_Click" />
-                        <MenuItem x:Name="cProveedoresItem" Header="Registro de Proveedores" Click="cProveedoresItem_Click" />
-                        <MenuItem x:Name="cProductosItem" Header="Registro de Productos" Click="cProductosItem_Click" />
-                        <MenuItem x:Name="cComprasItem" Header="Registro de Compras" Click="cComprasItem_Click" />
-                        <MenuItem x:Name="cFacturasItem" Header="Registro de Facturas" Click="cFacturasItem_Click" />
-                        <MenuItem x:Name="cClientesItem" Header="Registro de Clientes" Click="cClientesItem_Click" />
-=======
                         <MenuItem x:Name="cUsuariosItem" Header="Consulta de Usuarios" Click="cUsuariosItem_Click" />
+                        <MenuItem x:Name="cClientesItem" Header="Consulta de Clientes" Click="cClientesItem_Click" />
                         <MenuItem x:Name="cMarcasItem" Header="Consulta de Marcas" Click="cMarcasItem_Click" />
                         <MenuItem x:Name="cProveedoresItem" Header="Consulta de Proveedores" Click="cProveedoresItem_Click" />
                         <MenuItem x:Name="cProductosItem" Header="Consulta de Productos" Click="cProductosItem_Click" />
-                        <MenuItem x:Name="cComprasItem" Header="Consulta de Compras" Click="cComprasItem_Click" />
                         <MenuItem x:Name="cFacturasItem" Header="Consulta de Facturas" Click="cFacturasItem_Click" />
-                        <MenuItem x:Name="cClientesItem" Header="Consulta de Clientes" Click="cClientesItem_Click" />
->>>>>>> ccec492d9a304bc3af5f32d7f5f6a87f2df1c5c9
+                        <MenuItem x:Name="cComprasItem" Header="Consulta de Compras" Click="cComprasItem_Click" />
                     </MenuItem>
                 </Menu>
             </StackPanel>

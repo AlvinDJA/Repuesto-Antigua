@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-<<<<<<< HEAD
   <PropertyGroup />
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
@@ -74,12 +73,5 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-=======
-	<PropertyGroup />
-	<ItemGroup>
-		<ApplicationDefinition Update="App.xaml">
-			<SubType>Designer</SubType>
-		</ApplicationDefinition>
-	</ItemGroup>
->>>>>>> ccec492d9a304bc3af5f32d7f5f6a87f2df1c5c9
+
 </Project>
