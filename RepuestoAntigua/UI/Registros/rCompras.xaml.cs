@@ -29,6 +29,7 @@ namespace RepuestoAntigua.UI.Registros
 
         private void IniciarCombobox()
         {
+            compra.Fecha = DateTime.Now;
             Limpiar();
             ProductosComboBox.ItemsSource = ProductosBLL.GetList(c => true);
             ProductosComboBox.SelectedValuePath = "ProductoId";
@@ -58,15 +59,35 @@ namespace RepuestoAntigua.UI.Registros
 
             if (CostoTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Ingrese un Costo e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ingrese un Costo e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
             if (CantidadTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Ingrese una Cantidad e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ingrese una Cantidad e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
+
+            if (ProductosComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un producton e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+
+            if (ProveedoresComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un proveedor e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+
+            if (!float.TryParse(CostoTextBox.Text, out _))
+            {
+                MessageBox.Show("Ingrese un Costo válido, que sea numerico", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+
+
 
 
 
@@ -121,6 +142,8 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!ValidarGuardar())
                 return;
+
+           
             bool paso = false;
 
             if (compra.CompraId == 0)

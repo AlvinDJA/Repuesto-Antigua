@@ -37,7 +37,7 @@
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="RNC:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="RCNTextBox" Width="140" Height="25" Text="{Binding RNC}"  />
+                    <TextBox x:Name="RNCTextBox" Width="140" Height="25" Text="{Binding RNC}"  />
                 </StackPanel>
             </StackPanel>
 

@@ -97,7 +97,7 @@ namespace BLL
                 foreach (ComprasDetalle d in viejosDetalles)
                 {
                     producto = ProductosBLL.Search(d.ProductoId);
-                    producto.Cantidad += d.Cantidad;
+                    producto.Cantidad -= d.Cantidad;
                     ProductosBLL.Save(producto);
                 }
                 if (compra != null)

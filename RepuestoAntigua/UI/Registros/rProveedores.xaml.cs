@@ -47,15 +47,27 @@ namespace RepuestoAntigua.UI.Registros
             if (NombresTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Ingrese los nombres", "Mensaje",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Ingrese un nombre e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (NombresTextBox.Text.Length < 3)
+
+            if (CorreoTextBox.Text.Length == 0)
             {
-                esValido = false;
-                MessageBox.Show("El nombre es muy corto", "Mensaje",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Ingrese un Correo e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
             }
+
+            if (RNCTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese un RNC e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+
+            if (TelefonoTextBox.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese un Telefono e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+
             return esValido;
         }
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
