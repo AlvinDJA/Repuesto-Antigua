@@ -39,7 +39,7 @@ namespace RepuestoAntigua.UI.Consultas
         }
         private void Buscar()
         {
-            var listado = new List<Productos>();
+            var listado = new List<Object>();
             string criterio = CriterioTextBox.Text.Trim();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
@@ -47,19 +47,22 @@ namespace RepuestoAntigua.UI.Consultas
                 switch (FiltroCombobox.SelectedIndex)
                 {
                     case 0:
-                        listado = ProductosBLL.GetList( );
+                        listado = ProductosBLL.GetList(true);
                         break;
                     case 1:
-                        listado = ProductosBLL.GetList(p => p.ProductoId == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = ProductosBLL.GetList("ProductoId", criterio);
                         break;
                     case 2:
-                        listado = ProductosBLL.GetList(p => p.Descripcion.ToLower().Contains(criterio.ToLower()));
+                        listado = ProductosBLL.GetList("Descripcion", criterio);
+                        break;
+                    case 3:
+                        listado = ProductosBLL.GetList("Marca", criterio);
                         break;
                 }
             }
             else
             {
-                listado = ProductosBLL.GetList();
+                listado = ProductosBLL.GetList(true);
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;

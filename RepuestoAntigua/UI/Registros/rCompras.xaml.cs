@@ -31,7 +31,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             compra.Fecha = DateTime.Now;
             Limpiar();
-            ProductosComboBox.ItemsSource = ProductosBLL.GetList(c => true);
+            ProductosComboBox.ItemsSource = ProductosBLL.GetList();
             ProductosComboBox.SelectedValuePath = "ProductoId";
             ProductosComboBox.DisplayMemberPath = "Descripcion";
 

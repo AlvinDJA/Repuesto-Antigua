@@ -21,7 +21,6 @@ namespace Entidades
             this.Cantidad = Cantidad;
             this.Precio = precio;
         }
-
         public FacturasDetalle(Productos producto, float cantidad)
         {
             ProductoId = producto.ProductoId;
