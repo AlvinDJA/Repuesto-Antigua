@@ -32,7 +32,8 @@
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Descripción"/>
-                    <ComboBoxItem Content="Fecha"/>
+                    <ComboBoxItem Content="Marca"/>
+                    <ComboBoxItem Content="Usuario"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
@@ -58,7 +59,7 @@
                 <DataGridTextColumn Header="Costo" Width="42" Binding="{Binding Costo}"/>  
                 <DataGridTextColumn Header="Precio" Width="42" Binding="{Binding Precio}"/> 
                 <DataGridTextColumn Header="Marca" Width="42" Binding="{Binding MarcaId}"/>
-                <DataGridTextColumn Header="Usuario Id" Width="65" Binding="{Binding UsuarioId}"/> 
+                <DataGridTextColumn Header="Usuario" Width="65" Binding="{Binding UsuarioId}"/> 
                 <DataGridTextColumn Header="#Serie" Width="43" Binding="{Binding NoSerie}"/> 
                 <DataGridTextColumn Header="PorcentajeITBIS" Width="90" Binding="{Binding PorcentajeITBIS}"/> 
                 <DataGridTextColumn Header="MargenGanancia" Width="100" Binding="{Binding MargenGanancia}"/> 

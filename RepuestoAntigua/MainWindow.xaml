@@ -30,6 +30,7 @@
                         <MenuItem x:Name="cFacturasItem" Header="Consulta de Facturas" Click="cFacturasItem_Click" />
                         <MenuItem x:Name="cComprasItem" Header="Consulta de Compras" Click="cComprasItem_Click" />
                     </MenuItem>
+                    <MenuItem  x:Name="CerrarItem" Header="Cerrar Sesión" Click="CerrarSesion_Click"/>
                 </Menu>
 
             </StackPanel>
@@ -55,12 +56,6 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-                <Button x:Name="CerrarSesion" Width="97" Click="CerrarSesion_Click"   HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/Remover.png" Width="15" Height="15"/>
-                        <Label Content="Cerrar Sesión" />
-                    </StackPanel>
-                </Button> 
         </StackPanel>
     </Grid>
 </Window>

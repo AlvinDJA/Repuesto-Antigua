@@ -32,6 +32,7 @@
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Nombres"/>
+                    <ComboBoxItem Content="RNC"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
@@ -55,7 +56,7 @@
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
                 <DataGridTextColumn Header="Correo" Width="*" Binding="{Binding Correo}"/>
                 <DataGridTextColumn Header="RNC" Width="*" Binding="{Binding RNC}"/>
-                <DataGridTextColumn Header="Telefono" Width="*" Binding="{Binding Telefono}"/>
+                <DataGridTextColumn Header="Teléfono" Width="*" Binding="{Binding Telefono}"/>
             </DataGrid.Columns>
         </DataGrid>
 

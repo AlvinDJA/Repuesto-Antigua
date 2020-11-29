@@ -74,9 +74,8 @@
                         <DataGrid x:Name="DatosDataGrid"  Height="150" VerticalAlignment="Top"
                                   Width="548" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Producto Id" Binding="{Binding ProductoId}" Width="*" />
-                                <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
                                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*"/>
+                                <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
                                 <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="*"/>
                                 <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="*"/>
                             </DataGrid.Columns>

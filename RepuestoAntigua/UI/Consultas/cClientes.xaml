@@ -52,14 +52,14 @@
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id" Width="5" Binding="{Binding ClienteId}"/>
-                <DataGridTextColumn Header="Usuario Id" Width="*" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
                 <DataGridTextColumn Header="Apellidos" Width="*" Binding="{Binding Apellidos}"/>
-                <DataGridTextColumn Header="Cedula" Width="*" Binding="{Binding Cedula}"/>
-                <DataGridTextColumn Header="Direccion" Width="*" Binding="{Binding Direccion}"/>
-                <DataGridTextColumn Header="Telefono" Width="*" Binding="{Binding Telefono}"/>
-                <DataGridTextColumn Header="Correo" Width="*" Binding="{Binding Correo}"/>
                 <DataGridTextColumn Header="Celular" Width="*" Binding="{Binding Celular}"/>
+                <DataGridTextColumn Header="Cédula" Width="*" Binding="{Binding Cedula}"/>
+                <DataGridTextColumn Header="Teléfono" Width="*" Binding="{Binding Telefono}"/>
+                <DataGridTextColumn Header="Dirección" Width="*" Binding="{Binding Direccion}"/>
+                <DataGridTextColumn Header="Correo" Width="*" Binding="{Binding Correo}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
             </DataGrid.Columns>
         </DataGrid>
 

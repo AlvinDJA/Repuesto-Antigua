@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                <Label Content="UsuarioId:" />
+                <Label Content="Usuario Id:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="UsuarioIdTextBox" Width="140" Height="25" Text="{Binding UsuarioId}" />
 

@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                <Label Content="MarcaId:" />
+                <Label Content="Proveedor Id:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox Width="140" Height="25" Text="{Binding ProveedorId}" />
                     <Button x:Name="BuscarButton"  Margin="10,0,0,0" Width="72" Click="BuscarButton_Click">
@@ -42,7 +42,7 @@
             </StackPanel>
 
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
-                <Label Content="Telefono:" />
+                <Label Content="Teléfono:" />
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="TelefonoTextBox" Width="140" Height="25" Text="{Binding Telefono}"  />
                 </StackPanel>

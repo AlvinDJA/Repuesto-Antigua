@@ -133,14 +133,21 @@ namespace RepuestoAntigua.UI.Registros
             if (DescripcionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe colocar el nombre del producto",
+                MessageBox.Show("Debe colocar la escri del producto",
                     "Mensaje", MessageBoxButton.OK);
 
             }
             else if (CantidadTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe colocar el Stock del producto",
+                MessageBox.Show("Debe colocar la cantidad del producto",
+                    "Mensaje", MessageBoxButton.OK);
+
+            }
+            else if (CostoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Debe colocar el Precio del producto",
                     "Mensaje", MessageBoxButton.OK);
 
             }

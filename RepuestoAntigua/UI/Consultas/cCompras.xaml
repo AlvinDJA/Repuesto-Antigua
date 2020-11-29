@@ -31,9 +31,9 @@
                 <ComboBox x:Name="FiltroCombobox" Width="120" SelectedIndex="0">
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
-                    <ComboBoxItem Content="Proveedor Id"/>
-                    <ComboBoxItem Content="Usuario Id"/>
-                    
+                    <ComboBoxItem Content="Proveedor "/>
+                    <ComboBoxItem Content="Usuario"/>
+                    <ComboBoxItem Content="Fecha"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
@@ -54,10 +54,10 @@
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id" Width="5" Binding="{Binding CompraId}"/>
                 <DataGridTextColumn Header="Proveedor" Width="*" Binding="{Binding ProveedorId}"/>
-                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>
                 <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding Itbis}"/>
                 <DataGridTextColumn Header="Total" Width="*" Binding="{Binding TotalCompra}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
             </DataGrid.Columns>
         </DataGrid>
         <!--Botones-->

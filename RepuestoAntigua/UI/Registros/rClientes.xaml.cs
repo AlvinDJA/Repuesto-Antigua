@@ -82,43 +82,28 @@ namespace RepuestoAntigua.UI.Registros
 
             if (NombresTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Ingrese un nombre e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Ingrese un nombre e intente de nuevo", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
             if (ApellidosTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Ingrese un apellido e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Ingrese un apellido e intente de nuevo", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
-            if (TelefonoTextBox.Text.Length == 0)
+            if (TelefonoTextBox.Text.Length == 0 && CelularTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Ingrese un telefono e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Debe ingresar teléfono o celular", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-
-            if (CorreoTextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Ingrese un correo e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
-
-            if (CelularTextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Ingrese un celular e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
-
-            if (CedulaTextBox.Text.Length == 0)
-            {
-                MessageBox.Show("Ingrese una cedula e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
-
             if (DireccionTextBox.Text.Length == 0)
             {
-                MessageBox.Show("Ingrese una direccion e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ingrese una direccion e intente de nuevo", "Mensaje",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
