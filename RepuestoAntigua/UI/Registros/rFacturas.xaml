@@ -24,7 +24,7 @@
             <StackPanel Width="376" Margin="10,10,0,0" Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Fecha:" />
-                    <DatePicker Width="140" Height="25" Margin="0,0,0,0"  HorizontalAlignment="Left" SelectedDate="{Binding Fecha}"/>
+                    <DatePicker Width="140" Height="25" Margin="0,0,0,0"  HorizontalAlignment="Left" SelectedDate="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="10,0,0,0">
                     <Label Content="Cliente:" />

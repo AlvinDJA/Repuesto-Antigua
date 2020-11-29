@@ -54,7 +54,7 @@
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id" Width="5" Binding="{Binding CompraId}"/>
                 <DataGridTextColumn Header="Proveedor" Width="*" Binding="{Binding ProveedorId}"/>
-                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>
+                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}"/>
                 <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding Itbis}"/>
                 <DataGridTextColumn Header="Total" Width="*" Binding="{Binding TotalCompra}"/>
                 <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>

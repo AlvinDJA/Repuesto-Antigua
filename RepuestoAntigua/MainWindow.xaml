@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Menú Principal" Height="201" Width="466" WindowStartupLocation="CenterScreen">
     <Grid >
-        <StackPanel >
+        <Image Source="/Imagenes/Logo.png" Margin="106,28,106,27"/>
+        <StackPanel  >
             <StackPanel Orientation = "Horizontal">
                 <Menu Height="18">
                     <MenuItem Header="_Registros"  >
@@ -33,28 +34,6 @@
                     <MenuItem  x:Name="CerrarItem" Header="Cerrar Sesión" Click="CerrarSesion_Click"/>
                 </Menu>
 
-            </StackPanel>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="0,0,0,-26" Width="42">
-                <!--Nuevo-->
-                <Button x:Name="NuevoBoton" Width="40" Click="rFacturasItem_Click" Height="30" >
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/agregar.png" Width="15" Height="15"/>
-                    </StackPanel>
-                </Button>
-
-                <!--Editar-->
-                <Button x:Name="EditarBoton" Width="40" Margin="0,4,0,0" Click="cComprasItem_Click" Height="30" >
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/editar.png" Width="15" Height="15"/>
-                    </StackPanel>
-                </Button>
-
-                <!--Eliminar-->
-                <Button x:Name="EliminarBoton"   Width="40" Click="rProductosItem_Click" Margin="0,4,0,0"  Height="30">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/Imagenes/eliminar.png" Width="15" Height="15"/>
-                    </StackPanel>
-                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>
