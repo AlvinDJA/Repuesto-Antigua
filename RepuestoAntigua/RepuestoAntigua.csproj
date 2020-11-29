@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <PackageReference Include="Syncfusion.SfChart.WPF" Version="18.3.0.51" />
+	  <PackageReference Include="Syncfusion.SfInput.WPF" Version="18.3.0.51" />
 	  <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 

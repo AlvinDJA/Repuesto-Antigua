@@ -33,6 +33,9 @@ namespace RepuestoAntigua.UI.Registros
         {
             this.cliente = new Clientes();
             this.DataContext = cliente;
+            CedulaMaskEdit.Value = null;
+            CelularMaskEdit.Value = null;
+            TelefonoMaskEdit.Value = null;
         }
         public rClientes(Clientes cliente)
         {
@@ -46,12 +49,16 @@ namespace RepuestoAntigua.UI.Registros
             if (!Validar())
                 return;
             cliente.UsuarioId = user;
+            cliente.Cedula = CedulaMaskEdit.Value.ToString();
+            cliente.Celular = CelularMaskEdit.Value.ToString();
+            cliente.Telefono = TelefonoMaskEdit.Value.ToString();
             bool paso = (bool)ClientesBLL.Save(cliente);
             if (paso)
             {
                
                     MessageBox.Show("Guardado con Exito", "Exito",
                         MessageBoxButton.OK);
+                Limpiar();
                
             }
             else
@@ -94,7 +101,7 @@ namespace RepuestoAntigua.UI.Registros
                 return false;
             }
 
-            if (TelefonoTextBox.Text.Length == 0 && CelularTextBox.Text.Length == 0)
+            if (TelefonoMaskEdit.Text.Length == 0 && CelularMaskEdit.Text.Length == 0)
             {
                 MessageBox.Show("Debe ingresar teléfono o celular", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);

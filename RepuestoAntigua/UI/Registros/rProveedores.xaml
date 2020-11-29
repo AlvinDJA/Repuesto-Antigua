@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros"
+        xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d" 
         Title="Registro de Proveedores" Height="450" Width="405"  WindowStartupLocation="CenterScreen">
     <Grid>
@@ -37,14 +37,22 @@
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="RNC:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="RNCTextBox" Width="140" Height="25" Text="{Binding RNC}"  />
+                    <syncfusion:SfMaskedEdit x:Name="RNCMaskEdit" ValueMaskFormat="ExcludePromptAndLiterals"
+                                Mask="\([0-9]\d{2}\) [0-9]\d{6}-[0-9]\d{0}" MaskType = "RegEx"
+                                Value="{Binding RNC}"                                   
+                                BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
+                                Height="25"  Width="160" />
                 </StackPanel>
             </StackPanel>
 
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Label Content="Teléfono:" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="TelefonoTextBox" Width="140" Height="25" Text="{Binding Telefono}"  />
+                    <syncfusion:SfMaskedEdit x:Name="TelefonoMaskEdit" ValueMaskFormat="ExcludePromptAndLiterals"
+                                Mask="\([0-9]\d{2}\) [0-9]\d{2}-[0-9]\d{3}" MaskType = "RegEx"
+                                Value="{Binding Telefono}"                                   
+                                BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
+                                Height="25"  Width="160" />
                 </StackPanel>
             </StackPanel>
 

@@ -39,6 +39,8 @@ namespace RepuestoAntigua.UI.Registros
         {
             this.proveedor = new Proveedores();
             this.DataContext = proveedor;
+            RNCMaskEdit.Value = null;
+            TelefonoMaskEdit.Value = null;
         }
 
         private bool Validar()
@@ -59,14 +61,14 @@ namespace RepuestoAntigua.UI.Registros
                 return false;
             }
 
-            if (RNCTextBox.Text.Length == 0)
+            if (RNCMaskEdit.Text.Length == 0)
             {
                 MessageBox.Show("Ingrese un RNC e intente de nuevo", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
-            if (TelefonoTextBox.Text.Length == 0)
+            if (TelefonoMaskEdit.Text.Length == 0)
             {
                 MessageBox.Show("Ingrese un Telefono e intente de nuevo", "Mensaje",
                     MessageBoxButton.OK, MessageBoxImage.Information);
@@ -83,6 +85,8 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!Validar())
                 return;
+            proveedor.RNC = Convert.ToInt32(RNCMaskEdit.Value.ToString());
+            proveedor.Telefono = TelefonoMaskEdit.Value.ToString();
             var paso = ProveedoresBLL.Save(proveedor);
             if (paso)
             {
