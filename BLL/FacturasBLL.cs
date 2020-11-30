@@ -91,18 +91,18 @@ namespace BLL
             Contexto contexto = new Contexto();
             try
             {
-                var venta = Search(id);
+                var facturas = Search(id);
                 Productos producto;
-                ICollection<FacturasDetalle> viejosDetalles = Search(venta.FacturaId).Detalle;
+                ICollection<FacturasDetalle> viejosDetalles = Search(facturas.FacturaId).Detalle;
                 foreach (FacturasDetalle d in viejosDetalles)
                 {
                     producto = ProductosBLL.Search(d.ProductoId);
                     producto.Cantidad += d.Cantidad;
                     ProductosBLL.Save(producto);
                 }
-                if (venta != null)
+                if (facturas != null)
                 {
-                    contexto.Entry(venta).State = EntityState.Deleted;
+                    contexto.Entry(facturas).State = EntityState.Deleted;
                     paso = contexto.SaveChanges() > 0;
                 }
             }

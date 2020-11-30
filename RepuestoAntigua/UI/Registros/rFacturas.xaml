@@ -75,9 +75,8 @@
                                   Width="548" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Detalle}" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*"/>
-                                <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
+                                <DataGridTextColumn Header="Descripción" Binding="{Binding ProductoId}" Width="*"/>
                                 <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="*"/>
-                                <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">

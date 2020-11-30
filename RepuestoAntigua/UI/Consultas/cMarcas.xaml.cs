@@ -82,7 +82,7 @@ namespace RepuestoAntigua.UI.Consultas
                 return;
             }
 
-            new rMarcas(usuario).ShowDialog();
+            new rMarcas(usuario).Show();
             Inicializar();
         }
 

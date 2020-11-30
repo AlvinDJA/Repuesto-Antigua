@@ -103,7 +103,7 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
-            new rFacturas(user).ShowDialog();
+            new rFacturas(user).Show();
             Inicializar();
         }
         private void EliminarBoton_Click(object sender, RoutedEventArgs e)
