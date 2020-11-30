@@ -29,7 +29,7 @@ namespace RepuestoAntigua.UI.Registros
 
         private void IniciarCombobox()
         {
-            ClientesComboBox.ItemsSource = ProductosBLL.GetList();
+            ClientesComboBox.ItemsSource = ClientesBLL.GetList();
             ClientesComboBox.SelectedValuePath = "ClienteId";
             ClientesComboBox.DisplayMemberPath = "Nombres";
 
