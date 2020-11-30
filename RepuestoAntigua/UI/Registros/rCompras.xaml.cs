@@ -243,6 +243,15 @@ namespace RepuestoAntigua.UI.Registros
         {
 
         }
+        private void ProductosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Productos found = ProductosBLL.Search(Convert.ToInt32(ProductosComboBox.SelectedValue));
+
+            if (found != null)
+                CostoTextBox.Text = found.Precio.ToString();
+            else
+                CostoTextBox.Text = "";
+        }
     }
 }
 

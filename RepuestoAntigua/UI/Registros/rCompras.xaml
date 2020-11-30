@@ -39,7 +39,7 @@
                         <StackPanel  Width="146" Margin="0,20,0,0" Orientation="Vertical">
                             <Label Content="Productos:" />
                             <StackPanel Orientation="Horizontal">
-                                <ComboBox x:Name="ProductosComboBox" Width="140" Height="25" SelectedValue="{Binding ProductoId}"/>
+                                <ComboBox x:Name="ProductosComboBox" Width="140" Height="25" SelectedValue="{Binding ProductoId}" SelectionChanged="ProductosComboBox_SelectionChanged"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel  Width="98" Margin="0,20,0,0" Orientation="Vertical">
