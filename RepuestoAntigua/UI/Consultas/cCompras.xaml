@@ -31,9 +31,9 @@
                 <ComboBox x:Name="FiltroCombobox" Width="120" SelectedIndex="0">
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
-                    <ComboBoxItem Content="Proveedor "/>
-                    <ComboBoxItem Content="Usuario"/>
-                    <ComboBoxItem Content="Fecha"/>
+                    <ComboBoxItem Content="Proveedor Id"/>
+                    <ComboBoxItem Content="Usuario Id"/>
+                    
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
@@ -52,12 +52,12 @@
                   MinHeight="100" MaxHeight="250" MinWidth="400" 
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Id" Width="5" Binding="{Binding CompraId}"/>
+                <DataGridTextColumn Header="Compra Id" Width="*" Binding="{Binding CompraId}"/>
                 <DataGridTextColumn Header="Proveedor" Width="*" Binding="{Binding ProveedorId}"/>
-                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
+                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>
                 <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding Itbis}"/>
                 <DataGridTextColumn Header="Total" Width="*" Binding="{Binding TotalCompra}"/>
-                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
             </DataGrid.Columns>
         </DataGrid>
         <!--Botones-->

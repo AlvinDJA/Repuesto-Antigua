@@ -33,6 +33,7 @@
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Nombres"/>
                     <ComboBoxItem Content="RNC"/>
+                    <ComboBoxItem Content="Telefono"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->

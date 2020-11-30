@@ -32,6 +32,12 @@
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Nombres"/>
+                    <ComboBoxItem Content="Apellidos"/>
+                    <ComboBoxItem Content="Celular"/>
+                    <ComboBoxItem Content="Cedula"/>
+                    <ComboBoxItem Content="Telefono"/>
+
+
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->

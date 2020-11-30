@@ -55,6 +55,20 @@ namespace RepuestoAntigua.UI.Consultas
                     case 2:
                         listado = ClientesBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
                         break;
+                    case 3:
+                        listado = ClientesBLL.GetList(p => p.Apellidos.ToLower().Contains(criterio.ToLower()));
+                        break;
+                    case 4:
+                        listado = ClientesBLL.GetList(p => p.Celular.ToLower().Contains(criterio.ToLower()));
+                        break;
+                    case 5:
+                        listado = ClientesBLL.GetList(p => p.Cedula.ToLower().Contains(criterio.ToLower()));
+                        break;
+                    case 6:
+                        listado = ClientesBLL.GetList(p => p.Telefono.ToLower().Contains(criterio.ToLower()));
+                        break;
+
+
                 }
             }
             else
@@ -81,7 +95,7 @@ namespace RepuestoAntigua.UI.Consultas
                 return;
             }
 
-            new rClientes(cliente);
+            new rClientes(cliente).ShowDialog(); ;
             Inicializar();
         }
 
