@@ -71,7 +71,7 @@
                     <Label Content="Cédula:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                         <syncfusion:SfMaskedEdit x:Name="CedulaMaskEdit" ValueMaskFormat="ExcludePromptAndLiterals"
-                                Mask="\([0-9]\d{2}\) [0-9]\d{6}-[0-9]\d{0}" MaskType = "RegEx"
+                                Mask="[0-9]\d{2}-[0-9]\d{6}-[0-9]\d{0}" MaskType = "RegEx"
                                 Value="{Binding Cedula}"                                   
                                 BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
                                 Height="25"  Width="160" />

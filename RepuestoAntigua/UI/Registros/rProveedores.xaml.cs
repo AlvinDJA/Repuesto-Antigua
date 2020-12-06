@@ -85,7 +85,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!Validar())
                 return;
-            proveedor.RNC = Convert.ToInt32(RNCMaskEdit.Value.ToString());
+            proveedor.RNC = RNCMaskEdit.Value.ToString();
             proveedor.Telefono = TelefonoMaskEdit.Value.ToString();
             var paso = ProveedoresBLL.Save(proveedor);
             if (paso)

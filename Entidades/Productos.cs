@@ -13,7 +13,7 @@ namespace Entidades
         public int NoSerie { get; set; }//
         public float Precio { get; set; }
         public float Costo { get; set; }
-        public float PorcentajeITBIS { get; set; }
+        public int PorcentajeITBIS { get; set; }
         public float MargenGanancia { get; set; }
     }
 }

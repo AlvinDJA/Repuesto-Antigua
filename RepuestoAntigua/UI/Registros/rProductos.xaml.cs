@@ -55,6 +55,7 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void inicarRadio()
         {
+            porcentaje = producto.PorcentajeITBIS;
             if (porcentaje == 0)
                 Radio1.IsChecked = true;
             else if (porcentaje == 16)
@@ -72,7 +73,6 @@ namespace RepuestoAntigua.UI.Registros
                 porcentaje = 18;
             producto.PorcentajeITBIS = porcentaje;
         }
-
         private void InitializeComboBox()
         {
             MarcaComboBox.ItemsSource = MarcasBLL.GetList(c => true);
@@ -107,7 +107,8 @@ namespace RepuestoAntigua.UI.Registros
         private void BuscarBoton_Click(object render, RoutedEventArgs e)
         {
             Contexto context = new Contexto();
-
+            if (ProductoIdTextBox.Text.Length == 0)
+                return;
             Productos found = ProductosBLL.Search(Convert.ToInt32(ProductoIdTextBox.Text));
 
             if (found != null)
@@ -133,7 +134,7 @@ namespace RepuestoAntigua.UI.Registros
             if (DescripcionTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe colocar la escri del producto",
+                MessageBox.Show("Debe colocar la descripción del producto",
                     "Mensaje", MessageBoxButton.OK);
 
             }
@@ -147,14 +148,21 @@ namespace RepuestoAntigua.UI.Registros
             else if (CostoTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe colocar el Precio del producto",
+                MessageBox.Show("Debe colocar el costo del producto",
                     "Mensaje", MessageBoxButton.OK);
 
             }
             else if (PrecioTextBox.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Debe colocar el Precio del producto",
+                MessageBox.Show("Debe colocar el precio del producto",
+                    "Mensaje", MessageBoxButton.OK);
+
+            }
+            else if (Convert.ToSingle(PrecioTextBox.Text) < Convert.ToSingle(CostoTextBox.Text))
+            {
+                esValido = false;
+                MessageBox.Show("El precio no debe ser menor al costo",
                     "Mensaje", MessageBoxButton.OK);
 
             }
@@ -185,6 +193,7 @@ namespace RepuestoAntigua.UI.Registros
                 if (ProductosBLL.Delete(producto.UsuarioId))
                     MessageBox.Show("Producto eliminado",
                         "Productos");
+                Limpiar();
             }
         }
 
@@ -211,11 +220,13 @@ namespace RepuestoAntigua.UI.Registros
         }
         private void MargenTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (MargenTextBox.Text.Length == 0)
+                return;
             if (!ValidarMargen())
                 return;
-            PrecioTextBox.Text = (Convert.ToSingle(CostoTextBox.Text) +
-                Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(MargenTextBox.Text)/100).ToString();
+            producto.Precio = (Convert.ToSingle(CostoTextBox.Text) +
+                Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(MargenTextBox.Text) / 100);
+            PrecioTextBox.Text = producto.Precio.ToString();
         }
     }
 }

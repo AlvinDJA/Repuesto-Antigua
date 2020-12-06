@@ -57,7 +57,7 @@ namespace RepuestoAntigua.UI.Consultas
                         listado = ProveedoresBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
                         break;
                     case 3:
-                        listado = ProveedoresBLL.GetList(p => p.RNC == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = ProveedoresBLL.GetList(p => p.RNC.ToLower().Contains(criterio.ToLower()));
                         break;
                     case 4:
                         listado = ProveedoresBLL.GetList(p => p.Telefono.ToLower().Contains(criterio.ToLower()));

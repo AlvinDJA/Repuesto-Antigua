@@ -57,7 +57,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 <DataGridTextColumn Header="Id" Width="5" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Nombre de Usuario" Width="*" Binding="{Binding Usuario}"/>
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
-                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>
+                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}"/>
             </DataGrid.Columns>
         </DataGrid>
 

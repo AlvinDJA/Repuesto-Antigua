@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua"
         mc:Ignorable="d"
-        Title="Menú Principal" Height="201" Width="466" WindowStartupLocation="CenterScreen">
+        Title="Menú Principal" Height="228" Width="469" WindowStartupLocation="CenterScreen">
     <Grid >
         <Image Source="/Imagenes/Logo.png" Margin="106,28,106,27"/>
         <StackPanel  >

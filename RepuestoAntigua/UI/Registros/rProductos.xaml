@@ -41,7 +41,7 @@
                 <StackPanel  Width="170" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">
                     <Label Content="Costo:" />
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                        <TextBox x:Name="CostoTextBox" Width="160" Height="25" Text="{Binding Costo}"/>
+                        <TextBox x:Name="CostoTextBox" Width="160" Height="25" Text="{Binding Costo}" TextChanged="MargenTextBox_TextChanged"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel  Width="200" Margin="10,20,0,0" Orientation="Vertical">
