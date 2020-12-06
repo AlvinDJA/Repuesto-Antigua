@@ -19,12 +19,14 @@ namespace RepuestoAntigua.UI.Registros
     /// </summary>
     public partial class rFacturas : Window
     {
+        int user;
         private Facturas factura = new Facturas();
         public rFacturas(int usuario)
         {
             InitializeComponent();
             IniciarCombobox();
             Limpiar();
+            user = usuario;
         }
 
         private void IniciarCombobox()
@@ -130,6 +132,8 @@ namespace RepuestoAntigua.UI.Registros
             if (!ValidarGuardar())
                 return;
             bool paso = false;
+
+            factura.UsuarioId = user;
 
             if (factura.FacturaId == 0)
                 paso = FacturasBLL.Save(factura);

@@ -56,12 +56,10 @@ namespace RepuestoAntigua.UI.Consultas
                     case 2:
                         listado = FacturasBLL.GetList(p => p.ClienteId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
-                    //case 3:
-                    //    listado = FacturasBLL.GetList(p => p. == Convert.ToInt32(CriterioTextBox.Text));
-                    //    break;
-                    case 4:
+                    case 3:
                         listado = FacturasBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
+
                 }
             }
             else

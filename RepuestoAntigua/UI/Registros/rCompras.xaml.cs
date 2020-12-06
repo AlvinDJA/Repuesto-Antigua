@@ -20,11 +20,22 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rCompras : Window
     {
         private Compras compra = new Compras();
+        int user;
+
         public rCompras(int usuario)
         {
             InitializeComponent();
             IniciarCombobox();
             Limpiar();
+            user = usuario;
+        }
+        public rCompras(int usuario, Compras compra)
+        {
+            InitializeComponent();
+            IniciarCombobox();
+            Limpiar();
+            this.compra = compra;
+            this.DataContext = compra;
         }
 
         private void IniciarCombobox()
@@ -149,7 +160,7 @@ namespace RepuestoAntigua.UI.Registros
             if (!ValidarGuardar())
                 return;
 
-           
+            compra.UsuarioId = user;
             bool paso = false;
 
             if (compra.CompraId == 0)
@@ -248,7 +259,7 @@ namespace RepuestoAntigua.UI.Registros
             Productos found = ProductosBLL.Search(Convert.ToInt32(ProductosComboBox.SelectedValue));
 
             if (found != null)
-                CostoTextBox.Text = found.Precio.ToString();
+                CostoTextBox.Text = found.Costo.ToString();
             else
                 CostoTextBox.Text = "";
         }

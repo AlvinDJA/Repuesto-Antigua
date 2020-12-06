@@ -59,7 +59,7 @@ namespace RepuestoAntigua.UI.Consultas
                     case 2:
                         listado = ComprasBLL.GetList(p => p.ProveedorId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
-                    case 4:
+                    case 3:
                         listado = ComprasBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                 }
@@ -88,7 +88,7 @@ namespace RepuestoAntigua.UI.Consultas
                 return;
             }
 
-            new rCompras(user).ShowDialog();
+            new rCompras(user, compra).ShowDialog();
             Inicializar();
         }
         private Compras GetSelectedCompra()
@@ -115,15 +115,15 @@ namespace RepuestoAntigua.UI.Consultas
                     MessageBoxButton.OK);
                 return;
             }
-            MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar a la factura " + compra.CompraId + "?",
+            MessageBoxResult opcion = MessageBox.Show("Estas seguro de que desear eliminar a la Compra " + compra.CompraId + "?",
                 "Compras", MessageBoxButton.YesNo);
 
             if (opcion.Equals(MessageBoxResult.Yes))
             {
-                if (FacturasBLL.Delete(compra.CompraId))
+                if (ComprasBLL.Delete(compra.CompraId))
                 {
                     Inicializar();
-                    MessageBox.Show("Factura eliminada", "Exito");
+                    MessageBox.Show("Compra eliminada", "Exito");
                 }
             }
             Inicializar();

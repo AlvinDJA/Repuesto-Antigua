@@ -32,8 +32,9 @@
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Cliente"/>
-                    <ComboBoxItem Content="Usuario"/>
+                    <ComboBoxItem Content="Usuario Id"/>
                     <ComboBoxItem Content="Fecha"/>
+                   
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
