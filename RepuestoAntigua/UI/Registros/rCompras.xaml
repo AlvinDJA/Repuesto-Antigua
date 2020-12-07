@@ -78,7 +78,7 @@
                                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="*"/>
                                 <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
                                 <DataGridTextColumn Header="Costo" Binding="{Binding Costo}" Width="*"/>
-                                <DataGridTextColumn Header="Costo" Binding="{Binding Subtotal}" Width="*"/>
+                                <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
