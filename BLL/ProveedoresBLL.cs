@@ -166,7 +166,6 @@ namespace BLL
         {
             List<object> lista;
             Contexto contexto = new Contexto();
-
             try
             {
                 var query = (
@@ -175,10 +174,11 @@ namespace BLL
                     select new
                     {
                         p.ProveedorId,
+                        p.Nombres,
                         p.Correo,
                         p.RNC,
                         p.Telefono,
-                        u.Usuario,
+                        u.Usuario
                     }
                 );
 
@@ -189,7 +189,6 @@ namespace BLL
                         case "ProveedorId":
                             query = query.Where(p => p.ProveedorId ==Convert.ToInt32(valor));
                             break;
-                       
                     }
                 }
                 lista = query.ToList<object>();
@@ -206,7 +205,7 @@ namespace BLL
             return lista;
         }
 
-        public static List<Proveedores> GetList(Expression<Func<Proveedores, bool>> criterio)
+        public static List<object> GetList(Expression<Func<Proveedores, bool>> criterio)
         {
             List<Proveedores> lista = new List<Proveedores>();
             Contexto contexto = new Contexto();
@@ -222,9 +221,9 @@ namespace BLL
             {
                 contexto.Dispose();
             }
-            return lista;
+            return lista.ToList<object>();
         }
-        public static List<Proveedores> GetList()
+        public static List<object> GetList()
         {
             List<Proveedores> lista = new List<Proveedores>();
             Contexto contexto = new Contexto();
@@ -240,7 +239,7 @@ namespace BLL
             {
                 contexto.Dispose();
             }
-            return lista;
+            return lista.ToList<object>();
         }
     }
 }

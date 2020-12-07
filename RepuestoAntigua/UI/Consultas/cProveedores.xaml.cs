@@ -88,7 +88,7 @@ namespace RepuestoAntigua.UI.Consultas
                 return;
             }
 
-            new rProveedores(proveedor).Show();
+            new rProveedores(proveedor, user).Show();
             Inicializar();
         }
 

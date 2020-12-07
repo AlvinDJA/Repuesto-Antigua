@@ -20,18 +20,21 @@ namespace RepuestoAntigua.UI.Registros
     public partial class rProveedores : Window
     {
         Proveedores proveedor;
+        int user;
         public rProveedores(int usuario)
         {
             InitializeComponent();
             this.proveedor = new Proveedores();
             this.DataContext = proveedor;
+            user = usuario;
         }
 
-        public rProveedores(Proveedores proveedor)
+        public rProveedores(Proveedores proveedor, int usuario)
         {
             InitializeComponent();
             this.proveedor = proveedor;
             this.DataContext = proveedor;
+            user = usuario;
         }
 
 
@@ -85,6 +88,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!Validar())
                 return;
+            proveedor.UsuarioId = user;
             proveedor.RNC = RNCMaskEdit.Value.ToString();
             proveedor.Telefono = TelefonoMaskEdit.Value.ToString();
             var paso = ProveedoresBLL.Save(proveedor);
