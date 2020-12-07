@@ -24,6 +24,8 @@ namespace RepuestoAntigua.UI.Consultas
         public cUsuarios()
         {
             InitializeComponent();
+            DesdePicker.SelectedDate = DateTime.Now;
+            HastaPicker.SelectedDate = DateTime.Now;
         }
 
         private void Inicializar()
@@ -42,7 +44,7 @@ namespace RepuestoAntigua.UI.Consultas
             var listado = new List<Usuarios>();
             string criterio = CriterioTextBox.Text.Trim();
 
-            if (CriterioTextBox.Text.Trim().Length > 0)
+            if (CriterioTextBox.Text.Trim().Length > 0 || FiltroCombobox.SelectedIndex == 3)
             {
                 switch (FiltroCombobox.SelectedIndex)
                 {
@@ -54,6 +56,11 @@ namespace RepuestoAntigua.UI.Consultas
                         break;
                     case 2:
                         listado = UsuariosBLL.GetList(p => p.Usuario.ToLower().Contains(criterio.ToLower()));
+                        break;
+                    case 3:
+                        DateTime hasta = (DateTime)HastaPicker.SelectedDate;
+                        DateTime desde = (DateTime)DesdePicker.SelectedDate;
+                        listado = UsuariosBLL.GetList(p => p.Fecha >= desde && p.Fecha <= hasta);
                         break;
                 }
             }
@@ -132,9 +139,6 @@ namespace RepuestoAntigua.UI.Consultas
             Inicializar();
         }
 
-        private void DatosDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+  
     }
 }

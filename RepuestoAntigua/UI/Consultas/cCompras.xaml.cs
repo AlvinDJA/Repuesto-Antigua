@@ -25,11 +25,9 @@ namespace RepuestoAntigua.UI.Consultas
         {
             InitializeComponent();
             user = usuario;
+            DesdePicker.SelectedDate = DateTime.Now;
+            HastaPicker.SelectedDate = DateTime.Now;
         }
-
-       
-       
-
         private void Inicializar()
         {
             CriterioTextBox.Clear();
@@ -46,7 +44,7 @@ namespace RepuestoAntigua.UI.Consultas
             var listado = new List<Compras>();
             string criterio = CriterioTextBox.Text.Trim();
 
-            if (CriterioTextBox.Text.Trim().Length > 0)
+            if (CriterioTextBox.Text.Trim().Length > 0 || FiltroCombobox.SelectedIndex == 4)
             {
                 switch (FiltroCombobox.SelectedIndex)
                 {
@@ -62,6 +60,11 @@ namespace RepuestoAntigua.UI.Consultas
                     case 3:
                         listado = ComprasBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
+                    case 4:
+                        DateTime hasta = (DateTime)HastaPicker.SelectedDate;
+                        DateTime desde = (DateTime)DesdePicker.SelectedDate;
+                        listado = ComprasBLL.GetList(p => p.Fecha >= desde && p.Fecha <= hasta);
+                        break;
                 }
             }
             else
@@ -76,7 +79,6 @@ namespace RepuestoAntigua.UI.Consultas
         {
             Buscar();
         }
-
         private void EditarBoton_Click(object sender, RoutedEventArgs e)
         {
             Compras compra = GetSelectedCompra();

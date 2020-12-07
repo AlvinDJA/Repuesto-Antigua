@@ -33,13 +33,14 @@
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Cliente"/>
                     <ComboBoxItem Content="Usuario Id"/>
-                    <ComboBoxItem Content="Fecha"/>
-                   
+                    <ComboBoxItem Content="Fechas"/>
+
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
             <TextBox Grid.Column="1" Margin="15,24,15,0" Height="24" VerticalAlignment="Top" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
-
+            <DatePicker x:Name="DesdePicker"  VerticalAlignment="Top" Grid.Column="1" Margin="15,0,190,0" Height="24"/>
+            <DatePicker x:Name="HastaPicker" Grid.Column="1" Margin="172,0,33,24"/>
             <!--BotonBuscar-->
             <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BuscarButton_Click">
                 <StackPanel Orientation="Horizontal">
@@ -56,8 +57,8 @@
                 <DataGridTextColumn Header="Id" Width="5" Binding="{Binding FacturaId}"/>
                 <DataGridTextColumn Header="Cliente" Width="*" Binding="{Binding ClienteId}"/>
                 <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}" />
-                <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding ITBIS}"/>
-                <DataGridTextColumn Header="Total" Width="*" Binding="{Binding Total}"/>
+                <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding Itbis, StringFormat=N2}"/>
+                <DataGridTextColumn Header="Total" Width="*" Binding="{Binding Total, StringFormat=N2}"/>
                 <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
             </DataGrid.Columns>
         </DataGrid>

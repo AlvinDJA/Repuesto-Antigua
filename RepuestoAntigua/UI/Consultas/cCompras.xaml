@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Compras" Height="400" Width="600">
+        Title="Consulta de Compras" Height="400" Width="600" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,40" Width="560">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -33,12 +33,13 @@
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Proveedor Id"/>
                     <ComboBoxItem Content="Usuario Id"/>
-                    
+                    <ComboBoxItem Content="Fechas"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
             <TextBox Grid.Column="1" Margin="15,24,15,0" Height="24" VerticalAlignment="Top" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
-
+            <DatePicker x:Name="DesdePicker"  VerticalAlignment="Top" Grid.Column="1" Margin="15,0,183,0" Height="24"/>
+            <DatePicker x:Name="HastaPicker" Grid.Column="1" Margin="172,0,26,24"/>
             <!--BotonBuscar-->
             <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BuscarButton_Click">
                 <StackPanel Orientation="Horizontal">
@@ -52,12 +53,12 @@
                   MinHeight="100" MaxHeight="250" MinWidth="400" 
                   AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Compra Id" Width="*" Binding="{Binding CompraId}"/>
+                <DataGridTextColumn Header="Id" Width="5" Binding="{Binding CompraId}"/>
                 <DataGridTextColumn Header="Proveedor" Width="*" Binding="{Binding ProveedorId}"/>
+                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding Itbis, StringFormat=N2}"/>
+                <DataGridTextColumn Header="Total" Width="*" Binding="{Binding TotalCompra, StringFormat=N2}"/>
                 <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
-                <DataGridTextColumn Header="Fecha" Width="*" Binding="{Binding Fecha}"/>
-                <DataGridTextColumn Header="ITBIS" Width="*" Binding="{Binding Itbis}"/>
-                <DataGridTextColumn Header="Total" Width="*" Binding="{Binding TotalCompra}"/>
             </DataGrid.Columns>
         </DataGrid>
         <!--Botones-->

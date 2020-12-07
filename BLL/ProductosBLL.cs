@@ -140,8 +140,61 @@ namespace BLL
             }
             return encontrado;
         }
+        public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
 
-        public static List<Object> GetList(string a, string criterio)
+            try
+            {
+                var query = (
+                    from p in contexto.Productos
+                    join m in contexto.Marcas on p.MarcaId equals m.MarcaId
+                    join u in contexto.Usuarios on p.UsuarioId equals u.UsuarioId
+                    select new
+                    {
+                        p.ProductoId,
+                        u.Usuario,
+                        Marca = m.Nombres,
+                        p.Descripcion,
+                        p.Cantidad,
+                        p.NoSerie,
+                        p.Precio,
+                        p.Costo,
+                        p.PorcentajeITBIS,
+                        p.MargenGanancia
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "ProductoId":
+                            query = query.Where(p => p.ProductoId ==Convert.ToInt32(valor));
+                            break;
+                        case "Descripcion":
+                            query = query.Where(p => p.Descripcion.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Marca":
+                            query = query.Where(p => p.Marca.ToLower().Contains(valor.ToLower()));
+                            break;
+                    }
+                }
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+        /*public static List<Object> GetList(string a, string criterio)
         {
             List<Object> lista = new List<Object>();
             Contexto contexto = new Contexto();
@@ -236,7 +289,7 @@ namespace BLL
                     contexto.Dispose();
                 }
             return lista;
-        }
+        }*/
         public static List<Productos> GetList()
         {
             List<Productos> lista = new List<Productos>();
@@ -261,23 +314,25 @@ namespace BLL
             Contexto contexto = new Contexto();
             try
             {
-                lista = (
-               from p in contexto.Productos
-               join m in contexto.Marcas
-               on p.MarcaId equals m.MarcaId
-               select new
-               {
-                   p.ProductoId,
-                   p.UsuarioId,
-                   Marca = m.Nombres,
-                   p.Descripcion,
-                   p.Cantidad,
-                   p.NoSerie,
-                   p.Precio,
-                   p.Costo,
-                   p.PorcentajeITBIS,
-                   p.MargenGanancia
-               }).ToList<Object>();
+                var query = (
+                    from p in contexto.Productos
+                    join m in contexto.Marcas on p.MarcaId equals m.MarcaId
+                    join u in contexto.Usuarios on p.UsuarioId equals u.UsuarioId
+                    select new
+                    {
+                        p.ProductoId,
+                        u.Usuario,
+                        Marca = m.Nombres,
+                        p.Descripcion,
+                        p.Cantidad,
+                        p.NoSerie,
+                        p.Precio,
+                        p.Costo,
+                        p.PorcentajeITBIS,
+                        p.MargenGanancia
+                    }
+                );
+                lista = query.ToList<object>();
             }
             catch (Exception)
             {

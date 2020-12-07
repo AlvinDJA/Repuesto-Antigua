@@ -34,8 +34,8 @@ namespace RepuestoAntigua.UI.Registros
             InitializeComponent();
             IniciarCombobox();
             Limpiar();
-            this.compra = compra;
-            this.DataContext = compra;
+            this.compra = ComprasBLL.Search(compra.CompraId);
+            this.DataContext = this.compra;
         }
 
         private void IniciarCombobox()
@@ -63,7 +63,6 @@ namespace RepuestoAntigua.UI.Registros
             this.DataContext = compra;
             TiempoTotalTextBox.Clear();
         }
-
         private bool ValidarDetalle()
         {
            
@@ -97,11 +96,6 @@ namespace RepuestoAntigua.UI.Registros
                 MessageBox.Show("Ingrese un Costo válido, que sea numerico", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
-
-
-
-
-
             return true;
         }
         private bool ValidarGuardar()
@@ -159,10 +153,8 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!ValidarGuardar())
                 return;
-
             compra.UsuarioId = user;
             bool paso = false;
-
             if (compra.CompraId == 0)
                 paso = ComprasBLL.Save(compra);
             else
@@ -207,7 +199,10 @@ namespace RepuestoAntigua.UI.Registros
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
                 ComprasDetalle m = (ComprasDetalle)DatosDataGrid.SelectedValue;
+                float itbs = (float)(ProductosBLL.Search(Convert.ToInt32(m.ProductoId)).PorcentajeITBIS) / 100;
                 compra.TotalCompra -= m.Costo * m.Cantidad;
+                compra.TotalCompra -= m.Costo * m.Cantidad * itbs;
+                compra.Itbis -= m.Costo * m.Cantidad * itbs;
                 compra.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
@@ -236,24 +231,15 @@ namespace RepuestoAntigua.UI.Registros
             );
 
             compra.Detalle.Add(detalle);
-            compra.TotalCompra += detalle.Costo * detalle.Cantidad;
-
+            float itbs = (float)(ProductosBLL.Search(Convert.ToInt32(ProductosComboBox.SelectedValue)).PorcentajeITBIS) / 100;
+            compra.TotalCompra -= compra.Itbis;
+            compra.Itbis += Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(CantidadTextBox.Text) * itbs;
+            compra.TotalCompra += Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(CantidadTextBox.Text) + compra.Itbis;
             Cargar();
-
-           
             CostoTextBox.Clear();
             CantidadTextBox.Clear();
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void IdTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+   
         private void ProductosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Productos found = ProductosBLL.Search(Convert.ToInt32(ProductosComboBox.SelectedValue));

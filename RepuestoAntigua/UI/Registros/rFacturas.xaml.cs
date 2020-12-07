@@ -28,7 +28,15 @@ namespace RepuestoAntigua.UI.Registros
             Limpiar();
             user = usuario;
         }
-
+        public rFacturas(int usuario, Facturas factura)
+        {
+            InitializeComponent();
+            IniciarCombobox();
+            Limpiar();
+            user = usuario;
+            this.factura = FacturasBLL.Search(factura.FacturaId);
+            Cargar();
+        }
         private void IniciarCombobox()
         {
             ClientesComboBox.ItemsSource = ClientesBLL.GetList();
@@ -178,8 +186,11 @@ namespace RepuestoAntigua.UI.Registros
             }
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
-                FacturasDetalle m = (FacturasDetalle)DatosDataGrid.SelectedValue;
-                factura.Total -= m.Precio * m.Cantidad;
+                FacturasDetalle m = (FacturasDetalle)DatosDataGrid.SelectedValue;//18
+                float itbs = (float)(ProductosBLL.Search(Convert.ToInt32(m.ProductoId)).PorcentajeITBIS) / 100;
+                factura.Total -=m.Precio * m.Cantidad ;
+                factura.Total -=  m.Precio * m.Cantidad * itbs;
+                factura.Itbis -= m.Precio * m.Cantidad * itbs;
                 factura.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
                 Cargar();
             }
@@ -198,7 +209,11 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!ValidarAgregar())
                 return;
-            factura.Total += Convert.ToSingle(PrecioTextBox.Text)* Convert.ToSingle(CantidadTextBox.Text);
+            float itbs = (float)(ProductosBLL.Search(Convert.ToInt32(ProductosComboBox.SelectedValue)).PorcentajeITBIS)/100;
+            factura.Total -= factura.Itbis;
+            factura.Itbis += Convert.ToSingle(PrecioTextBox.Text) * Convert.ToSingle(CantidadTextBox.Text) *itbs ;
+            factura.Total += Convert.ToSingle(PrecioTextBox.Text)* Convert.ToSingle(CantidadTextBox.Text) + factura.Itbis;
+            
             factura.Detalle.Add(new FacturasDetalle(factura.FacturaId, 
                 Convert.ToInt32(ProductosComboBox.SelectedValue), Convert.ToSingle(CantidadTextBox.Text),
                 Convert.ToSingle(PrecioTextBox.Text)));

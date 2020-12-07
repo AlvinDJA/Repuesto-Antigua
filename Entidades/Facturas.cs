@@ -12,8 +12,8 @@ namespace Entidades
         public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
         public DateTime Fecha { get; set; }
-        public double Itbis { get; set; }
-        public double Total { get; set; }
+        public float Itbis { get; set; }
+        public float Total { get; set; }
 
         [ForeignKey("FacturaId")]
         public List<FacturasDetalle> Detalle { get; set; } = new List<FacturasDetalle>();

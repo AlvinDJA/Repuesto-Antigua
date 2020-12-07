@@ -17,31 +17,33 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             <RowDefinition Height="178*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
         <Label Grid.Row="0" Content="&#xD;&#xA;" Margin="0,0,0,45" Grid.RowSpan="3"/>
 
         <!--Buscador-->
         <Grid Margin="0,-27,0,21">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="159*"/>
+                <ColumnDefinition Width="61*"/>
             </Grid.ColumnDefinitions>
 
             <!--Filtrar por-->
-            <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+            <StackPanel HorizontalAlignment="Center" Width="120">
                 <Label Content="Filtrar por:"/>
                 <ComboBox x:Name="FiltroCombobox" Width="120" SelectedIndex="0">
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Nombres"/>
+                    <ComboBoxItem Content="Fechas"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
-            <TextBox Grid.Column="1" Margin="15,24,15,0" Height="24" VerticalAlignment="Top" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
-
+            <TextBox Grid.Column="1" Margin="15,24,0,0" Height="24" VerticalAlignment="Top" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
+            <DatePicker x:Name="DesdePicker"  VerticalAlignment="Top" Grid.Column="1" Margin="15,0,178,0" Height="24"/>
+            <DatePicker x:Name="HastaPicker" Grid.Column="1" Margin="166,0,26,24"/>
             <!--BotonBuscar-->
-            <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BuscarButton_Click">
+
+            <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BuscarButton_Click" Margin="32,18,0,0">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Imagenes/buscar.png" Width="15" Height="15"/>
                     <Label Content="Buscar" />
@@ -50,9 +52,10 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         </Grid>
 
         <!--Tabla clientes-->
+
         <DataGrid x:Name="DatosDataGrid" 
                   MinHeight="100" MaxHeight="250" MinWidth="400" 
-                  AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" SelectionChanged="DatosDataGrid_SelectionChanged" Grid.RowSpan="4">
+                  AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0" Margin="0,36,0,0" Grid.RowSpan="4">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id" Width="5" Binding="{Binding UsuarioId}"/>
                 <DataGridTextColumn Header="Nombre de Usuario" Width="*" Binding="{Binding Usuario}"/>

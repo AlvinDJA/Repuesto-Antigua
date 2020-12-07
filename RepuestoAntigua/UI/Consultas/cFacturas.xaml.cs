@@ -25,6 +25,8 @@ namespace RepuestoAntigua.UI.Consultas
         {
             InitializeComponent();
             user = usuario;
+            DesdePicker.SelectedDate = DateTime.Now;
+            HastaPicker.SelectedDate = DateTime.Now;
         }
 
         private void Inicializar()
@@ -43,7 +45,7 @@ namespace RepuestoAntigua.UI.Consultas
             var listado = new List<Facturas>();
             string criterio = CriterioTextBox.Text.Trim();
 
-            if (CriterioTextBox.Text.Trim().Length > 0)
+            if (CriterioTextBox.Text.Trim().Length > 0 || FiltroCombobox.SelectedIndex==4)
             {
                 switch (FiltroCombobox.SelectedIndex)
                 {
@@ -59,7 +61,11 @@ namespace RepuestoAntigua.UI.Consultas
                     case 3:
                         listado = FacturasBLL.GetList(p => p.UsuarioId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
-
+                    case 4:
+                        DateTime hasta = (DateTime)HastaPicker.SelectedDate;
+                        DateTime desde = (DateTime)DesdePicker.SelectedDate;
+                        listado = FacturasBLL.GetList(p => p.Fecha >= desde && p.Fecha <= hasta);
+                        break;
                 }
             }
             else
@@ -77,16 +83,16 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void EditarBoton_Click(object sender, RoutedEventArgs e)
         {
-            Facturas usuario = GetSelectedFactura();
+            Facturas factura = GetSelectedFactura();
 
-            if (usuario == null)
+            if (factura == null)
             {
                 MessageBox.Show("Primero seleccione una Factura", "Mensaje",
                     MessageBoxButton.OK);
                 return;
             }
 
-            new rFacturas(user).ShowDialog();
+            new rFacturas(user , factura).ShowDialog();
             Inicializar();
         }
         private Facturas GetSelectedFactura()
@@ -98,7 +104,6 @@ namespace RepuestoAntigua.UI.Consultas
             else
                 return null;
         }
-
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
             new rFacturas(user).Show();
