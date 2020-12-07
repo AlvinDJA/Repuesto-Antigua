@@ -11,20 +11,24 @@ namespace RepuestoAntigua.UI.Registros
     {
         private bool edit;
         private Marcas marcas;
+
+        int user;
         public rMarcas(int usuario)
         {
             InitializeComponent();
             this.marcas = new Marcas();
             this.DataContext = marcas;
             edit = false;
+            user = usuario;
         }
 
-        public rMarcas(Marcas marcas)
+        public rMarcas(Marcas marcas, int usuario)
         {
             InitializeComponent();
             this.marcas = marcas;
             this.DataContext = marcas;
             edit = true;
+            user = usuario;
         }
         public void Limpiar()
         {
@@ -64,6 +68,7 @@ namespace RepuestoAntigua.UI.Registros
         {
             if (!Validar())
                 return;
+            marcas.UsuarioId = user;
             var paso = MarcasBLL.Save(marcas);
             if (paso)
             {
