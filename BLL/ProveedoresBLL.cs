@@ -189,6 +189,17 @@ namespace BLL
                         case "ProveedorId":
                             query = query.Where(p => p.ProveedorId ==Convert.ToInt32(valor));
                             break;
+                        case "Nombres":
+                            query = query.Where(p => p.Nombres.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "RNC":
+                            query = query.Where(p => p.RNC.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Usuario":
+                            query = query.Where(p => p.Usuario.ToLower().Contains(valor.ToLower()));
+                            break;
+
+
                     }
                 }
                 lista = query.ToList<object>();
@@ -203,6 +214,26 @@ namespace BLL
             }
 
             return lista;
+        }
+
+        public static Proveedores Search(int id)
+        {
+            Contexto contexto = new Contexto();
+            Proveedores proveedor;
+            try
+            {
+                proveedor = contexto.Proveedores.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return proveedor;
         }
 
         public static List<object> GetList(Expression<Func<Proveedores, bool>> criterio)

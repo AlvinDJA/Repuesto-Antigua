@@ -40,7 +40,7 @@ namespace RepuestoAntigua.UI.Consultas
         }
         private void Buscar()
         {
-            var listado = new List<Marcas>();
+            var listado = new List<Object>();
             string criterio = CriterioTextBox.Text.Trim();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
@@ -48,19 +48,22 @@ namespace RepuestoAntigua.UI.Consultas
                 switch (FiltroCombobox.SelectedIndex)
                 {
                     case 0:
-                        listado = MarcasBLL.GetList();
+                        listado = MarcasBLL.GetList("", "");
                         break;
                     case 1:
-                        listado = MarcasBLL.GetList(p => p.MarcaId == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = MarcasBLL.GetList("MarcaId", criterio);
                         break;
                     case 2:
-                        listado = MarcasBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
+                        listado = MarcasBLL.GetList("Nombres", criterio);
+                        break;
+                    case 3:
+                        listado = MarcasBLL.GetList("Usuario", criterio);
                         break;
                 }
             }
             else
             {
-                listado = MarcasBLL.GetList();
+                listado = MarcasBLL.GetList("","");
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
@@ -73,16 +76,16 @@ namespace RepuestoAntigua.UI.Consultas
 
         private void EditarBoton_Click(object sender, RoutedEventArgs e)
         {
-            Marcas usuario = GetSelectedMarca();
+            Marcas marca = GetSelectedMarca();
 
-            if (usuario == null)
+            if (marca == null)
             {
                 MessageBox.Show("Primero seleccione una Marca", "Mensaje",
                     MessageBoxButton.OK);
                 return;
             }
 
-            new rMarcas(usuario).Show();
+            new rMarcas(marca,user).Show();
             Inicializar();
         }
 
@@ -91,7 +94,12 @@ namespace RepuestoAntigua.UI.Consultas
             object Marcas = DatosDataGrid.SelectedItem;
 
             if (Marcas != null)
-                return (Marcas)Marcas;
+                return MarcasBLL.Search(
+                  Convert.ToInt32(
+                      Marcas.GetType().
+                      GetProperty("MarcaId").
+                      GetValue(Marcas).
+                      ToString()));
             else
                 return null;
         }

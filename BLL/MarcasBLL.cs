@@ -161,6 +161,75 @@ namespace BLL
             return encontrado;
         }
 
+        public static Marcas Search(int id)
+        {
+            Contexto contexto = new Contexto();
+            Marcas marca;
+            try
+            {
+                marca = contexto.Marcas.Find(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return marca;
+        }
+
+
+        public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+            try
+            {
+                var query = (
+                    from m in contexto.Marcas
+                    join u in contexto.Usuarios on m.UsuarioId equals u.UsuarioId
+                    select new
+                    {
+                        m.MarcaId,
+                        m.Nombres,
+                        u.Usuario
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "MarcaId":
+                            query = query.Where(p => p.MarcaId == Convert.ToInt32(valor));
+                            break;
+                        case "Nombres":
+                            query = query.Where(p => p.Nombres.ToLower().Contains(valor.ToLower()));
+                            break;
+                        case "Usuario":
+                            query = query.Where(p => p.Usuario.ToLower().Contains(valor.ToLower()));
+                            break;
+
+
+                    }
+                }
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+
         public static List<Marcas> GetList(Expression<Func<Marcas, bool>> criterio)
         {
             List<Marcas> lista = new List<Marcas>();

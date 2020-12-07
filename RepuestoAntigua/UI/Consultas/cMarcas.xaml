@@ -32,6 +32,7 @@
                     <ComboBoxItem Content=""/>
                     <ComboBoxItem Content="Id"/>
                     <ComboBoxItem Content="Nombres"/>
+                    <ComboBoxItem Content="Usuario"/>
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
@@ -53,6 +54,7 @@
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id" Width="*" Binding="{Binding MarcaId}"/>
                 <DataGridTextColumn Header="Nombres" Width="*" Binding="{Binding Nombres}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding Usuario}"/>
 
             </DataGrid.Columns>
         </DataGrid>

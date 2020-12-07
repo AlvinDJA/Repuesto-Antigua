@@ -54,13 +54,16 @@ namespace RepuestoAntigua.UI.Consultas
                         listado = ProveedoresBLL.GetList("ProveedorId", criterio);
                         break;
                     case 2:
-                       // listado = ProveedoresBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
+                        listado = ProveedoresBLL.GetList("Nombres", criterio);
                         break;
                     case 3:
-                       // listado = ProveedoresBLL.GetList(p => p.RNC.ToLower().Contains(criterio.ToLower()));
+                        listado = ProveedoresBLL.GetList("RNC", criterio);
                         break;
                     case 4:
-                      //  listado = ProveedoresBLL.GetList(p => p.Telefono.ToLower().Contains(criterio.ToLower()));
+                        listado = ProveedoresBLL.GetList("Telefono", criterio);
+                        break;
+                    case 5:
+                        listado = ProveedoresBLL.GetList("Usuario", criterio);
                         break;
                 }
             }
@@ -97,7 +100,12 @@ namespace RepuestoAntigua.UI.Consultas
             object Proveedores = DatosDataGrid.SelectedItem;
 
             if (Proveedores != null)
-                return (Proveedores)Proveedores;
+                return ProveedoresBLL.Search(
+                   Convert.ToInt32(
+                       Proveedores.GetType().
+                       GetProperty("ProveedorId").
+                       GetValue(Proveedores).
+                       ToString()));
             else
                 return null;
         }

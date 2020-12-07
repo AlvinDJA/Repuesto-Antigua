@@ -34,13 +34,15 @@
                     <ComboBoxItem Content="Nombres"/>
                     <ComboBoxItem Content="RNC"/>
                     <ComboBoxItem Content="Telefono"/>
+                    <ComboBoxItem Content="Usuario"/>
+                    
                 </ComboBox>
             </StackPanel>
             <!--Criterio-->
             <TextBox Grid.Column="1" Margin="15,24,15,0" Height="24" VerticalAlignment="Top" x:Name="CriterioTextBox" KeyDown="OnKeyDownHandler"/>
 
             <!--BotonBuscar-->
-            <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="BuscarButton_Click">
+            <Button x:Name="BuscarButton" Grid.Column="2" Height="30" Width="90"  HorizontalAlignment="Left" VerticalAlignment="Top" Click="BuscarButton_Click" Margin="0,18,0,0">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Imagenes/buscar.png" Width="15" Height="15"/>
                     <Label Content="Buscar" />
