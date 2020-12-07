@@ -36,6 +36,7 @@
                     <ComboBoxItem Content="Celular"/>
                     <ComboBoxItem Content="Cedula"/>
                     <ComboBoxItem Content="Telefono"/>
+                    <ComboBoxItem Content="usuario"/>
 
 
                 </ComboBox>
@@ -65,7 +66,7 @@
                 <DataGridTextColumn Header="Teléfono" Width="*" Binding="{Binding Telefono}"/>
                 <DataGridTextColumn Header="Dirección" Width="*" Binding="{Binding Direccion}"/>
                 <DataGridTextColumn Header="Correo" Width="*" Binding="{Binding Correo}"/>
-                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding UsuarioId}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding Usuario}"/>
             </DataGrid.Columns>
         </DataGrid>
 
