@@ -39,7 +39,7 @@ namespace RepuestoAntigua.UI.Consultas
         }
         private void Buscar()
         {
-            var listado = new List<Clientes>();
+            var listado = new List<Object>();
             string criterio = CriterioTextBox.Text.Trim();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
@@ -47,33 +47,38 @@ namespace RepuestoAntigua.UI.Consultas
                 switch (FiltroCombobox.SelectedIndex)
                 {
                     case 0:
-                        listado = ClientesBLL.GetList();
+                        listado = ClientesBLL.GetList("", "");
                         break;
                     case 1:
-                        listado = ClientesBLL.GetList(p => p.ClienteId == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = ClientesBLL.GetList("ClienteId", criterio);
                         break;
                     case 2:
-                        listado = ClientesBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
+                        listado = ClientesBLL.GetList("Nombres", criterio);
                         break;
                     case 3:
-                        listado = ClientesBLL.GetList(p => p.Apellidos.ToLower().Contains(criterio.ToLower()));
+                        listado = ClientesBLL.GetList("Apellidos", criterio);
                         break;
                     case 4:
-                        listado = ClientesBLL.GetList(p => p.Celular.ToLower().Contains(criterio.ToLower()));
+                        listado = ClientesBLL.GetList("Celular", criterio);
                         break;
                     case 5:
-                        listado = ClientesBLL.GetList(p => p.Cedula.ToLower().Contains(criterio.ToLower()));
+                        listado = ClientesBLL.GetList("Cedula", criterio);
                         break;
                     case 6:
-                        listado = ClientesBLL.GetList(p => p.Telefono.ToLower().Contains(criterio.ToLower()));
+                        listado = ClientesBLL.GetList("Telefono", criterio);
                         break;
+                    case 7:
+                        listado = ClientesBLL.GetList("Usuario", criterio);
+                        break;
+
 
 
                 }
             }
             else
             {
-                listado = ClientesBLL.GetList();
+                listado = ClientesBLL.GetList("","");
+                
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
@@ -104,7 +109,12 @@ namespace RepuestoAntigua.UI.Consultas
             object Clientes = DatosDataGrid.SelectedItem;
 
             if (Clientes != null)
-                return (Clientes)Clientes;
+                return ClientesBLL.Search(
+                   Convert.ToInt32(
+                   Clientes.GetType().
+                   GetProperty("ClienteId").
+                   GetValue(Clientes).
+                   ToString()));
             else
                 return null;
         }
