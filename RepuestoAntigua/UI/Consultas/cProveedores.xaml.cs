@@ -40,7 +40,7 @@ namespace RepuestoAntigua.UI.Consultas
         }
         private void Buscar()
         {
-            var listado = new List<Proveedores>();
+            var listado = new List<Object>();
             string criterio = CriterioTextBox.Text.Trim();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
@@ -48,25 +48,25 @@ namespace RepuestoAntigua.UI.Consultas
                 switch (FiltroCombobox.SelectedIndex)
                 {
                     case 0:
-                        listado = ProveedoresBLL.GetList();
+                        listado = ProveedoresBLL.GetList("","");
                         break;
                     case 1:
-                        listado = ProveedoresBLL.GetList(p => p.ProveedorId == Convert.ToInt32(CriterioTextBox.Text));
+                        listado = ProveedoresBLL.GetList("ProveedorId", criterio);
                         break;
                     case 2:
-                        listado = ProveedoresBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
+                       // listado = ProveedoresBLL.GetList(p => p.Nombres.ToLower().Contains(criterio.ToLower()));
                         break;
                     case 3:
-                        listado = ProveedoresBLL.GetList(p => p.RNC.ToLower().Contains(criterio.ToLower()));
+                       // listado = ProveedoresBLL.GetList(p => p.RNC.ToLower().Contains(criterio.ToLower()));
                         break;
                     case 4:
-                        listado = ProveedoresBLL.GetList(p => p.Telefono.ToLower().Contains(criterio.ToLower()));
+                      //  listado = ProveedoresBLL.GetList(p => p.Telefono.ToLower().Contains(criterio.ToLower()));
                         break;
                 }
             }
             else
             {
-                listado = ProveedoresBLL.GetList();
+                listado = ProveedoresBLL.GetList("", "");
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;

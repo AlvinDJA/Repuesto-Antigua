@@ -58,6 +58,7 @@
                 <DataGridTextColumn Header="Correo" Width="*" Binding="{Binding Correo}"/>
                 <DataGridTextColumn Header="RNC" Width="*" Binding="{Binding RNC}"/>
                 <DataGridTextColumn Header="Teléfono" Width="*" Binding="{Binding Telefono}"/>
+                <DataGridTextColumn Header="Usuario" Width="*" Binding="{Binding Usuario}"/>
             </DataGrid.Columns>
         </DataGrid>
 

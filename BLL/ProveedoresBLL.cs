@@ -162,6 +162,50 @@ namespace BLL
             return encontrado;
         }
 
+          public static List<object> GetList(string criterio, string valor)
+        {
+            List<object> lista;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                var query = (
+                    from p in contexto.Proveedores
+                    join u in contexto.Usuarios on p.UsuarioId equals u.UsuarioId
+                    select new
+                    {
+                        p.ProveedorId,
+                        p.Correo,
+                        p.RNC,
+                        p.Telefono,
+                        u.Usuario,
+                    }
+                );
+
+                if (criterio.Length != 0)
+                {
+                    switch (criterio)
+                    {
+                        case "ProveedorId":
+                            query = query.Where(p => p.ProveedorId ==Convert.ToInt32(valor));
+                            break;
+                       
+                    }
+                }
+                lista = query.ToList<object>();
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+
         public static List<Proveedores> GetList(Expression<Func<Proveedores, bool>> criterio)
         {
             List<Proveedores> lista = new List<Proveedores>();

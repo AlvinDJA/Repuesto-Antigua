@@ -93,7 +93,12 @@ namespace RepuestoAntigua.UI.Consultas
             object Productos = DatosDataGrid.SelectedItem;
 
             if (Productos != null)
-                return (Productos)Productos;
+                return ProductosBLL.Search(
+                    Convert.ToInt32(
+                        Productos.GetType().
+                        GetProperty("ProductoId").
+                        GetValue(Productos).
+                        ToString()));
             else
                 return null;
         }
