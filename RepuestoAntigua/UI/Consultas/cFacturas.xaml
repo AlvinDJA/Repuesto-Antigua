@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Facturas" Height="400" Width="600"  WindowStartupLocation="CenterScreen">
+        Title="Consulta de Facturas" Height="400" Width="600"  WindowStartupLocation="CenterScreen" Icon="/Imagenes/Logo.png">
     <Grid Margin="0,40" Width="560">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

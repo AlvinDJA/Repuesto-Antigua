@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Productos" Height="400" Width="620"  WindowStartupLocation="CenterScreen">
+        Title="Consulta de Productos" Height="400" Width="620"  WindowStartupLocation="CenterScreen" Icon="/Imagenes/Logo.png">
     <Grid Margin="0,40" Width="590">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

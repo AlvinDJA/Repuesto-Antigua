@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI.Registros" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d" 
-        Title="Registro de Proveedores" Height="450" Width="405"  WindowStartupLocation="CenterScreen">
+        Title="Registro de Proveedores" Height="450" Width="405"  WindowStartupLocation="CenterScreen" Icon="/Imagenes/Logo.png">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="20,0,0,0">
             <StackPanel  Width="270" Margin="10,20,0,0" Orientation="Vertical" HorizontalAlignment="Left">

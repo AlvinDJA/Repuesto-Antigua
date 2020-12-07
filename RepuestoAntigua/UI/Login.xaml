@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepuestoAntigua.UI"
         mc:Ignorable="d"
-        Title="Login" Height="306" Width="412" WindowStartupLocation="CenterScreen"  Background="#FF202020">
+        Title="Login" Height="306" Width="412" WindowStartupLocation="CenterScreen"  Background="#FF202020" Icon="/Imagenes/Logo.png" >
     <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
 
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">

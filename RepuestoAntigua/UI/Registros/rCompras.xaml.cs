@@ -95,12 +95,6 @@ namespace RepuestoAntigua.UI.Registros
                 return false;
             }
 
-            if (ProveedoresComboBox.SelectedIndex == -1)
-            {
-                MessageBox.Show("Seleccione un proveedor e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
-                return false;
-            }
-
             if (!float.TryParse(CostoTextBox.Text, out _))
             {
                 MessageBox.Show("Ingrese un Costo válido, que sea numerico", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -113,9 +107,16 @@ namespace RepuestoAntigua.UI.Registros
             bool esValido = true;
             if (DatosDataGrid.Items.Count == 0)
             {
+
                 esValido = false;
                 MessageBox.Show("Debe agregar productos", "Mensajes",
                     MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            if (ProveedoresComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un proveedor e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
+                esValido = false;
             }
             return esValido;
         }
