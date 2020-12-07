@@ -21,13 +21,14 @@ namespace RepuestoAntigua.UI.Registros
     {
         private Compras compra = new Compras();
         int user;
-
+        private List<DetalleMostrar> detallemostrar;
         public rCompras(int usuario)
         {
             InitializeComponent();
             IniciarCombobox();
             Limpiar();
             user = usuario;
+            detallemostrar = new List<DetalleMostrar>();
         }
         public rCompras(int usuario, Compras compra)
         {
@@ -36,6 +37,7 @@ namespace RepuestoAntigua.UI.Registros
             Limpiar();
             this.compra = ComprasBLL.Search(compra.CompraId);
             this.DataContext = this.compra;
+            detallemostrar = new List<DetalleMostrar>();
         }
 
         private void IniciarCombobox()
@@ -55,18 +57,26 @@ namespace RepuestoAntigua.UI.Registros
         {
             this.DataContext = null;
             this.DataContext = compra;
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = detallemostrar;
         }
         private void Limpiar()
         {
             this.compra = new Compras();
             this.compra.Fecha = DateTime.Now;
             this.DataContext = compra;
+            detallemostrar = new List<DetalleMostrar>();
+            DatosDataGrid.ItemsSource = detallemostrar;
             TiempoTotalTextBox.Clear();
+        }
+        private void Actualizar(List<ComprasDetalle> detalle)
+        {
+            detallemostrar = new List<DetalleMostrar>();
+            foreach (ComprasDetalle p in detalle)
+                detallemostrar.Add(new DetalleMostrar(p));
         }
         private bool ValidarDetalle()
         {
-           
-
             if (CostoTextBox.Text.Length == 0)
             {
                 MessageBox.Show("Ingrese un Costo e intente de nuevo", "Mensaje", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -192,26 +202,28 @@ namespace RepuestoAntigua.UI.Registros
 
             if ( compras == null)
             {
-                MessageBox.Show("Primero seleccione una Compra", "Mensaje",
+                MessageBox.Show("Primero seleccione un producto", "Mensaje",
                     MessageBoxButton.OK);
                 return;
             }
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
-                ComprasDetalle m = (ComprasDetalle)DatosDataGrid.SelectedValue;
+                ComprasDetalle m = (ComprasDetalle)compra.Detalle[DatosDataGrid.SelectedIndex];
                 float itbs = (float)(ProductosBLL.Search(Convert.ToInt32(m.ProductoId)).PorcentajeITBIS) / 100;
                 compra.TotalCompra -= m.Costo * m.Cantidad;
                 compra.TotalCompra -= m.Costo * m.Cantidad * itbs;
                 compra.Itbis -= m.Costo * m.Cantidad * itbs;
                 compra.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
+                Actualizar(compra.Detalle);
                 Cargar();
             }
         }
 
         private ComprasDetalle GetSelectedCompra()
         {
-            object Compras = DatosDataGrid.SelectedItem;
-
+            if (DatosDataGrid.SelectedIndex == -1)
+                return null;
+            object Compras = compra.Detalle[DatosDataGrid.SelectedIndex];
             if (Compras != null)
                 return (ComprasDetalle)Compras;
             else
@@ -235,6 +247,7 @@ namespace RepuestoAntigua.UI.Registros
             compra.TotalCompra -= compra.Itbis;
             compra.Itbis += Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(CantidadTextBox.Text) * itbs;
             compra.TotalCompra += Convert.ToSingle(CostoTextBox.Text) * Convert.ToSingle(CantidadTextBox.Text) + compra.Itbis;
+            Actualizar(compra.Detalle);
             Cargar();
             CostoTextBox.Clear();
             CantidadTextBox.Clear();

@@ -17,16 +17,43 @@ namespace RepuestoAntigua.UI.Registros
     /// <summary>
     /// Interaction logic for rFacturas.xaml
     /// </summary>
+    public class DetalleMostrar
+    {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public float Precio { get; set; }
+        public float Costo { get; set; }
+        public float Cantidad { get; set; }
+        public float Subtotal { get; set; }
+        public DetalleMostrar(FacturasDetalle m)
+        {
+            Id = m.ProductoId;
+            Descripcion = ProductosBLL.Search(m.ProductoId).Descripcion;
+            Precio = m.Precio;
+            Cantidad = m.Cantidad;
+            Subtotal = Precio * Cantidad;
+        }
+        public DetalleMostrar(ComprasDetalle m)
+        {
+            Id = m.ProductoId;
+            Descripcion = ProductosBLL.Search(m.ProductoId).Descripcion;
+            Costo = m.Costo;
+            Cantidad = m.Cantidad;
+            Subtotal = Costo * Cantidad;
+        }
+    }
     public partial class rFacturas : Window
     {
         int user;
         private Facturas factura = new Facturas();
+        private List<DetalleMostrar> detallemostrar;
         public rFacturas(int usuario)
         {
             InitializeComponent();
             IniciarCombobox();
             Limpiar();
             user = usuario;
+            detallemostrar = new List<DetalleMostrar>();
         }
         public rFacturas(int usuario, Facturas factura)
         {
@@ -35,6 +62,7 @@ namespace RepuestoAntigua.UI.Registros
             Limpiar();
             user = usuario;
             this.factura = FacturasBLL.Search(factura.FacturaId);
+            detallemostrar = new List<DetalleMostrar>();
             Cargar();
         }
         private void IniciarCombobox()
@@ -51,6 +79,8 @@ namespace RepuestoAntigua.UI.Registros
         {
             this.DataContext = null;
             this.DataContext = factura;
+            DatosDataGrid.ItemsSource = null;
+            DatosDataGrid.ItemsSource = detallemostrar;
             PrecioTextBox.Clear();
             CantidadTextBox.Clear();
         }
@@ -58,8 +88,16 @@ namespace RepuestoAntigua.UI.Registros
         {
             this.factura = new Facturas();
             this.factura.Fecha = DateTime.Now;
+            detallemostrar = new List<DetalleMostrar>();
+            DatosDataGrid.ItemsSource = detallemostrar;
             this.DataContext = factura;
             TotalTextBox.Clear();
+        }
+        private void Actualizar(List<FacturasDetalle>  detalle)
+        {
+            detallemostrar = new List<DetalleMostrar>();
+            foreach (FacturasDetalle p in detalle)
+                detallemostrar.Add(new DetalleMostrar(p));
         }
         private bool ValidarAgregar()
         {
@@ -180,26 +218,28 @@ namespace RepuestoAntigua.UI.Registros
 
             if (facturas == null)
             {
-                MessageBox.Show("Primero seleccione una Factura", "Mensaje",
+                MessageBox.Show("Primero seleccione un producto", "Mensaje",
                     MessageBoxButton.OK);
                 return;
             }
             if (DatosDataGrid.Items.Count >= 1 && DatosDataGrid.SelectedIndex <= DatosDataGrid.Items.Count - 1)
             {
-                FacturasDetalle m = (FacturasDetalle)DatosDataGrid.SelectedValue;//18
+                FacturasDetalle m = (FacturasDetalle)factura.Detalle[DatosDataGrid.SelectedIndex];
                 float itbs = (float)(ProductosBLL.Search(Convert.ToInt32(m.ProductoId)).PorcentajeITBIS) / 100;
                 factura.Total -=m.Precio * m.Cantidad ;
                 factura.Total -=  m.Precio * m.Cantidad * itbs;
                 factura.Itbis -= m.Precio * m.Cantidad * itbs;
                 factura.Detalle.RemoveAt(DatosDataGrid.SelectedIndex);
+                Actualizar(factura.Detalle);
                 Cargar();
             }
         }
 
         private FacturasDetalle GetSelectedCompra()
         {
-            object facturas = DatosDataGrid.SelectedItem;
-
+            if (DatosDataGrid.SelectedIndex == -1)
+                return null;
+            object facturas = factura.Detalle[DatosDataGrid.SelectedIndex];
             if (facturas != null)
                 return (FacturasDetalle)facturas;
             else
@@ -217,6 +257,7 @@ namespace RepuestoAntigua.UI.Registros
             factura.Detalle.Add(new FacturasDetalle(factura.FacturaId, 
                 Convert.ToInt32(ProductosComboBox.SelectedValue), Convert.ToSingle(CantidadTextBox.Text),
                 Convert.ToSingle(PrecioTextBox.Text)));
+            Actualizar(factura.Detalle);
             Cargar();
         }
 
@@ -229,5 +270,6 @@ namespace RepuestoAntigua.UI.Registros
             else
                 PrecioTextBox.Text = "";
         }
+        
     }
 }
